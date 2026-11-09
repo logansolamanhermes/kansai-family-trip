@@ -168,6 +168,32 @@
   .foot{max-width:1440px;margin:0 auto;color:var(--faint);font-size:11px;line-height:1.8;border-top:1px solid var(--line);padding:16px 26px 60px}
   .foot a{color:var(--accent)}
 
+  /* embedded packing checklist */
+  #packing{scroll-margin-top:140px}
+  .railjump{display:inline-block;font-size:12px;color:var(--accent);margin-bottom:12px;text-decoration:underline;text-underline-offset:2px}
+  .pk-intro{font-size:12.5px;color:var(--muted);line-height:1.85;margin:0 0 8px}
+  .pk-note{font-size:11.5px;background:var(--accent-soft);border:1px solid var(--accent);padding:8px 12px;margin:0 0 12px;line-height:1.8}
+  .pk-card{border:1px solid var(--line);border-radius:2px;margin-bottom:14px;background:var(--surface-2)}
+  .pk-card-head{padding:9px 13px;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:15px;font-weight:700}
+  .pk-card-head small{font-family:var(--sans);font-size:11px;font-weight:400;color:var(--muted);margin-left:10px}
+  .pk-card-body{padding:6px 13px 12px}
+  .pk-rule{margin:8px 0;font-size:12.5px;line-height:1.8}
+  .pk-hand{margin:14px 0 8px;font-size:12px;color:var(--muted);font-weight:700}
+  .pk-assign{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-size:12px;padding:5px 0;color:var(--muted)}
+  .pk-assign b{color:var(--ink);font-family:var(--mono);font-size:10.5px;min-width:125px}
+  .pk-fill{display:inline-block;width:140px;border-bottom:1px solid var(--line-strong);height:1.1em}
+  .pk-fill.wide{width:220px}
+  .pk-h3{font-size:13px;margin:16px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+  .pk-h3 small{font-size:10.5px;font-weight:400;color:var(--faint);margin-left:8px}
+  .pk-chk{display:grid;grid-template-columns:24px 1fr;gap:9px;padding:7px 0;border-bottom:1px dashed var(--line);align-items:start;cursor:pointer}
+  .pk-chk:last-child{border-bottom:0}
+  .pk-chk input{width:18px;height:18px;margin:4px 0 0;accent-color:var(--accent)}
+  .pk-chk.pk-done .pk-t{text-decoration:line-through;color:var(--faint)}
+  .pk-t{font-size:12.5px}
+  .pk-t.pk-warntext{color:var(--warn)}
+  .pk-sub{display:block;font-size:11.5px;color:var(--muted);margin:3px 0 0 12px}
+  .pk-warn{display:block;font-size:11.5px;color:var(--warn);background:var(--warn-soft);border-left:2px solid var(--warn);padding:5px 9px;margin:6px 0 0;line-height:1.75}
+
   @media (max-width:960px){
     .shell{grid-template-columns:1fr;gap:18px;padding:18px 16px 60px}
     .topbar{position:static}
@@ -190,6 +216,12 @@
     .item{grid-template-columns:28px 74px minmax(0,1fr);gap:8px}
     .foot{padding:16px 16px 50px}
   }
+  @media (max-width:640px){
+    .pk-chk input{width:24px;height:24px}
+    .pk-fill{width:100px}
+    .pk-fill.wide{width:150px}
+    .pk-print{min-height:44px}
+  }
   @media print{
     .topbar,.rail,.controls,.chips,.progressrow,.item input[type=checkbox],.booksel,.notes,.collapse,.foot,table.data input[type=number],.planswitch{display:none!important}
     body{background:#fff;color:#000;font-size:11pt}
@@ -199,6 +231,16 @@
     .day-body{padding:0}
     .item{grid-template-columns:0 90px 1fr;gap:8px;padding:6px 0}
     .item-desc{color:#333}
+    .pk-print,.railjump{display:none!important}
+    html.pk-print-only .shell>main>:not(#packing),html.pk-print-only .rail,html.pk-print-only .foot{display:none!important}
+    html.pk-print-only .shell{display:block;padding:0}
+    html.pk-print-only #packing{border:0}
+    .pk-chk input{-webkit-appearance:none;appearance:none;width:12px;height:12px;border:1.5px solid #333;border-radius:0;margin:4px 0 0;position:relative}
+    .pk-chk input:checked::after{content:'✓';position:absolute;left:1px;top:-4px;font-size:12px;font-weight:700;color:#000}
+    .pk-sub,.pk-warn{color:#333}
+    .pk-warn{background:#fff;border-left-color:#666}
+    .pk-card{break-inside:avoid;border-color:#999;background:#fff}
+    .pk-chk{break-inside:avoid;padding:4px 0}
   }
 </style>
 </head>
@@ -216,7 +258,7 @@
         <button id="importBtn" class="ctl" type="button">匯入</button>
         <input id="importFile" type="file" accept="application/json" hidden>
         <button id="themeBtn" class="ctl" type="button" aria-label="切換深淺色">◐</button>
-        <a class="ctl" href="packing-list.html">打包清單 ☑</a>
+        <a class="ctl" href="#packing">打包清單 ☑</a>
         <button id="printBtn" class="ctl primary" type="button">列印</button>
         <button id="resetBtn" class="ctl" type="button">重設</button>
       </div>
@@ -227,6 +269,7 @@
       <span class="stat" id="progressText">0 / 0 已完成</span>
       <span class="stat" id="bookingText">0 / 0 已確認訂位</span>
       <span class="stat" id="deadlineText">0 / 0 今日死線</span>
+      <span class="stat" id="packingText">0 / 0 已打包</span>
       <span class="stat" id="planText">Day 7：Plan A 晴天</span>
     </div>
   </div>
@@ -234,6 +277,7 @@
 
 <div class="shell">
   <aside class="rail">
+    <a class="railjump" href="#packing">🧳 打包清單 ↘</a>
     <h2>日程</h2>
     <ol class="daynav" id="daynav"></ol>
     <h2>執行守則</h2>
@@ -242,7 +286,7 @@
       <strong>回程</strong> 12/22（二）21:05 KIX T2 → 香港<br>
       <strong>用車</strong> Toyota Sienna＋雪胎<br><br>
       所有 planning time 已含緩衝，不是淨行車時間。日落死線以 <strong>16:47</strong> 為保守值；山區入黑更早。<br><br>
-      <strong>打包</strong> <a href="packing-list.html" style="color:var(--accent)">3大箱・3軟包・6人 檢查表 ↗</a><br><br>
+      <strong>打包</strong> <a href="#packing" style="color:var(--accent)">3大箱・3軟包・6人 檢查表 ↗</a><br><br>
       勾選、訂位、實付、備註、Day 7 方案皆存於此瀏覽器；用「匯出 JSON」帶走。
     </div>
   </aside>
@@ -258,22 +302,20 @@
       <div class="panel-body" style="padding-top:0">
         <div class="versionlinks">
           <a class="cta" href="booking-templates.html">→ 打開日文／英文白紙黑字預約範本（可直接複製貼上）</a>
-          <a class="cta" href="packing-list.html">→ 出發打包清單（3大箱・3軟包・6人）</a>
+          <a class="cta" href="#packing">→ 出發打包清單（3大箱・3軟包・6人）</a>
         </div>
       </div>
     </section>
-    <section class="panel" aria-labelledby="packTitle">
-      <div class="panel-head"><h2 id="packTitle">出發打包鐵律（3大箱・3軟包・6人）</h2><span class="hint">3 男 3 女，按酒店同房配對</span></div>
+    <section class="panel" id="packing" aria-labelledby="packingTitle">
+      <div class="panel-head">
+        <h2 id="packingTitle">🧳 關西自駕海陸大縱走：3男3女/6人 終極打包檢查表</h2>
+        <span class="hint">3大箱・3軟包・6人編制｜請列印 6 份分發</span>
+        <button class="ctl pk-print" id="packPrintBtn" type="button">只列印打包清單</button>
+      </div>
       <div class="panel-body">
-        <div class="audit">
-          <ul>
-            <li><b>總量上限：</b>3 個 24 吋硬殼箱（每箱 ≤ 65×45×25cm、≤ 20kg）＋ 3 個 40L 軟質手提袋 ＋ 6 個隨身一日背包。<b>每 2 人共用 1 箱，按同房配對分配，不是按性別或情侶分。</b>3 個硬殼箱全程隨車，不寄送。</li>
-            <li><b>去程規條：</b>軟包出發當日接近完全清空，留作回程冬日大褸與 Day 10 臨空城採購；嚴禁第 4 個硬殼箱。羽絨／防風大褸與防水防滑步行鞋直接穿上機，不佔箱內空間。</li>
-            <li><b>個人鐵律：</b>3 件 Heattech（2 件 Ultra Warm＋1 件普通/極暖，<b>嚴禁 3 件超極暖</b>）、5 套內衣褲、5 雙 Merino 襪、冷帽／圍巾／觸控手套；禁高跟鞋與正式皮鞋（榻榻米需脫鞋）。4 天份量、Day 2 必清洗。</li>
-            <li><b>司機：</b>香港身份證＋正式駕照實體卡＋運輸署 IDP 實體紙本（1949 公約、簽發 1 年內），並書面確認全部登記司機已列入保險許可範圍。</li>
-          </ul>
-          <p style="margin:8px 0 0"><a href="packing-list.html" style="color:var(--accent);font-weight:700;border:1px solid var(--accent);padding:4px 10px;border-radius:2px;text-decoration:none">→ 打開完整可列印打包檢查表（含手寫房間分配欄與逐項勾選）</a></p>
-        </div>
+        <p class="pk-intro">這是一份完全為你和家人準備的「3大箱、3軟包、6人編制」終極出發打包清單（10/10 鋼鐵印刷版）。請直接將以下內容完整列印出來，分發給 3 男 3 女共 6 位成員。只要全家嚴格跟隨這份經過深度精算與日本冬季實戰驗證的清單打包，車廂空間與禦寒衣物將會達到 100% 的完美平衡，絕不會有任何現場行李爆箱或抱住行李拉車的尷尬場面！</p>
+        <p class="pk-note">用車：<b>Toyota Sienna</b>。<b>3 個硬殼箱全程隨車</b>，因此請嚴守 65×45×25cm／20kg 上限，出發前與回程前各秤一次。勾選狀態存於本瀏覽器；列印會印出目前的勾選結果。</p>
+        <div id="packingBody"></div>
       </div>
     </section>
 
@@ -332,7 +374,7 @@
 
         <div class="versionlinks">
           <a class="cta" href="booking-templates.html">日文／英文白紙黑字預約範本</a>
-          <a class="cta" href="packing-list.html">→ 出發打包清單（可列印）</a>
+          <a class="cta" href="#packing">→ 出發打包清單（可列印）</a>
         </div>
       </div>
     </section>
@@ -356,7 +398,7 @@
   行程來源：你提供的「10/10 關西冬日海陸盛宴」系列文件（2026/11/9）。價格、定休、路況、房況與刺青規定仍須向店家最終確認；本頁不代為訂位，地圖為 Google Maps 搜尋連結而非導航保證。
   參考資料：<a href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s2812.html" target="_blank" rel="noopener">國立天文台 2026/12 大阪日の出入り</a>、<a href="https://www.hinotabi.com/mie/ise-shi/sun_events/12" target="_blank" rel="noopener">伊勢市 2026/12 日の入り</a>、<a href="https://www.pref.osaka.lg.jp/o120130/suisan/tab/asa.html" target="_blank" rel="noopener">田尻漁港日曜朝市</a>、<a href="https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2943" target="_blank" rel="noopener">三嶋亭（京都市觀光 Navi）</a>、<a href="https://www.taikounoyu.com/howto" target="_blank" rel="noopener">太閤の湯 ご利用案内</a>、<a href="https://travel.yahoo.co.jp/00030106/info/" target="_blank" rel="noopener">月光園 游月山荘 風呂資訊</a>、<a href="https://www.yukoyuko.net/2828/bath" target="_blank" rel="noopener">有馬御苑 風呂資訊</a>、<a href="https://www.driveplaza.com/dp/SearchQuick?startPlaceKana=%E5%92%8C%E6%AD%8C%E5%B1%B1&arrivePlaceKana=%E4%BC%8A%E5%8B%A2" target="_blank" rel="noopener">ドラぷら 和歌山→伊勢</a>、<a href="https://www.kansai-airport.or.jp/access/from-airport/rental-car" target="_blank" rel="noopener">KIX 租車櫃檯營業時間</a>。
   即時查核建議：<a href="https://www.jma.go.jp/" target="_blank" rel="noopener">氣象廳 JMA</a>、<a href="https://www.w-nexco.co.jp/" target="_blank" rel="noopener">NEXCO 西日本</a>。
-  狀態存於各自瀏覽器，家人之間不會同步；用匯出／匯入 JSON 傳遞。<a href="packing-list.html">出發打包檢查表（可列印）</a>。
+  狀態存於各自瀏覽器，家人之間不會同步；用匯出／匯入 JSON 傳遞。<a href="#packing">出發打包檢查表（可列印）</a>。
 </div>
 
 <script>
@@ -533,7 +575,8 @@ const KEY = 'kansai-2026-family-trip-v3';
 let mem = null;
 function load(){ try { const r = localStorage.getItem(KEY); if (r) return JSON.parse(r); } catch(e){} return mem || {}; }
 function save(s){ mem = s; try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
-let state = Object.assign({done:{},booking:{},flags:{},deadline:{},actual:{},notes:{},collapsed:{},theme:'light',filter:'all',plan:'A'}, load());
+let state = Object.assign({done:{},booking:{},flags:{},deadline:{},actual:{},notes:{},collapsed:{},theme:'light',filter:'all',plan:'A',pack:{}}, load());
+try { const __oldPack = JSON.parse(localStorage.getItem('kansai-2026-packing-list')||'null'); if (__oldPack && __oldPack.done) state.pack = Object.assign({}, __oldPack.done, state.pack||{}); } catch(e){}
 function persist(){ save(state); }
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -548,6 +591,116 @@ function mapsUrl(q){ return 'https://www.google.com/maps/search/?api=1&query=' +
 function bookOptions(v){
   return [['todo','未處理'],['requested','已詢問'],['confirmed','已確認'],['na','不需預約']]
     .map(([k,l])=>`<option value="${k}"${v===k?' selected':''}>${l}</option>`).join('');
+}
+
+const PACK_SECTIONS = [
+  {id:'core', title:'📌 【核心鐵律】三大行李箱分配系統', plain:[
+    '• 分配原則：以「同房配對」為單位，每 2 人共用一個行李箱。不是按性別分，亦不是按情侶分，是按酒店同房組合分。',
+    '• 配備極限：全家總共只能帶 3 個 24吋硬殼行李箱（最大體積 65cm x 45cm x 25cm，每箱嚴格限重 20kg 內）+ 3 個 40L 軟質手提旅行袋 (Duffel) + 6 個隨身一日背包。'
+  ], assign:true},
+
+  {id:'personal', title:'🧍‍♂️ 【個人打包清單】', note:'每位成員各自準備，直接打勾 ☑️', nameLine:true, groups:[
+    {name:'👕 衣物穿搭與保暖層', sub:'以「4天份量、Day 2 必清洗」精簡原則', items:[
+      {t:'• 3 件 Heattech 保暖內衣（高階修正）：', sub:[
+        '2 件 Ultra Warm（超極暖） 供戶外使用。',
+        '1 件 普通/極暖（Regular/Extra Warm） 供室內使用。'
+      ], warn:'🚨 10/10 修正警告： 嚴禁帶 3 件超極暖！日本室內與京都餐廳的暖氣極強，全天穿超極暖在室內會熱到滿頭大汗。'},
+      {t:'• 2 件 Heattech 保暖長褲 / 內搭褲 (Leggings)。'},
+      {t:'• 2 件 中層保暖衣：1 件抓毛絨 (Fleece) ＋ 1 件針織衫或羊毛開襟毛衣 (Cardigan)。'},
+      {t:'• 2 條 長褲：刷毛防風牛仔褲或厚身工裝褲。（1條起飛當日穿著，1條放入行李箱）。'},
+      {t:'• 5 套 內衣褲（硬核追加）：由 4 套增至 5 套，全面防範冬日遇雨、出汗或京都酒店洗衣機突發故障。'},
+      {t:'• 5 雙 Merino 羊毛襪：極速快乾、高保暖、吸汗排味。'},
+      {t:'• 1 件 頂級羽絨或防風大褸：【出發當日直接穿上機】，絕對不要佔用行李箱空間。'},
+      {t:'• 1 套 睡衣褲：直接塞進 40L 軟質手提旅行袋中，方便第一晚抵達時隨手拿取。'}
+    ]},
+    {name:'🧣 冬季海岸防風配件', sub:'海之京都、伊根 fierce 寒風必備', items:[
+      {t:'• 1 個 防風保暖冷帽 (Beanie)：出海餵海鷹與漫步舟屋時保命。'},
+      {t:'• 1 條 舒適圍巾 (Scarf)。'},
+      {t:'• 1 雙 觸控防風手套：確保戴住手套仍能流暢用手機為頂級美食相機食先。'}
+    ]},
+    {name:'👟 鞋履鐵律', items:[
+      {t:'• 1 雙 舒適、防滑且防水的步行鞋或短靴：【出發當日直接穿上機】。'},
+      {t:'• 最多只帶 1 雙輕便替換鞋（除非極度需要，否則不帶）。'},
+      {t:'• 🚨 老饕提醒： 嚴禁帶高跟鞋或正式皮鞋！ 三嶋亭與和田金等頂級和牛聖殿均是日式榻榻米，你在大門口就必須脫鞋。一雙體面、無破洞、乾淨的羊毛襪，比任何名牌高級皮鞋更重要。', warnOnly:true}
+    ]}
+  ]},
+
+  {id:'shared', title:'🧳 【同房雙人行李箱清單】', note:'每 1 個 24吋硬殼箱裝 2 人份量', groups:[
+    {name:'每箱配備', items:[
+      {t:'• 4 個 旅行加厚真空/拉鍊壓縮袋：每人分配 2 個。預期可節省約 30% 的衣物空間，絕非誇大的 50%，請老實塞納。'},
+      {t:'• 1 包 快速溶解洗衣紙：【嚴禁帶洗衣球/膠囊】！洗衣球在低溫水洗時經常無法完全溶解並會殘留膠膜，洗衣紙是公寓洗衣最完美的選擇。'},
+      {t:'• 1 包 膚色防水刺青遮蓋貼紙（2包 + 1包備用）：', warn:'🚨 10/10 刺青測試： 有紋身的女性成員必須在香港家中浴缸完成 45-60 分鐘熱水實測！ 確保貼紙邊緣完全不剝落。若實測失敗，Day 5 直接全面封殺公共【金之湯】備案，100% 只走 Strategy A 私人湯屋。'},
+      {t:'• 1 個 輕便行李電子秤（全集團共用 1 個即可）：出發前和回程前，確保每個硬殼箱在 20kg 以下，以便司機輕鬆搬運上 Toyota Sienna。'},
+      {t:'• 1 袋 護膚品/化妝品（旅行細瓶裝）：MIMARU 與 Star Gate 酒店均提供頂級大牌洗頭水、護髮素、沐浴露、剃鬚刀及牙刷。將所有大樽裝留在香港！'},
+      {t:'• 1 樽 高保濕冬日面霜/潤膚膏：12月的關西和海之京都空氣極度乾燥，高強度保濕不可或缺。'},
+      {t:'• 1 樽 卸妝水（旅行裝，如需要）。'},
+      {t:'• 1 樽 髮蠟 / 定型啫喱（旅行裝，如需要）。'}
+    ]}
+  ]},
+
+  {id:'duffel', title:'🛍️ 【40L 軟質手提旅行袋 (Duffel)】', note:'每 2 人分配 1 個', groups:[
+    {name:'去程硬性規條', items:[
+      {t:'• 1 個 骯髒衣物收納袋：與乾淨衣物完美隔離。'},
+      {t:'• 【去程硬性規條】：出發當日此軟包必須保持接近「完全清空」狀態！', sub:[
+        '回程時用來塞笨重的冬日大褸，或者在 Day 10 臨空城 Outlets 大採購時，用來裝免稅的休閒服飾與廚具。'
+      ], warn:'🚨 空間警告： 絕對不允許將第 4 個硬殼箱塞在軟包內！ 軟包必須能夠隨意擠壓、變形，才能完美嵌進 Toyota Sienna 的剩餘車尾空間。'}
+    ]}
+  ]},
+
+  {id:'daypack', title:'🎒 【隨身一日背包 (Daypack)】', note:'每人 1 個，隨身上機', groups:[
+    {name:'隨身物', items:[
+      {t:'• 個人手機、充電線、高容量行動電源 (Power Bank)。'},
+      {t:'• 1 個 摺疊式隨身水樽：喝完即可壓扁收納，節省一日背包空間，避開一路上重覆購買膠樽裝水。'},
+      {t:'• 1 套 備用保暖層：多帶一件 Heattech 內衣或薄抓毛絨塞在背包，應對飛機冷氣與 Day 1 田尻朝市清晨的海風。'},
+      {t:'• ¥30,000 日圓現金細鈔/硬幣：由總管放於一日背包內，落地立刻放進 Toyota Sienna 車廂手套箱，專供 10 天大縱走的硬幣泊車標桿。'}
+    ]}
+  ]},
+
+  {id:'driver', title:'🪪 【僅限司機成員】', note:'出發前最終檢查，缺一不可', groups:[
+    {name:'證件與保險', items:[
+      {t:'• 香港有效身份證 ＋ 香港正式駕駛執照（必須攜帶實體卡）。'},
+      {t:'• 香港運輸署簽發的國際駕駛許可證 (IDP)（必須攜帶實體紙本）：', sub:[
+        '🚨 10/10 法律核實： 確保該 IDP 屬於 1949年公約 (1949 Convention) 版本，且處於簽發後 1 年的有效期內。',
+        '🚨 車種准許核實： 確保你的香港正牌與申請 TD51 表格時，已正確勾選對應保姆車/大客車的車輛類別。'
+      ]},
+      {t:'• 合約最終核對：今天內與日本租車公司書面確認，所有登記司機的名字皆已正式列入保險許可範圍，確保大縱走輪換時 100% 合法受保。'}
+    ]}
+  ]}
+];
+
+const PACK_IDS = [];
+PACK_SECTIONS.forEach(s => (s.groups||[]).forEach((g,gi) => g.items.forEach((it,ii) => PACK_IDS.push(`${s.id}-${gi}-${ii}`))));
+const packTotal = PACK_IDS.length;
+
+function renderPacking(){
+  document.getElementById('packingBody').innerHTML = PACK_SECTIONS.map(s => {
+    let body='';
+    if(s.plain) body += s.plain.map(x=>`<p class="pk-rule">${esc(x)}</p>`).join('');
+    if(s.assign){
+      body += '<p class="pk-hand">✍️ 請在此手寫填上房間與行李箱分配名單：</p>';
+      body += ['行李箱 1 (房型 A)','行李箱 2 (房型 B)','行李箱 3 (房型 C)']
+        .map(x=>`<div class="pk-assign"><b>${x}</b>：成員 <span class="pk-fill"></span> ＋ 成員 <span class="pk-fill"></span></div>`).join('');
+    }
+    if(s.nameLine) body += '<p class="pk-hand">成員姓名：<span class="pk-fill wide"></span>　（請列印 6 份，每位成員各自勾選）</p>';
+    (s.groups||[]).forEach((g,gi) => {
+      body += `<h3 class="pk-h3">${esc(g.name)}${g.sub?`<small>${esc(g.sub)}</small>`:''}</h3>`;
+      body += g.items.map((it,ii) => {
+        const id=`${s.id}-${gi}-${ii}`;
+        return `<label class="pk-chk ${state.pack[id]?'pk-done':''}">
+          <input type="checkbox" data-pack="${id}" ${state.pack[id]?'checked':''}>
+          <span><span class="pk-t ${it.warnOnly?'pk-warntext':''}">${esc(it.t)}</span>
+          ${(it.sub||[]).map(x=>`<span class="pk-sub">• ${esc(x)}</span>`).join('')}
+          ${it.warn?`<span class="pk-warn">${esc(it.warn)}</span>`:''}
+          </span></label>`;
+      }).join('');
+    });
+    return `<section class="pk-card"><div class="pk-card-head">${esc(s.title)}${s.note?`<small>${esc(s.note)}</small>`:''}</div><div class="pk-card-body">${body}</div></section>`;
+  }).join('');
+  refreshPacking();
+}
+function refreshPacking(){
+  const n = PACK_IDS.filter(id=>state.pack[id]).length;
+  document.getElementById('packingText').textContent = `${n} / ${packTotal} 已打包`;
 }
 
 /* ------------------------------------------------------------- render */
@@ -708,12 +861,18 @@ function applyFilter(){
 function renderAll(){
   renderChips(); renderNav(); renderBudget(); renderDeadlines(); renderFlags(); renderBookRows(); renderDays();
   document.documentElement.setAttribute('data-theme', state.theme);
-  refreshProgress(); applyPlan();
+  renderPacking(); refreshProgress(); applyPlan();
 }
 
 /* ------------------------------------------------------------ events */
 document.addEventListener('change', e => {
   const t = e.target;
+  if (t.matches('input[data-pack]')) {
+    const id = t.getAttribute('data-pack');
+    state.pack[id] = t.checked;
+    t.closest('.pk-chk').classList.toggle('pk-done', t.checked);
+    persist(); refreshPacking(); return;
+  }
   if (t.matches('input[data-check]')) {
     state.done[t.getAttribute('data-check')] = t.checked;
     t.closest('.item').classList.toggle('done', t.checked);
@@ -779,6 +938,9 @@ document.getElementById('themeBtn').addEventListener('click', () => {
   document.documentElement.setAttribute('data-theme', state.theme); persist();
 });
 document.getElementById('printBtn').addEventListener('click', () => window.print());
+const pkBtn = document.getElementById('packPrintBtn');
+if (pkBtn) pkBtn.addEventListener('click', () => { document.documentElement.classList.add('pk-print-only'); window.print(); });
+window.addEventListener('afterprint', () => document.documentElement.classList.remove('pk-print-only'));
 window.addEventListener('beforeprint', () => document.querySelectorAll('.day.collapsed').forEach(c => c.classList.remove('collapsed')));
 document.getElementById('exportBtn').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify({app:KEY, exportedAt:new Date().toISOString(), state}, null, 2)], {type:'application/json'});
@@ -794,7 +956,7 @@ document.getElementById('importFile').addEventListener('change', e => {
   r.onload = () => {
     try {
       const data = JSON.parse(r.result); const s = data.state || data;
-      state = Object.assign({done:{},booking:{},flags:{},deadline:{},actual:{},notes:{},collapsed:{},theme:'light',filter:'all',plan:'A'}, s);
+      state = Object.assign({done:{},booking:{},flags:{},deadline:{},actual:{},notes:{},collapsed:{},theme:'light',filter:'all',plan:'A',pack:{}}, s);
       persist(); renderAll();
     } catch(err){ alert('匯入失敗：不是有效的狀態 JSON。'); }
   };
@@ -802,7 +964,7 @@ document.getElementById('importFile').addEventListener('change', e => {
 });
 document.getElementById('resetBtn').addEventListener('click', () => {
   if (!confirm('清除所有勾選、訂位狀態、實付金額與備註？（行程內容不受影響）')) return;
-  state = {done:{},booking:{},flags:{},deadline:{},actual:{},notes:{},collapsed:{},theme:'light',filter:'all',plan:'A'};
+  state = {done:{},booking:{},flags:{},deadline:{},actual:{},notes:{},collapsed:{},theme:'light',filter:'all',plan:'A',pack:{}};
   persist(); renderAll();
 });
 const obs = new IntersectionObserver(entries => {
