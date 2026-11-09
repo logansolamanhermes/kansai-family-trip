@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>關西冬日海陸盛宴 · 家族旅行計劃書</title>
+<title>關西冬日海陸盛宴 · 誠實版 6 人預算行程</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
@@ -38,18 +38,17 @@
   button{cursor:pointer}
   :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-  /* ---------- top bar ---------- */
   .topbar{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line-strong)}
   .topbar-in{max-width:1440px;margin:0 auto;padding:14px 26px 0;display:grid;gap:10px}
   .brandrow{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
   .brand{font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:.04em;margin:0}
   .brand small{font-family:var(--sans);font-size:12px;font-weight:400;color:var(--muted);letter-spacing:.08em;margin-left:12px}
+  .locked{font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;border-radius:2px;white-space:nowrap}
   .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-left:auto}
   .ctl{background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r);padding:6px 10px;font-size:12px;min-height:34px}
   .ctl:hover{border-color:var(--accent)}
   .ctl.primary{background:var(--accent);border-color:var(--accent);color:#fff}
   .ctl.primary:hover{filter:brightness(1.08)}
-  select.ctl{padding-right:6px}
   .search{width:190px}
   .chips{display:flex;gap:6px;flex-wrap:wrap;padding-bottom:2px}
   .chip{border:1px solid var(--line-strong);background:transparent;border-radius:999px;padding:4px 12px;font-size:12px;color:var(--muted);min-height:30px}
@@ -59,7 +58,6 @@
   .bar>i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s ease}
   .stat{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
 
-  /* ---------- shell ---------- */
   .shell{max-width:1440px;margin:0 auto;padding:28px 26px 80px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:38px;align-items:start}
   .rail{position:sticky;top:132px;max-height:calc(100vh - 150px);overflow:auto;padding-right:6px}
   .rail h2,.section-title{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:0 0 10px}
@@ -73,11 +71,11 @@
   .daynav em{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--faint)}
   .railnote{font-size:11px;color:var(--faint);line-height:1.6;border-top:1px solid var(--line);padding-top:12px}
 
-  /* ---------- decision panel ---------- */
   .panel{background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r);margin-bottom:26px}
   .panel-head{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .panel-head h2{margin:0;font-family:var(--serif);font-size:17px;font-weight:700}
   .panel-head .hint{font-size:11px;color:var(--muted)}
+  .panel-head .due{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid var(--accent);padding:2px 8px;border-radius:2px}
   .panel-body{padding:6px 18px 14px}
   .flag{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);align-items:start}
   .flag:last-child{border-bottom:0}
@@ -88,17 +86,32 @@
   .tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;padding:1px 6px;border:1px solid var(--line-strong);border-radius:2px;color:var(--muted);margin-right:6px;vertical-align:1px}
   .tag.alert{color:var(--accent);border-color:var(--accent)}
   .tag.ok{color:var(--ok);border-color:var(--ok)}
+  .tag.due{color:var(--warn);border-color:var(--warn)}
 
-  .booktable{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
-  .booktable th{text-align:left;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:700;padding:8px 8px;border-bottom:1px solid var(--line)}
-  .booktable td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
-  .booktable tr:last-child td{border-bottom:0}
-  .booktable .d{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
-  .booktable select{width:100%;min-height:32px;border:1px solid var(--line-strong);background:var(--surface-2);border-radius:2px;padding:4px 6px;font-size:12px}
-  .booktable select[data-v="confirmed"]{color:var(--ok);background:var(--ok-soft);border-color:var(--ok)}
-  .booktable select[data-v="requested"]{color:var(--warn);background:var(--warn-soft);border-color:var(--warn)}
+  .budgetgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line-strong);margin:14px 0 4px}
+  .bcell{background:var(--surface);padding:12px 14px}
+  .bcell .n{font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.3}
+  .bcell .l{font-size:11px;color:var(--muted)}
+  .bcell.total .n{color:var(--accent)}
+  .budgetnote{font-size:11.5px;color:var(--muted);line-height:1.7;margin:8px 0 0}
+  .budgetnote b{color:var(--accent)}
 
-  /* ---------- day cards ---------- */
+  table.data{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
+  table.data th{text-align:left;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:700;padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+  table.data td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+  table.data tr:last-child td{border-bottom:0}
+  table.data .d{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+  table.data .num{font-family:var(--mono);font-size:12px;text-align:right;white-space:nowrap}
+  table.data .totalrow td{border-top:2px solid var(--line-strong);font-weight:700}
+  table.data input[type=number]{width:110px;min-height:32px;border:1px solid var(--line-strong);background:var(--surface-2);border-radius:2px;padding:4px 7px;font-family:var(--mono);font-size:12px;text-align:right}
+  table.data select{width:100%;min-height:32px;border:1px solid var(--line-strong);background:var(--surface-2);border-radius:2px;padding:4px 6px;font-size:12px}
+  table.data select[data-v="confirmed"]{color:var(--ok);background:var(--ok-soft);border-color:var(--ok)}
+  table.data select[data-v="requested"]{color:var(--warn);background:var(--warn-soft);border-color:var(--warn)}
+
+  details.diff{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+  details.diff summary{cursor:pointer;font-size:12px;color:var(--muted);font-weight:700;padding:4px 0}
+  details.diff ul{margin:8px 0 2px;padding-left:20px;font-size:12.5px;color:var(--muted);line-height:1.9}
+
   .day{background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r);margin-bottom:22px;scroll-margin-top:140px}
   .day-head{display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:16px;align-items:start;padding:18px 20px 14px;cursor:pointer;border-bottom:1px solid var(--line)}
   .day-num{font-family:var(--serif);font-size:34px;line-height:1;font-weight:700;color:var(--accent)}
@@ -108,6 +121,7 @@
   .day-sub{font-size:12px;color:var(--muted)}
   .day-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
   .day-tools .mini{font-family:var(--mono);font-size:11px;color:var(--faint);border:1px solid var(--line);padding:3px 7px;border-radius:2px}
+  .day-tools .mini.cost{color:var(--accent);border-color:var(--accent-soft)}
   .collapse{border:0;background:transparent;font-size:18px;line-height:1;padding:4px 6px;color:var(--muted)}
   .day-body{padding:4px 20px 18px}
   .day.collapsed .day-body{display:none}
@@ -121,6 +135,7 @@
   .item-desc{font-size:12.5px;color:var(--muted);margin-top:3px;text-wrap:pretty}
   .item-foot{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px}
   .kind{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);padding:1px 5px;border-radius:2px}
+  .costtag{font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid var(--accent-soft);padding:1px 6px;border-radius:2px}
   .maplink{font-size:11px;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
   .maplink:hover{border-bottom-color:var(--accent)}
   .booksel{min-height:30px;border:1px solid var(--line-strong);background:var(--surface-2);border-radius:2px;font-size:11px;padding:3px 6px}
@@ -129,7 +144,6 @@
   .notes{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
   .notes label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:700;margin-bottom:6px}
   .notes textarea{width:100%;min-height:64px;resize:vertical;background:var(--surface-2);border:1px solid var(--line);border-radius:2px;padding:9px 11px;font-size:12.5px;line-height:1.6}
-  .people{font-weight:700;color:var(--accent)}
   .empty{padding:40px 20px;text-align:center;color:var(--faint);font-size:13px;display:none}
   .empty.show{display:block}
   .foot{max-width:1440px;margin:0 auto;padding:0 26px 60px;color:var(--faint);font-size:11px;line-height:1.8;border-top:1px solid var(--line);padding-top:16px}
@@ -147,17 +161,19 @@
     .topbar-in{padding:12px 16px 0}
     .controls{margin-left:0}
     .search{width:140px}
-    .ctl,.chip,.collapse,.booksel,.booktable select{min-height:44px}
+    .ctl,.chip,.collapse,.booksel,table.data select,table.data input[type=number]{min-height:44px}
     .chip{padding:6px 14px}
     .item input[type=checkbox]{width:24px;height:24px}
     .progressrow{flex-wrap:wrap}
+    .budgetgrid{grid-template-columns:repeat(2,1fr)}
+    .panel-body{overflow-x:auto}
     .day-head{grid-template-columns:56px minmax(0,1fr);gap:10px}
     .day-tools{grid-column:1/-1;justify-content:flex-start}
     .item{grid-template-columns:28px 74px minmax(0,1fr);gap:8px}
     .foot{padding:16px 16px 50px}
   }
   @media print{
-    .topbar,.rail,.controls,.chips,.progressrow,.item input[type=checkbox],.booksel,.notes,.collapse,.foot{display:none!important}
+    .topbar,.rail,.controls,.chips,.progressrow,.item input[type=checkbox],.booksel,.notes,.collapse,.foot,table.data input[type=number]{display:none!important}
     body{background:#fff;color:#000;font-size:11pt}
     .shell{display:block;padding:0}
     .day{break-inside:avoid;border:0;border-top:1px solid #999;margin-bottom:14px;background:#fff}
@@ -172,14 +188,9 @@
 <header class="topbar">
   <div class="topbar-in">
     <div class="brandrow">
-      <h1 class="brand">關西冬日海陸盛宴<small>10天9夜 · 12/13–12/22 · 自駕深度遊</small></h1>
+      <h1 class="brand">關西冬日海陸盛宴<small>誠實版 · 10天9夜 · 12/13–12/22 · 6 人自駕</small></h1>
+      <span class="locked">6 人編制已鎖定</span>
       <div class="controls">
-        <label class="ctl" style="display:flex;align-items:center;gap:6px">人數
-          <select id="familySize" class="ctl" style="border:0;background:transparent;padding:0;min-height:auto">
-            <option value="5">5 人</option>
-            <option value="6" selected>6 人</option>
-          </select>
-        </label>
         <input id="search" class="ctl search" type="search" placeholder="搜尋行程…（按 /）" aria-label="搜尋行程">
         <button id="expandAll" class="ctl" type="button">全部展開</button>
         <button id="exportBtn" class="ctl" type="button">匯出 JSON</button>
@@ -195,6 +206,7 @@
       <div class="bar"><i id="barFill"></i></div>
       <span class="stat" id="progressText">0 / 0 已完成</span>
       <span class="stat" id="bookingText">0 / 0 已確認訂位</span>
+      <span class="stat" id="deadlineText">0 / 0 今日死線</span>
     </div>
   </div>
 </header>
@@ -206,18 +218,62 @@
     <h2>航班</h2>
     <div class="railnote">
       <strong>去程</strong> 12/13（日）06:10 抵達 KIX T2<br>
-      <strong>回程</strong> 12/22（二）21:05 KIX T2 起飛 → 香港<br><br>
-      本頁所有勾選、訂位狀態、備註與人數設定皆自動存於此瀏覽器；可用「匯出 JSON」帶走。
+      <strong>回程</strong> 12/22（二）21:05 KIX T2 起飛 → 香港<br>
+      <strong>用車</strong> Toyota GranAce（全程自駕至 Day 10 Aeroplaza 還車）<br><br>
+      勾選、訂位狀態、實付金額、備註皆自動存於此瀏覽器；可用「匯出 JSON」帶走。
     </div>
   </aside>
 
   <main>
+    <section class="panel" aria-labelledby="budgetTitle">
+      <div class="panel-head">
+        <h2 id="budgetTitle">誠實版總預算盤點</h2>
+        <span class="hint">以旅程總額平衡，不設每日上限</span>
+      </div>
+      <div class="panel-body">
+        <div class="budgetgrid" id="budgetgrid"></div>
+        <p class="budgetnote">
+          全家每日平均 <b>¥153,200</b>（每人每日約 ¥25,533 ≈ HK$1,350）。Day 6 兩餐 ¥174,000、Day 4 只有 ¥22,000，靠總額而非每日上限平衡。<br>
+          逐日「餐飲・體驗」細項加總為 <b>¥750,000</b>，比分類列的 ¥737,000 多 <b>¥13,000</b>——恰好等於伊根船資 ¥5,000 + 田尻朝市 ¥8,000；這兩項可能被歸到交通／現金零用，請自行確認歸類。住宿僅 3 晚有明確單價，其餘以平均 ¥55,000/晚估算。
+        </p>
+        <div style="overflow-x:auto">
+          <table class="data" id="budgettable">
+            <thead><tr><th style="width:52px">日</th><th>餐飲・體驗（計劃）</th><th>住宿已標價</th><th>該日實付（自行填寫）</th><th>差額</th></tr></thead>
+            <tbody id="budgetrows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="dueTitle">
+      <div class="panel-head">
+        <h2 id="dueTitle">今日死線清單</h2>
+        <span class="hint">今天就要完成，不要等 10 月或 12 月</span>
+        <span class="due" id="dueBadge">11/9（一）</span>
+      </div>
+      <div class="panel-body" id="deadlines"></div>
+    </section>
+
     <section class="panel" aria-labelledby="flagsTitle">
       <div class="panel-head">
         <h2 id="flagsTitle">出發前決策與風險</h2>
-        <span class="hint">原檔為 5 人家庭；本頁依你的 6 人設定調整</span>
+        <span class="hint">依誠實版逐項核對</span>
       </div>
       <div class="panel-body" id="flags"></div>
+      <div class="panel-body" style="padding-top:0">
+        <details class="diff">
+          <summary>與初版（v1）的差異 · 展開</summary>
+          <ul>
+            <li>5 人 → <b>6 人鎖定</b>；所有餐廳與酒店一律按 6 人訂，不接受臨時加人。</li>
+            <li>Alphard / Vellfire → <b>Toyota GranAce</b>＋黑貓宅急便兩段寄行李（KIX→京都、伊勢→臨空城）。</li>
+            <li>Day 6 大阪市區還車 → <b>全程自駕</b>，Day 10 18:20 在 Aeroplaza 還車。</li>
+            <li>有馬溫泉一泊二食 → <b>日歸太閤の湯</b>＋神戶港邊家庭房。</li>
+            <li>新增和歌山九繪魚、勝浦吞拿魚、伊勢志摩牡蠣、松阪市和田金；移除宇治、鷹峯、大阪市內多日與米其林板前安排。</li>
+            <li>新增逐日誠實預算、三次「司機 30 分鐘咖啡停頓」、只收現金提示與 Day 10 的 40 分鐘還車緩衝。</li>
+          </ul>
+        </details>
+        <p class="budgetnote" style="margin-top:10px"><a href="v1/">← 查看初版行程（5 人・無預算）</a></p>
+      </div>
     </section>
 
     <section class="panel" aria-labelledby="bookTitle">
@@ -226,7 +282,7 @@
         <span class="hint">與各日行程的訂位下拉同步</span>
       </div>
       <div class="panel-body" style="overflow-x:auto">
-        <table class="booktable">
+        <table class="data">
           <thead><tr><th style="width:52px">日</th><th>需預約項目</th><th style="width:140px">狀態</th></tr></thead>
           <tbody id="bookrows"></tbody>
         </table>
@@ -239,145 +295,162 @@
 </div>
 
 <div class="foot">
-  行程來源：你提供的三段初始計劃（1/3、2/3、3/3）。已核對：2026/12/13–12/22 之星期與原檔完全一致（12/13 為週日）。
+  行程來源：你提供的「誠實版 6 人總預算盤點」文件（2026/11/9）。已核對星期：2026/12/13 日、12/14 一、12/15 二、12/16 三、12/17 四、12/18 五、12/19 六、12/20 日、12/21 一、12/22 二，與文件完全一致。
   查核資料：<a href="https://www.pref.osaka.lg.jp/o120130/suisan/tab/asa.html" target="_blank" rel="noopener">大阪府・田尻漁港日曜朝市（每週日 07:00–12:00、免費停車、冬季牡蠣小屋）</a>、
   <a href="https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2943" target="_blank" rel="noopener">京都市觀光 Navi・三嶋亭（定休火・水）</a>。
-  其餘餐廳營業日、冬季道路與旅館房況仍須於出發前向店家確認；本頁不代為訂位。地圖連結為 Google Maps 搜尋，非導航保證。
+  其餘價格、定休日、冬季道路與房況仍須向店家確認；本頁不代為訂位。地圖連結為 Google Maps 搜尋，非導航保證。狀態存於各自瀏覽器，家人之間不會同步；用匯出／匯入 JSON 傳遞。
 </div>
 
 <script>
 "use strict";
 /* ------------------------------------------------------------------ data */
+const CAT = {meal:737000, stay:495000, transport:300000};
+const TOTAL = CAT.meal + CAT.stay + CAT.transport;
+
+const DEADLINES = [
+  {id:'d1', tag:'今天', title:'鎖定 6 人編制', body:'無論第 6 個人最後去不去，所有餐廳和酒店一律按 6 人預訂。日本高級餐廳絕不接受臨時加人。'},
+  {id:'d2', tag:'今天', title:'三嶋亭總店（午市壽喜燒月 Course）', body:'三大肉宴之一，必須要求獨立包廂 個室。'},
+  {id:'d3', tag:'今天', title:'Mouriya 總店（神戶牛 A5 沙朗套餐）', body:'三大肉宴之一，必須要求獨立包廂 個室。'},
+  {id:'d4', tag:'今天', title:'和田金總店（壽喜燒松 Course）', body:'三大肉宴之一，必須要求獨立包廂 個室。'},
+  {id:'d5', tag:'今天', title:'天橋立松葉蟹（如 對橋樓）', body:'蟹宴，必須要求獨立包廂 個室。'},
+  {id:'d6', tag:'今天', title:'預訂 Toyota GranAce（或指定兩台車）', body:'合約白紙黑字寫明「保證提供雪胎（Studless Tires guaranteed）」。'},
+  {id:'d7', tag:'今天', title:'預訂 MIMARU 京都 6 人房、Star Gate 6 人家庭房', body:'確認信須寫明「Max Occupancy: 6 Adults」。'},
+  {id:'d8', tag:'本週', title:'申領國際駕駛許可證 IDP（Class B）', body:'全家有開車資格的人這一週內去運輸署辦理。'},
+  {id:'d9', tag:'今天', title:'準備 ¥30,000 日圓零錢現金', body:'放在車內專門給投幣式泊車；田尻朝市也只收日圓現金。'}
+];
+
 const FLAGS = [
-  {id:'f1', tag:'人數', title:'原檔 5 人 → 實際 6 人', alert:true,
-   body:'所有餐廳訂位、包廂、車款與行李空間都要按 {{N}} 人重算。原檔「5人分頭排隊」「5個人加5個大行李箱」「5人一桌」「5人家庭最適合」等，已在本頁隨人數連動。'},
-  {id:'f2', tag:'車', title:'Alphard / Vellfire 的 7–8 座夠嗎？', alert:true,
-   body:'{{N}} 人 + {{N}} 件大行李，第三排立起後行李艙明顯縮水。備案：改用 9 人座（HiAce 級）、或機場先用宅急便把大行李直送京都飯店，只帶隨身小包上日本海側。'},
-  {id:'f3', tag:'配備', title:'雪地輪胎 + ETC 卡必加',
-   body:'12 月中旬天橋立・伊根屬日本海側，初雪與山路結凍機率高；京都縱貫自動車道與伊根沿海路段出發前查道路情報。'},
-  {id:'f4', tag:'租車', title:'其實是兩段租車，不是一段',
-   body:'Day 6（12/18）在大阪市區還車；Day 10（12/22）又需要再次租 1 天、機場還車。要分開預約並確認兩段的取還櫃檯營業時間；替代案是全程留車，但需評估梅田停車費與市區用車需求。'},
-  {id:'f5', tag:'住宿', title:'天橋立旅館是 Day 3–4 連泊 2 晚',
-   body:'Day 3 15:30 Check-in，Day 4 傍晚「返回旅館二次泡湯」是同一間，不需重新 Check-in；訂房時直接訂 2 晚一泊二食 × 2。'},
-  {id:'f6', tag:'定休日', title:'週日・週一的高級店要逐店確認',
-   body:'三嶋亭定休火・水（12/14 週一可，仍需預約）；Day 1 週日燒鳥、Day 8 週日壽司與串炸、Day 9 週一松阪牛，京阪高級店常在週日或週一休。12 月又是旺季，建議出發前 1–2 個月全數訂位。'},
-  {id:'f7', tag:'已核對', title:'田尻漁港日曜朝市：12/13 確為週日', ok:true,
-   body:'每週日 07:00–12:00、免費停車、機場開車約 15 分鐘；牡蠣小屋為冬季限定，冬季 BBQ 區僅週日營業。原檔 07:30–09:30 的安排成立。'},
-  {id:'f8', tag:'已核對', title:'全行程星期與原檔一致', ok:true,
-   body:'2026/12/13 日、12/14 一、12/15 二、12/16 三、12/17 四、12/18 五、12/19 六、12/20 日、12/21 一、12/22 二。'}
+  {id:'f1', tag:'已鎖定', title:'6 人編制，訂位一律 6 人', ok:true, body:'即使第 6 人最後不赴約也不改訂位；本頁不提供人數切換。'},
+  {id:'f2', tag:'現金', title:'兩處只收現金', alert:true, body:'田尻漁港日曜朝市只收日圓現金；投幣式泊車需 ¥30,000 零錢。兩者都要在出發前備妥。'},
+  {id:'f3', tag:'行李', title:'黑貓宅急便兩段寄送', alert:true, body:'Day 1 在 KIX／朝市寄 2 大箱 → 京都酒店（Day 2 寄達，每箱約 ¥3,500）；Day 8 在伊勢逆向寄 2 大箱 → 臨空城 Star Gate（Day 9 寄達）。12 月冬季與日本海側路段可能延誤，請向 Yamato 確認時效並保留單號。'},
+  {id:'f4', tag:'司機', title:'三次 30 分鐘咖啡停頓', body:'三嶋亭（Day 2）、Mouriya（Day 6）、和田金（Day 8）吃完和牛後血糖上升易瞌睡，開長途車前必須休息 30 分鐘。'},
+  {id:'f5', tag:'合約', title:'雪胎要寫進租車合約', body:'Toyota GranAce 或指定兩台車，合約須載明「Studless Tires guaranteed」；12 月中旬天橋立・伊根屬日本海側。'},
+  {id:'f6', tag:'房型', title:'6 人房要看到「Max Occupancy: 6 Adults」', body:'MIMARU 京都豪華公寓（6 張單人床或兩房家庭套房）與 Star Gate 家庭房，確認信需人手核對。'},
+  {id:'f7', tag:'路線', title:'Day 8 是當日最長的一段', alert:true, body:'上午伊勢神宮 → 12:30 松阪市和田金 → 志摩海岸 → 傍晚橫跨半島回臨空城。文件未給這段車程，出發前請實際試算並預留休息；午餐後又有 30 分鐘咖啡停頓。'},
+  {id:'f8', tag:'緩衝', title:'Day 10 的 40 分鐘黃金緩衝', ok:true, body:'18:20 Aeroplaza 還車 → 18:35 接駁巴士 → 19:00 T2，比初版 18:45 還車、19:00 到櫃檯的極限安排多 40 分鐘。'},
+  {id:'f9', tag:'預算', title:'細項與分類差 ¥13,000', body:'逐日餐飲・體驗細項合計 ¥750,000；分類列 ¥737,000。差額恰好是伊根船資 ¥5,000 + 田尻朝市 ¥8,000，可能被歸到交通／現金。以分類總額 ¥1,532,000 為準。'},
+  {id:'f10', tag:'已核對', title:'12/13 確為週日，朝市 07:00–12:00', ok:true, body:'田尻漁港日曜朝市僅週日營業、免費停車、冬季牡蠣小屋；08:15–10:30 的安排成立。'},
+  {id:'f11', tag:'已核對', title:'三嶋亭 12/14 週一營業', ok:true, body:'京都市觀光 Navi 載定休火・水（另有資料寫基本水曜・不定休）。12/14 是週一，但仍須預約確認午市套餐與個室。'}
 ];
 
 const BOOKABLES = [
-  {id:'uji',        day:1, name:'中村藤吉本店 / 伊藤久右衛門（宇治抹茶）'},
-  {id:'yakitori',   day:1, name:'吾一 Goichi / 炭火燒鳥 侘 Wabi'},
-  {id:'mishima',    day:2, name:'三嶋亭 總店（壽喜燒）'},
-  {id:'kappo',      day:2, name:'祇園 川上 / 割烹 むろい'},
-  {id:'amanohashi', day:3, name:'玄妙庵 / 文珠莊（連泊 2 晚・蟹宴）'},
-  {id:'inetaxi',    day:4, name:'伊根灣 私人海上計程車'},
-  {id:'burishabu',  day:4, name:'油屋 / 舟屋日和（寒鰤魚涮涮鍋）'},
-  {id:'arima',      day:5, name:'欽山 / 兵衛向陽閣（有馬・神戶牛會席）'},
-  {id:'teppanyaki', day:6, name:'Mouriya / 鐵板燒 KAKO'},
-  {id:'fugu',       day:7, name:'玄品河豚（活虎河豚全餐）'},
-  {id:'sushi',      day:8, name:'壽司 福原 / 寿し ほうば'},
-  {id:'matsusaka',  day:9, name:'松阪牛燒肉 M 法善寺橫丁店'}
+  {id:'mimaru',    day:1,  name:'MIMARU 京都 豪華 6 人房'},
+  {id:'torisei',   day:1,  name:'鳥せゑ Torisei（燒鳥・伏見清酒）'},
+  {id:'mishima',   day:2,  name:'三嶋亭 總店（午市月 Course・個室）'},
+  {id:'toriyasu',  day:2,  name:'鳥彌三 Toriwasaburo（雞水炊鍋）'},
+  {id:'miyazu',    day:3,  name:'Hotel & Resorts Kyoto-Miyazu / 海景別墅（連泊 2 晚）'},
+  {id:'crab',      day:3,  name:'對橋樓等 活松葉蟹宴（個室）'},
+  {id:'inetaxi',   day:4,  name:'伊根灣 私人海上計程車（包船）'},
+  {id:'buri',      day:4,  name:'舟屋日和 寒鰤魚涮涮鍋'},
+  {id:'taiko',     day:5,  name:'太閤の湯 日歸金泉・銀泉'},
+  {id:'kobe',      day:5,  name:'神戶港邊高級家庭房'},
+  {id:'mouriya',   day:6,  name:'Mouriya 總店（A5 沙朗・個室）'},
+  {id:'kue',       day:6,  name:'和歌山 九繪魚火鍋'},
+  {id:'maguro',    day:7,  name:'勝浦漁港 野生藍鰭吞拿魚'},
+  {id:'ise',       day:7,  name:'伊勢志摩 海景酒店 + 浦村牡蠣料理'},
+  {id:'wadakin',   day:8,  name:'和田金 Wadakin（松 Course・個室）'},
+  {id:'stargate',  day:8,  name:'Star Gate Hotel Kansai Airport（連泊 2 晚）'},
+  {id:'fugu',      day:9,  name:'玄品河豚 泉佐野店（高級虎河豚 Course）'},
+  {id:'granace',   day:0,  name:'Toyota GranAce 租車（雪胎保證・出發前）'}
 ];
 
 const KINDS = [
-  {id:'all',    label:'全部'},
-  {id:'meal',   label:'餐食'},
-  {id:'stay',   label:'住宿'},
-  {id:'drive',  label:'移動'},
-  {id:'sight',  label:'景點'},
-  {id:'shop',   label:'採購'},
-  {id:'booking',label:'待預約'}
+  {id:'all',label:'全部'},{id:'meal',label:'餐食'},{id:'stay',label:'住宿'},
+  {id:'drive',label:'移動'},{id:'sight',label:'景點'},{id:'shop',label:'採購'},
+  {id:'booking',label:'待預約'},{id:'rule',label:'守則'}
 ];
-const KIND_LABEL = {flight:'航班',drive:'移動',meal:'餐食',stay:'住宿',sight:'景點',shop:'採購',onsen:'溫泉',note:'備註'};
-
+const KIND_LABEL = {flight:'航班',drive:'移動',meal:'餐食',stay:'住宿',sight:'景點',shop:'採購',onsen:'溫泉',luggage:'行李',rule:'守則',note:'備註'};
 const M = (n,q)=>({name:n,query:q});
+
 const DAYS = [
-  {n:1, date:'12/13', wd:'週日', title:'在地漁港朝市起手式 × 宇治茶香 × 京都高級燒鳥', region:'泉南 → 宇治 → 京都', drive:'機場→田尻 15分 ｜ 田尻→宇治 1h15 ｜ 宇治→京都', items:[
-    {t:'06:10', kind:'flight', title:'抵達關西機場 T2', desc:'紅眼航班入境、提領行李、完成取車（約 07:15 交車）。', place:M('關西國際機場 第二航廈','Kansai International Airport Terminal 2')},
-    {t:'07:30\n09:30', kind:'meal', title:'田尻漁港日曜朝市', desc:'機場開車約 15 分鐘，免費停車場。{{N}}人分頭排隊：現炸巨大星鰻天婦羅、吸飽海鮮精華的章魚飯；12 月牡蠣小屋開張，挑活扇貝・生蠔炭火現烤。朝市僅週日 07:00–12:00。', place:M('田尻漁港日曜朝市','田尻漁港 日曜朝市 大阪')},
-    {t:'09:30\n11:00', kind:'drive', title:'移動：田尻 → 宇治', desc:'走高速公路約 1 小時 15 分，後座家人補眠。'},
-    {t:'11:00\n13:00', kind:'meal', title:'中村藤吉本店 / 伊藤久右衛門', desc:'百年町家的冬日抹茶芭菲、抹茶蕎麥麵，用茶香洗去紅眼疲憊。', place:M('宇治 中村藤吉本店','中村藤吉本店 宇治'), book:'uji'},
-    {t:'13:30\n18:00', kind:'stay', title:'京都飯店 Check-in ＆ 全家補眠', desc:'開車進京都飯店。紅眼航班體力極限，下午務必充分休息。'},
-    {t:'18:30\n21:00', kind:'meal', title:'晚餐：京都高級板前燒鳥', desc:'吾一 (Goichi) 或 炭火燒鳥 侘 (Wabi)。雞肉割烹，板前看師傅以紀州備長炭直烤，搭配京都地酒。', book:'yakitori'}
+  {n:1, date:'12/13', wd:'週日', title:'田尻漁港朝市起手式 × 京都大補眠', region:'KIX → 田尻 → 京都', drive:'取車後 08:00 出發 ｜ 田尻→京都 1.5h', items:[
+    {t:'06:10', kind:'flight', title:'抵達 KIX T2・Aeroplaza 取車', desc:'入境、提行李。乘接駁車到 Aeroplaza 機場分店提取 Toyota GranAce。', place:M('KIX Terminal 2','Kansai International Airport Terminal 2')},
+    {t:'07:45\n08:00', kind:'note', title:'準時出發', desc:'拒絕不切實際的 07:15 出發承諾。'},
+    {t:'08:15\n10:30', kind:'meal', cost:8000, title:'田尻漁港日曜朝市', desc:'只收日圓現金！必點現炸巨大星鰻天婦羅、章魚飯，直奔牡蠣小屋炭火現烤活生蠔。朝市每週日 07:00–12:00、免費停車。', place:M('田尻漁港日曜朝市','田尻漁港 日曜朝市 大阪')},
+    {t:'10:30', kind:'luggage', title:'黑貓宅急便寄 2 個大行李箱 → 京都酒店', desc:'每箱約 ¥3,500，Day 2 才會寄到。車上只留 1 個大箱和 3 個軟包，GranAce 空間大解放。運費歸在交通預算，請保留單號。'},
+    {t:'10:30\n12:30', kind:'drive', title:'自駕上高速公路直奔京都', desc:'車程 1.5 小時，後座家人瘋狂補眠。'},
+    {t:'13:00', kind:'stay', title:'入住 MIMARU 京都', desc:'豪華公寓（6 張單人床或兩房家庭套房）。必須人手確認信中寫明「Max Occupancy: 6 Adults」。', place:M('MIMARU 京都','MIMARU Kyoto'), book:'mimaru'},
+    {t:'13:00\n17:30', kind:'note', title:'紅眼機救星：全家強制大補眠'},
+    {t:'18:30', kind:'meal', cost:30000, title:'晚餐：鳥せゑ (Torisei)', desc:'每人約 ¥5,000，大口吃地道燒鳥串燒、喝京都伏見清酒；不安排 ¥15,000 的高級燒鳥店，嚴守預算。', book:'torisei'}
   ]},
-  {n:2, date:'12/14', wd:'週一', title:'京都百年壽喜燒 × 隱密町家割烹', region:'京都', drive:'市區短程移動', items:[
-    {t:'清晨', kind:'sight', title:'無人的祇園白川 / 高台寺', desc:'清晨漫步，享受寧靜的古都冬景。', place:M('祇園白川','祇園白川 京都')},
-    {t:'12:00\n14:00', kind:'meal', title:'午餐：三嶋亭 (Mishima-tei) 總店', desc:'創立 1873 年的壽喜燒鼻祖。古老町家包廂、專人桌邊服務；黑毛和牛撒砂糖與秘製醬汁在鑄鐵鍋現煎，裹生蛋黃入口即化。定休火・水，12/14 週一營業。', place:M('三嶋亭 總店','三嶋亭 京都 寺町通三条'), book:'mishima'},
-    {t:'下午', kind:'sight', title:'京都鷹峯 / 京都御苑周邊選物店', desc:'避開觀光客人潮的在地散步。'},
-    {t:'18:30', kind:'meal', title:'晚餐：京都經典京割烹', desc:'祇園 川上 (Gion Kawakami) 或 割烹 むろい (Muroi)。吧台看刀工，冬日聖護院蘿蔔與新鮮刺身交織的精緻京料理。', book:'kappo'}
+  {n:2, date:'12/14', wd:'週一', title:'百年壽喜燒午市 × 隱密鴨川町家割烹', region:'京都', drive:'市區短程', items:[
+    {t:'11:30\n13:30', kind:'meal', cost:58000, title:'午餐：三嶋亭 (Mishima-tei) 總店', desc:'古老町家包廂專人桌邊服務。午市限定壽喜燒套餐（基本 ¥8,591/人，6 人加飲品及稅約 ¥58,000）。定休火・水，12/14 週一營業。', place:M('三嶋亭 總店','三嶋亭 京都 寺町通三条'), book:'mishima'},
+    {t:'13:30\n14:00', kind:'rule', title:'🚨 司機守則：30 分鐘咖啡／休息站停頓', desc:'食完和牛血糖上升極易瞌睡，開車前必須停頓 30 分鐘。'},
+    {t:'下午', kind:'sight', title:'漫步南禪寺', desc:'享受清爽的古都冬景。', place:M('南禪寺','南禅寺 京都')},
+    {t:'18:30', kind:'meal', cost:35000, title:'晚餐：鳥彌三 (Toriwasaburo)', desc:'傳承兩百年的町家老店，冬天來一鍋極度濃郁的「雞水炊鍋 Mizutaki」。', book:'toriyasu'}
   ]},
-  {n:3, date:'12/15', wd:'週二', title:'縱貫京都自駕公路旅行 × 天橋立「松葉蟹一泊二食」', region:'京都 → 天橋立（日本海側）', drive:'京都縱貫自動車道 約 2h', items:[
-    {t:'10:00', kind:'drive', title:'退房・一路向北', desc:'行李上車，走京都縱貫自動車道直奔日本海側，約 2 小時，公路指標清晰。'},
-    {t:'12:00', kind:'meal', title:'港區炙燒海鮮丼', desc:'抵達天橋立，先以在地海鮮丼暖胃。', place:M('天橋立 港區','天橋立 桟橋')},
-    {t:'13:30', kind:'sight', title:'纜車登上「飛龍觀」', desc:'眺望日本三大景之一的天橋立沙洲。', place:M('天橋立 View Land 飛龍觀','天橋立ビューランド')},
-    {t:'15:30', kind:'stay', title:'奢華溫泉旅館 Check-in（連泊 2 晚）', desc:'玄妙庵 (Genmyoan) 可俯瞰天橋立灣，或文珠莊 (Monjusou)。Day 4 傍晚返回同一間二次泡湯。', place:M('玄妙庵 / 文珠莊','玄妙庵 天橋立'), book:'amanohashi'},
-    {t:'18:00', kind:'meal', title:'晚餐：冬季限定 活松葉蟹（間人蟹）全餐', desc:'12 月日本海松葉蟹最肥美。房內蟹宴：生蟹刺身、烤蟹腳、蟹肉火鍋，最後蟹膏與米飯煮成「蟹雜炊」。餐後泡天然溫泉。'}
+  {n:3, date:'12/15', wd:'週二', title:'縱貫京都公路旅行 × 天橋立「真・活松葉蟹」', region:'京都 → 天橋立（日本海側）', drive:'京都縱貫自動車道 約 2h', items:[
+    {t:'09:30', kind:'drive', title:'退房・行李上車北上', desc:'沿京都縱貫自動車道直奔天橋立，車程約 2 小時。'},
+    {t:'13:30', kind:'sight', title:'纜車登「飛龍觀」', desc:'遠眺天橋立沙洲。', place:M('天橋立 View Land','天橋立ビューランド')},
+    {t:'15:30', kind:'stay', cost:55000, title:'入住天橋立海濱酒店 / 包棟海景別墅', desc:'Hotel & Resorts Kyoto-Miyazu 或包棟海景別墅，一晚約 ¥55,000。Day 3–4 連泊 2 晚，Day 4 傍晚「帶回別墅夜酌」是同一間。', place:M('Hotel & Resorts Kyoto-Miyazu','ホテル&リゾーツ 京都 宮津'), book:'miyazu'},
+    {t:'18:00', kind:'meal', cost:90000, title:'晚餐：6 人份完整活松葉蟹宴', desc:'在當地海鮮食堂（如 對橋樓）預約活蟹席・個室。每人分足整隻活蟹做的蟹刺身、炭烤蟹腳、一整鍋松葉蟹火鍋，最後加蟹膏煮成「蟹雜炊」。', book:'crab'}
   ]},
-  {n:4, date:'12/16', wd:'週三', title:'夢幻冬日伊根舟屋 × 寒鰤魚火鍋 × 秘境清酒', region:'天橋立 ⇄ 伊根', drive:'沿海 約 35 分（單程）', items:[
-    {t:'10:00', kind:'drive', title:'沿海自駕前往伊根舟屋', desc:'約 35 分鐘，沿海風景極美。'},
-    {t:'10:45\n12:00', kind:'sight', title:'包一艘私人「海上計程車」遊伊根灣', desc:'從海面欣賞傳統舟屋建築並體驗餵海鷗。', place:M('伊根灣 舟屋','伊根 舟屋 海上タクシー'), book:'inetaxi'},
-    {t:'12:15\n14:00', kind:'meal', title:'午餐：冬日寒鰤魚涮涮鍋 (Buri-shabu)', desc:'油屋 (Aburaya) 或 舟屋日和。12 月寒鰤油脂最豐，極薄魚片在昆布高湯「涮三秒」，搭橙醋與蘿蔔泥。', book:'burishabu'},
-    {t:'14:15', kind:'shop', title:'向井酒造', desc:'女性釀酒師主持的伊根古老酒廠，採購古代赤米清酒「伊根滿開」帶回旅館。', place:M('向井酒造','向井酒造 伊根')},
-    {t:'傍晚', kind:'onsen', title:'返回天橋立溫泉旅館・二次泡湯', desc:'同旅館第二晚，不需重新 Check-in。'}
+  {n:4, date:'12/16', wd:'週三', title:'夢幻冬日伊根舟屋 × 寒鰤魚涮涮鍋', region:'天橋立 ⇄ 伊根', drive:'沿海 約 35 分（單程）', items:[
+    {t:'10:00', kind:'drive', title:'自駕前往伊根舟屋', desc:'沿海風景絕美，車程約 35 分鐘。'},
+    {t:'10:45', kind:'sight', cost:5000, title:'包一艘私人「海上計程車」', desc:'全家一艘 ¥5,000 船費（非按人頭計），從海面觀賞舟屋並手餵海鷹。', place:M('伊根灣 舟屋','伊根 舟屋 海上タクシー'), book:'inetaxi'},
+    {t:'12:15', kind:'meal', cost:22000, title:'午餐：舟屋日和 寒鰤魚涮涮鍋', desc:'12 月最肥美的 Buri-shabu。魚片在昆布高湯「涮三秒」逼出魚油，搭配橙醋，肥美不油膩。', book:'buri'},
+    {t:'14:15', kind:'shop', title:'向井酒造・伊根滿開', desc:'到老酒廠買瓶古代赤米清酒「伊根滿開」，帶回別墅夜酌。', place:M('向井酒造','向井酒造 伊根')},
+    {t:'傍晚', kind:'note', title:'返回海景別墅（同一住宿第二晚）', desc:'不需重新 Check-in。'}
   ]},
-  {n:5, date:'12/17', wd:'週四', title:'山海大橫跨 × 有馬溫泉古湯療癒', region:'天橋立 → 兵庫山區 → 有馬溫泉', drive:'約 2h', items:[
-    {t:'10:00', kind:'drive', title:'退房・穿越兵庫山區南下', desc:'自駕免去了提行李在山路陡坡行走的痛苦。'},
-    {t:'12:30', kind:'meal', title:'有馬溫泉老街：有馬釜飯與炭烤松茸', desc:'老街散步＋現炊釜飯。', place:M('有馬溫泉 老街','有馬温泉 商店街')},
-    {t:'15:00', kind:'stay', title:'欽山 / 兵衛向陽閣 Check-in', desc:'有馬最頂級日式旅館。泡「金泉」——富含鐵質與鹽分，泡完身體極為保暖。', place:M('欽山 / 兵衛向陽閣','有馬温泉 欽山'), book:'arima'},
-    {t:'18:00', kind:'meal', title:'晚餐：頂級神戶牛會席料理', desc:'私密包廂或房內，主廚精選 A5 神戶牛 / 黑毛和牛溫泉會席。'}
+  {n:5, date:'12/17', wd:'週四', title:'有馬溫泉日歸「金泉」× 神戶夜景洋食', region:'天橋立 → 有馬 → 神戶', drive:'南下 2.5h ｜ 有馬→神戶 30分', items:[
+    {t:'10:00\n12:30', kind:'drive', title:'穿越兵庫山區南下', desc:'預留 2.5 小時車程，拒絕拍腦袋的 2 小時盲目樂觀，12:30 準時抵達。'},
+    {t:'12:30', kind:'meal', cost:15000, title:'有馬老街：有馬釜飯 Kamameshi', desc:'蒸蟹肉與章魚土鍋飯。', place:M('有馬溫泉 老街','有馬温泉 商店街')},
+    {t:'14:30', kind:'onsen', cost:18000, title:'太閤の湯 日歸「金泉・銀泉」', desc:'平日成人含稅與入湯稅約 ¥2,825/人，6 位大人老實預算 ¥18,000。', place:M('太閤の湯','有馬温泉 太閤の湯'), book:'taiko'},
+    {t:'17:30', kind:'stay', cost:50000, title:'入住神戶港邊高級家庭房', desc:'車程 30 分鐘，約 ¥50,000/晚。', book:'kobe'},
+    {t:'19:00', kind:'meal', cost:25000, title:'晚餐：神戶高級和牛洋食', desc:'紅酒燉牛肉與漢堡扒，配神戶夜景。'}
   ]},
-  {n:6, date:'12/18', wd:'週五', title:'鐵板燒神戶牛 × 返回大阪深度老城', region:'有馬 → 神戶三之宮 → 大阪梅田', drive:'下山 30分 ｜ 神戶→大阪 40分', items:[
-    {t:'10:30', kind:'drive', title:'退房・下山前往神戶市區', desc:'三之宮約 30 分鐘。'},
-    {t:'11:30\n13:30', kind:'meal', title:'午餐：Mouriya / 鐵板燒 KAKO', desc:'正宗鐵板燒，{{N}}人一桌看主廚刀工；神戶牛排表面焦脆、內部爆汁，搭蒜片與赤穗海鹽。', place:M('Mouriya モーリヤ','モーリヤ 神戸 三宮'), book:'teppanyaki'},
-    {t:'下午', kind:'sight', title:'神戶港邊 / 舊居留地高級咖啡館', desc:'避開觀光客的午後散步。'},
-    {t:'16:00', kind:'drive', title:'返回大阪・入住梅田・市區還車', desc:'約 40 分鐘。入住高級公寓或梅田飯店並辦理還車；之後市區活動搭計程車或地鐵更方便。'},
-    {t:'晚餐', kind:'meal', title:'福島區在地居酒屋 / 小酒館', desc:'大阪老饕聚集地，輕鬆微醺之夜。', place:M('福島區','大阪 福島 居酒屋')}
+  {n:6, date:'12/18', wd:'週五', title:'Mouriya A5 沙朗神戶牛 → 直奔和歌山', region:'神戶 → 和歌山市', drive:'阪神高速 1h45（繞過大阪市區）', items:[
+    {t:'11:30', kind:'meal', cost:138000, title:'午餐：Mouriya (モーリヤ) 總店', desc:'6 人一桌，全部點「神戸牛 極上サーロインステーキ A5 沙朗 130g」¥21,780/位。主廚鐵板煎到表面焦脆、內部爆汁，搭赤穗海鹽與金黃蒜片。', place:M('Mouriya 總店','モーリヤ 神戸 三宮'), book:'mouriya'},
+    {t:'13:30\n14:00', kind:'rule', title:'🚨 司機守則：30 分鐘咖啡／休息站停頓', desc:'食完和牛極度容易瞌睡，開車前必須停頓 30 分鐘。'},
+    {t:'14:00\n15:45', kind:'drive', title:'沿阪神高速直奔和歌山市', desc:'完全繞過大阪市區，車程老老實實預算 1 小時 45 分鐘。'},
+    {t:'18:30', kind:'meal', cost:36000, title:'晚餐：冬季限定「幻之魚」九繪魚火鍋', desc:'和歌山在地老字號的 Kue Nabé。12 月深海九繪魚最肥美，魚皮滿是厚厚的膠原蛋白。', book:'kue'}
   ]},
-  {n:7, date:'12/19', wd:'週六', title:'中之島藝術散策 × 冬季至高鮮味「虎河豚全餐」', region:'大阪市內（無車）', drive:'計程車 / 地鐵', items:[
-    {t:'白天', kind:'sight', title:'睡到自然醒・中之島美術館 / 堀江・橘子街', desc:'看展或逛街，避開觀光客動線。', place:M('中之島美術館','大阪中之島美術館')},
-    {t:'18:30\n21:00', kind:'meal', title:'晚餐：玄品河豚 活虎河豚全餐', desc:'12 月河豚最肥美。涼拌河豚皮、極薄河豚刺身、香炸河豚、薄鹽烤河豚、河豚火鍋，最後店員現場製作「河豚雜炊」。', place:M('玄品河豚','玄品河豚 大阪'), book:'fugu'}
+  {n:7, date:'12/19', wd:'週六', title:'紀伊半島海岸自駕 × 勝浦吞拿魚盛宴', region:'和歌山 → 那智勝浦 → 伊勢志摩', drive:'海岸線 2.5h ｜ 熊野山路 2.5–3h', items:[
+    {t:'09:30\n12:00', kind:'drive', title:'沿和歌山海岸線公路南下', desc:'一路吹著海風開往那智勝浦，車程 2.5 小時。'},
+    {t:'12:00', kind:'meal', cost:24000, title:'勝浦漁港「野生純生」藍鰭吞拿魚', desc:'「絕不冷凍」的野生藍鰭吞拿魚大宴，現撈大拖羅油脂分布完美，價錢約大阪觀光區一半。', place:M('勝浦漁港','那智勝浦 漁港'), book:'maguro'},
+    {t:'15:00\n18:00', kind:'drive', title:'穿越熊野山海邊界 → 三重縣伊勢志摩', desc:'山路大縱走，預留 2.5–3 小時；入住海景渡假大酒店。', book:'ise'},
+    {t:'18:30', kind:'meal', cost:30000, title:'晚餐：伊勢海濱浦村牡蠣 + 白身魚', desc:'當季盛產的浦村牡蠣與頂級伊勢灣白身魚海鮮料理。'}
   ]},
-  {n:8, date:'12/20', wd:'週日', title:'大阪割烹米其林 × 關西冬夜萬家燈火', region:'大阪市內（無車）', drive:'計程車 / 地鐵', items:[
-    {t:'12:00\n14:00', kind:'meal', title:'午餐：大阪高級板前壽司', desc:'壽司 福原 (Sushi Fukubara) 或 寿し ほうば (Houba)。當天市場漁獲量身打造的 Omakase，與東京風味不同的關西板前。', book:'sushi'},
-    {t:'傍晚', kind:'sight', title:'Abeno Harukas 300 展望台', desc:'12 月冬季空氣最清澈，{{N}}人一起俯瞰整個關西平原的冬夜燈火。', place:M('阿倍野 Harukas 300','あべのハルカス 300 展望台')},
-    {t:'晚餐', kind:'meal', title:'天王寺串炸 / 法式日系餐酒館', desc:'在地老字號串炸名店（如八重勝），或精緻法式日系餐酒館。', place:M('八重勝','八重勝 天王寺')}
+  {n:8, date:'12/20', wd:'週日', title:'聖殿級和牛壽喜燒！松阪市【和田金】', region:'伊勢 → 松阪 → 志摩 → 臨空城', drive:'當日長途，出發前請實際試算', items:[
+    {t:'上午', kind:'sight', title:'伊勢神宮托福橫丁', desc:'漫步江戶風情，品嚐熱騰騰的伊勢烏冬與紅豆赤福餅。', place:M('托福橫丁','伊勢神宮 おかげ横丁')},
+    {t:'上午', kind:'luggage', title:'黑貓逆向寄 2 大箱 → 臨空城 Star Gate', desc:'在伊勢透過酒店或黑貓寄出，Day 9 寄達；減輕當日長途車的行李。'},
+    {t:'12:30', kind:'meal', cost:132000, title:'午餐：和田金 (Wadakin) 松 Course', desc:'直接開車殺入松阪牛出生地。招牌壽喜燒「松」套餐 ¥19,600/人 + 10% 服務費，6 人 ¥132,000；榻榻米包廂專人桌邊伺候。', place:M('和田金 松阪市','和田金 松阪'), book:'wadakin'},
+    {t:'14:00\n14:30', kind:'rule', title:'🚨 司機守則：30 分鐘咖啡停頓', desc:'食完頂級松阪牛後，必須停頓 30 分鐘才能開長途車。'},
+    {t:'下午茶', kind:'meal', cost:12000, title:'志摩海岸 現烤伊勢龍蝦', desc:'烤海鮮小屋單點一隻 Ise Ebi，6 人分食。'},
+    {t:'傍晚', kind:'stay', cost:50000, title:'入住 Star Gate Hotel Kansai Airport', desc:'走高速公路橫跨半島回臨空城，高空海景酒店約 ¥50,000/晚，連泊 2 晚（Day 8–9）。', place:M('Star Gate Hotel','スターゲイトホテル 関西エアポート'), book:'stargate'}
   ]},
-  {n:9, date:'12/21', wd:'週一', title:'松阪牛的終極復仇 × 百貨甜點超市大採購', region:'大阪市內（無車）', drive:'計程車 / 地鐵', items:[
-    {t:'白天', kind:'shop', title:'Depachika 最後採購', desc:'梅田阪急百貨、難波高島屋地下美食街。冬季限定頂級草莓甜點（Audrey）、ECHIRE 奶油點心、高檔地酒。', place:M('梅田阪急百貨','阪急うめだ本店 デパ地下')},
-    {t:'18:30', kind:'meal', title:'晚餐：松阪牛燒肉 M（法善寺橫丁店）', desc:'古色古香的法善寺橫丁。店家買下整頭松阪牛，{{N}}人家庭最適合「全牛部位對比套餐」，一次品嚐各稀有與高級部位，為最後一晚乾杯。', place:M('松阪牛燒肉 M','松阪牛焼肉M 法善寺横丁'), book:'matsusaka'}
+  {n:9, date:'12/21', wd:'週一', title:'GranAce 自駕 Depachika 掃貨 × 虎河豚全餐', region:'臨空城 / 難波', drive:'保姆車只開一次、停一次', items:[
+    {t:'白天', kind:'shop', title:'開 GranAce 去 Depachika 掃貨', desc:'拒絕坐火車去梅田走回頭路。6 人直接開車出發，可選難波高島屋地下美食街或臨空城精品超市；車子不停酒店，只開一次、停一次，買完直接塞進車廂。狂掃日本白草莓、Audrey 草莓點心與高檔地酒。', place:M('難波高島屋','髙島屋 大阪店 デパ地下')},
+    {t:'18:30', kind:'meal', cost:54000, title:'晚餐：玄品河豚 泉佐野店', desc:'高級虎河豚 Course 每人約 ¥9,000。涼拌厚切皮刺身、河豚刺身、香炸河豚、河豚火鍋與「河豚雜炊」。', place:M('玄品河豚 泉佐野','玄品ふぐ 泉佐野店'), book:'fugu'}
   ]},
-  {n:10, date:'12/22', wd:'週二', title:'箕面瀑布冬日散策 → 臨空城 OUTLET → 機場歸途', region:'箕面 → 臨空城 → KIX T2', drive:'再次租車 1 日（機場還）或包車', items:[
-    {t:'10:00', kind:'note', title:'飯店退房・第二段租車', desc:'可選擇再次租車 1 天（機場還車），或包車前往。'},
-    {t:'10:45\n12:30', kind:'sight', title:'箕面大瀑布', desc:'大阪北部溪谷，冬天空氣極清新，適合全家散步健行；必嚐當地「炸楓葉」傳統小吃。', place:M('箕面大瀑布','箕面大滝')},
-    {t:'14:00\n18:30', kind:'shop', title:'臨空城 OUTLET (Rinku Town)', desc:'機場旁 OUTLET，冬季服飾、日系廚具；晚餐直接在臨空城吃迴轉壽司（如大起水產）。', place:M('臨空城 OUTLET','りんくうプレミアム・アウトレット')},
-    {t:'18:45', kind:'drive', title:'機場附近加滿油・還車', desc:'前往關西機場租車櫃檯還車。'},
-    {t:'19:00', kind:'flight', title:'KIX Terminal 2 辦理登機', desc:'預留通關與退税時間。', place:M('KIX Terminal 2','Kansai Airport Terminal 2')},
-    {t:'21:05', kind:'flight', title:'晚班機返回香港', desc:'結束舌尖關西之旅。'}
+  {n:10, date:'12/22', wd:'週二', title:'臨空城極限購物 → 40 分鐘完美緩衝還車', region:'臨空城 → KIX T2', drive:'18:20 Aeroplaza 還車', items:[
+    {t:'11:30\n13:00', kind:'meal', cost:18000, title:'午餐：大起水產 特上迴轉壽司', desc:'臨空城內解決，保留下午完整購物時間。', place:M('大起水產 臨空城','大起水産 りんくう')},
+    {t:'13:00\n17:30', kind:'shop', title:'臨空城 Premium Outlets 終極掃貨', desc:'特價冬季服飾、日系高級廚具，買完直接塞進 GranAce 超大後車廂。', place:M('臨空城 Outlet','りんくうプレミアム・アウトレット')},
+    {t:'17:45', kind:'note', title:'準時離開臨空城', desc:'不再加碼，保留緩衝。'},
+    {t:'18:00', kind:'drive', title:'機場旁加油站加滿 Regular 汽油'},
+    {t:'18:20', kind:'drive', title:'Aeroplaza 還車', desc:'開過聯絡大橋抵達租車回櫃檯，進行車輛檢查與還車手續。', place:M('KIX Aeroplaza','関西空港 エアロプラザ')},
+    {t:'18:35', kind:'drive', title:'免費接駁巴士 → Terminal 2', desc:'預留 7–9 分鐘車程與等車時間。'},
+    {t:'19:00', kind:'flight', title:'抵達 T2 辦理登機', desc:'比初版 18:45 還車、19:00 到櫃檯的「超人類極限時間」多了 40 分鐘黃金緩衝期。', place:M('KIX Terminal 2','Kansai Airport Terminal 2')},
+    {t:'21:05', kind:'flight', title:'航班起飛返回香港'}
   ]}
 ];
 
 /* ------------------------------------------------------- state (safe) */
-const KEY = 'kansai-2026-family-trip';
+const KEY = 'kansai-2026-family-trip-v2';
 let mem = null;
-function load(){
-  try { const raw = localStorage.getItem(KEY); if (raw) return JSON.parse(raw); } catch(e){}
-  return mem || {};
-}
-function save(s){
-  mem = s;
-  try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){}
-}
-let state = Object.assign({done:{}, booking:{}, flags:{}, notes:{}, collapsed:{}, size:6, theme:'light', filter:'all'}, load());
+function load(){ try { const r = localStorage.getItem(KEY); if (r) return JSON.parse(r); } catch(e){} return mem || {}; }
+function save(s){ mem = s; try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
+let state = Object.assign({done:{},booking:{},flags:{},deadline:{},actual:{},notes:{},collapsed:{},theme:'light',filter:'all'}, load());
 function persist(){ save(state); }
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const descHTML = s => esc(s).replace(/\{\{N\}\}/g, '<span class="people">6</span>');
+const yen = n => '¥' + Number(n||0).toLocaleString('en-US');
 const itemId = (d,i) => `d${d}-i${i}`;
 const totalItems = DAYS.reduce((a,d)=>a+d.items.length,0);
-
+const dayMeal = d => d.items.filter(i=>['meal','onsen','sight','shop'].includes(i.kind)).reduce((a,i)=>a+(i.cost||0),0);
+const dayStay = d => d.items.filter(i=>i.kind==='stay').reduce((a,i)=>a+(i.cost||0),0);
+const plannedMeal = DAYS.reduce((a,d)=>a+dayMeal(d),0);
+const plannedStay = DAYS.reduce((a,d)=>a+dayStay(d),0);
 function mapsUrl(q){ return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q); }
 function bookOptions(v){
   return [['todo','未處理'],['requested','已詢問'],['confirmed','已確認'],['na','不需預約']]
@@ -391,41 +464,81 @@ function renderChips(){
 }
 function renderNav(){
   document.getElementById('daynav').innerHTML = DAYS.map(d =>
-    `<li data-day="${d.n}"><a href="#day-${d.n}"><b>${d.date}</b><span class="dnum">Day ${d.n}</span><em>${d.wd}</em></a></li>`).join('');
+    `<li data-day="${d.n}"><a href="#day-${d.n}"><b>${d.date}</b><span class="dnum">Day ${d.n}</span><em>${yen(dayMeal(d)+dayStay(d))}</em></a></li>`).join('');
+}
+function renderBudget(){
+  document.getElementById('budgetgrid').innerHTML = `
+    <div class="bcell"><div class="n">${yen(CAT.meal)}</div><div class="l">頂級海陸餐飲 + 溫泉門票</div></div>
+    <div class="bcell"><div class="n">${yen(CAT.stay)}</div><div class="l">9 晚精選住宿（平均 ¥55,000/晚）</div></div>
+    <div class="bcell"><div class="n">${yen(CAT.transport)}</div><div class="l">交通（GranAce 租金・雪胎・油錢・路費・泊車・黑貓）</div></div>
+    <div class="bcell total"><div class="n">${yen(TOTAL)}</div><div class="l">10 天總額 ｜ 全家每日 ${yen(TOTAL/10)}</div></div>`;
+  document.getElementById('budgetrows').innerHTML = DAYS.map(d => {
+    const planned = dayMeal(d), stay = dayStay(d);
+    const actual = Number(state.actual[d.n]||0);
+    return `<tr>
+      <td class="d">D${d.n}</td>
+      <td class="num">${yen(planned)}</td>
+      <td class="num">${stay?yen(stay):'—'}</td>
+      <td><input type="number" min="0" step="100" data-actual="${d.n}" value="${state.actual[d.n]||''}" placeholder="0" aria-label="Day ${d.n} 實付"></td>
+      <td class="num" data-diff="${d.n}">${actual?yen(actual-planned-stay):'—'}</td>
+    </tr>`;
+  }).join('') + `<tr class="totalrow"><td class="d">合計</td><td class="num">${yen(plannedMeal)}</td><td class="num">${yen(plannedStay)}</td><td class="num" id="actualTotal">—</td><td class="num" id="diffTotal">—</td></tr>`;
+  refreshBudget();
+}
+function refreshBudget(){
+  let sum = 0;
+  DAYS.forEach(d => {
+    const a = Number(state.actual[d.n]||0); sum += a;
+    const cell = document.querySelector(`[data-diff="${d.n}"]`);
+    if (cell) cell.textContent = a ? yen(a - dayMeal(d) - dayStay(d)) : '—';
+  });
+  const at = document.getElementById('actualTotal'), dt = document.getElementById('diffTotal');
+  if (at) at.textContent = sum ? yen(sum) : '—';
+  if (dt) dt.textContent = sum ? yen(sum - plannedMeal - plannedStay) : '—';
+}
+function renderDeadlines(){
+  document.getElementById('deadlines').innerHTML = DEADLINES.map(x => `
+    <label class="flag">
+      <input type="checkbox" data-deadline="${x.id}" ${state.deadline[x.id]?'checked':''}>
+      <span><span class="tag ${x.tag==='今天'?'due':''}">${esc(x.tag)}</span><strong>${esc(x.title)}</strong>
+      <p>${esc(x.body)}</p></span>
+    </label>`).join('');
 }
 function renderFlags(){
   document.getElementById('flags').innerHTML = FLAGS.map(f => `
     <label class="flag">
       <input type="checkbox" data-flag="${f.id}" ${state.flags[f.id]?'checked':''}>
-      <span><span class="tag ${f.alert?'alert':f.ok?'ok':''}">${esc(f.tag)}</span><strong>${descHTML(f.title)}</strong>
-      <p>${descHTML(f.body)}</p></span>
+      <span><span class="tag ${f.alert?'alert':f.ok?'ok':''}">${esc(f.tag)}</span><strong>${esc(f.title)}</strong>
+      <p>${esc(f.body)}</p></span>
     </label>`).join('');
 }
 function renderBookRows(){
   document.getElementById('bookrows').innerHTML = BOOKABLES.map(b => `
-    <tr><td class="d">D${b.day}</td><td>${esc(b.name)}</td>
+    <tr><td class="d">${b.day?`D${b.day}`:'—'}</td><td>${esc(b.name)}</td>
     <td><select class="booksel" data-book="${b.id}" data-v="${state.booking[b.id]||'todo'}">${bookOptions(state.booking[b.id]||'todo')}</select></td></tr>`).join('');
 }
 function renderDays(){
   document.getElementById('days').innerHTML = DAYS.map(d => {
     const items = d.items.map((it,i) => {
       const id = itemId(d.n,i);
-      const searchable = (d.title+' '+it.title+' '+it.desc+' '+(KIND_LABEL[it.kind]||'')).toLowerCase();
+      const searchable = (d.title+' '+it.title+' '+(it.desc||'')+' '+(KIND_LABEL[it.kind]||'')).toLowerCase();
       const hasBook = !!it.book;
       return `<div class="item ${state.done[id]?'done':''}" data-item="${id}" data-kind="${it.kind}" data-hasbook="${hasBook}" data-search="${esc(searchable)}">
         <input type="checkbox" data-check="${id}" ${state.done[id]?'checked':''} aria-label="完成：${esc(it.title)}">
         <div class="item-time">${esc(it.t).replace(/\n/g,'<br>')}</div>
         <div>
           <div class="item-title">${esc(it.title)}</div>
-          <div class="item-desc">${descHTML(it.desc)}</div>
+          ${it.desc?`<div class="item-desc">${esc(it.desc)}</div>`:''}
           <div class="item-foot">
             <span class="kind">${esc(KIND_LABEL[it.kind]||it.kind)}</span>
+            ${it.cost?`<span class="costtag">${yen(it.cost)}</span>`:''}
             ${it.place?`<a class="maplink" href="${mapsUrl(it.place.query)}" target="_blank" rel="noopener">地圖：${esc(it.place.name)} ↗</a>`:''}
             ${hasBook?`<select class="booksel" data-book="${it.book}" data-v="${state.booking[it.book]||'todo'}" aria-label="訂位狀態：${esc(it.title)}">${bookOptions(state.booking[it.book]||'todo')}</select>`:''}
           </div>
         </div>
       </div>`;
     }).join('');
+    const priced = dayMeal(d)+dayStay(d);
     return `<section class="day ${state.collapsed[d.n]?'collapsed':''}" id="day-${d.n}" data-daycard="${d.n}">
       <div class="day-head" data-toggle="${d.n}" role="button" tabindex="0" aria-expanded="${!state.collapsed[d.n]}">
         <div class="day-num">${String(d.n).padStart(2,'0')}<span>DAY</span></div>
@@ -435,35 +548,30 @@ function renderDays(){
           <div class="day-sub">自駕：${esc(d.drive)} ｜ ${d.items.length} 個行程項目</div>
         </div>
         <div class="day-tools">
+          <span class="mini cost">已標價 ${yen(priced)}</span>
           <span class="mini" data-dayprog="${d.n}">0/${d.items.length}</span>
           <button class="collapse" type="button" data-collapse="${d.n}" aria-label="摺疊/展開 Day ${d.n}">${state.collapsed[d.n]?'＋':'−'}</button>
         </div>
       </div>
       <div class="day-body">${items}
         <div class="notes"><label for="note-${d.n}">Day ${d.n} 備註（自動儲存）</label>
-        <textarea id="note-${d.n}" data-note="${d.n}" placeholder="訂位編號、集合地點、當天調整…">${esc(state.notes[d.n]||'')}</textarea></div>
+        <textarea id="note-${d.n}" data-note="${d.n}" placeholder="訂位編號、包廂確認、當天調整…">${esc(state.notes[d.n]||'')}</textarea></div>
       </div>
     </section>`;
   }).join('');
 }
-
-function syncPeople(){
-  document.querySelectorAll('.people').forEach(e => e.textContent = state.size);
-  const sizeSel = document.getElementById('familySize');
-  if (sizeSel) sizeSel.value = String(state.size);
-}
 function syncBooking(id){
   const v = state.booking[id] || 'todo';
-  document.querySelectorAll(`select[data-book="${id}"]`).forEach(sel => {
-    sel.value = v; sel.setAttribute('data-v', v);
-  });
+  document.querySelectorAll(`select[data-book="${id}"]`).forEach(sel => { sel.value = v; sel.setAttribute('data-v', v); });
 }
 function refreshProgress(){
   const done = Object.values(state.done).filter(Boolean).length;
   const confirmed = BOOKABLES.filter(b => state.booking[b.id]==='confirmed').length;
+  const ddone = DEADLINES.filter(x => state.deadline[x.id]).length;
   document.getElementById('barFill').style.width = (100*done/totalItems).toFixed(1)+'%';
   document.getElementById('progressText').textContent = `${done} / ${totalItems} 已完成`;
   document.getElementById('bookingText').textContent = `${confirmed} / ${BOOKABLES.length} 已確認訂位`;
+  document.getElementById('deadlineText').textContent = `${ddone} / ${DEADLINES.length} 今日死線`;
   DAYS.forEach(d => {
     const n = d.items.filter((_,i)=>state.done[itemId(d.n,i)]).length;
     const el = document.querySelector(`[data-dayprog="${d.n}"]`);
@@ -478,11 +586,10 @@ function applyFilter(){
     let visible = 0;
     document.querySelectorAll(`[data-daycard="${d.n}"] .item`).forEach(el => {
       const kind = el.getAttribute('data-kind');
-      const matchKind = f==='all' || (f==='booking' ? el.getAttribute('data-hasbook')==='true' : kind===f);
+      const matchKind = f==='all' || (f==='booking' ? el.getAttribute('data-hasbook')==='true' : (f==='rule' ? (kind==='rule'||kind==='luggage') : kind===f));
       const matchText = !q || el.getAttribute('data-search').includes(q);
       const show = matchKind && matchText;
-      el.hidden = !show;
-      if (show) visible++;
+      el.hidden = !show; if (show) visible++;
     });
     const card = document.querySelector(`[data-daycard="${d.n}"]`);
     if (card) card.hidden = visible===0;
@@ -491,9 +598,9 @@ function applyFilter(){
   document.getElementById('empty').classList.toggle('show', visibleTotal===0);
 }
 function renderAll(){
-  renderChips(); renderNav(); renderFlags(); renderBookRows(); renderDays();
+  renderChips(); renderNav(); renderBudget(); renderDeadlines(); renderFlags(); renderBookRows(); renderDays();
   document.documentElement.setAttribute('data-theme', state.theme);
-  syncPeople(); refreshProgress(); applyFilter();
+  refreshProgress(); applyFilter();
 }
 
 /* ------------------------------------------------------------ events */
@@ -505,19 +612,21 @@ document.addEventListener('change', e => {
     persist(); refreshProgress();
   } else if (t.matches('input[data-flag]')) {
     state.flags[t.getAttribute('data-flag')] = t.checked; persist();
+  } else if (t.matches('input[data-deadline]')) {
+    state.deadline[t.getAttribute('data-deadline')] = t.checked; persist(); refreshProgress();
   } else if (t.matches('select[data-book]')) {
     const id = t.getAttribute('data-book');
     state.booking[id] = t.value; syncBooking(id); persist(); refreshProgress();
-  } else if (t.matches('#familySize')) {
-    state.size = Number(t.value); syncPeople(); persist();
+  } else if (t.matches('input[data-actual]')) {
+    state.actual[t.getAttribute('data-actual')] = t.value; persist(); refreshBudget();
   }
 });
 document.addEventListener('input', e => {
   if (e.target.matches('textarea[data-note]')) {
     state.notes[e.target.getAttribute('data-note')] = e.target.value; persist();
-  } else if (e.target.matches('#search')) {
-    applyFilter();
-  }
+  } else if (e.target.matches('input[data-actual]')) {
+    state.actual[e.target.getAttribute('data-actual')] = e.target.value; persist(); refreshBudget();
+  } else if (e.target.matches('#search')) applyFilter();
 });
 document.addEventListener('click', e => {
   const chip = e.target.closest('[data-filter]');
@@ -532,15 +641,9 @@ document.addEventListener('click', e => {
   if (head && !e.target.closest('a,button,select,input,textarea')) toggleDay(head.getAttribute('data-toggle'));
 });
 document.addEventListener('keydown', e => {
-  if (e.key==='/' && !/input|textarea|select/i.test(document.activeElement.tagName)) {
-    e.preventDefault(); document.getElementById('search').focus();
-  }
-  if (e.key==='Escape' && document.activeElement.id==='search') {
-    document.activeElement.value=''; applyFilter(); document.activeElement.blur();
-  }
-  if (e.key==='Enter' && e.target.matches && e.target.matches('[data-toggle]')) {
-    toggleDay(e.target.getAttribute('data-toggle'));
-  }
+  if (e.key==='/' && !/input|textarea|select/i.test(document.activeElement.tagName)) { e.preventDefault(); document.getElementById('search').focus(); }
+  if (e.key==='Escape' && document.activeElement.id==='search') { document.activeElement.value=''; applyFilter(); document.activeElement.blur(); }
+  if (e.key==='Enter' && e.target.matches && e.target.matches('[data-toggle]')) toggleDay(e.target.getAttribute('data-toggle'));
 });
 function toggleDay(n){
   state.collapsed[n] = !state.collapsed[n];
@@ -566,13 +669,11 @@ document.getElementById('themeBtn').addEventListener('click', () => {
   document.documentElement.setAttribute('data-theme', state.theme); persist();
 });
 document.getElementById('printBtn').addEventListener('click', () => window.print());
-window.addEventListener('beforeprint', () => {
-  document.querySelectorAll('.day.collapsed').forEach(c => c.classList.remove('collapsed'));
-});
+window.addEventListener('beforeprint', () => document.querySelectorAll('.day.collapsed').forEach(c => c.classList.remove('collapsed')));
 document.getElementById('exportBtn').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify({app:KEY, exportedAt:new Date().toISOString(), state}, null, 2)], {type:'application/json'});
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob); a.download = 'kansai-family-trip-state.json';
+  a.href = URL.createObjectURL(blob); a.download = 'kansai-family-trip-v2-state.json';
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
 });
@@ -582,30 +683,22 @@ document.getElementById('importFile').addEventListener('change', e => {
   const r = new FileReader();
   r.onload = () => {
     try {
-      const data = JSON.parse(r.result);
-      const s = data.state || data;
-      state = Object.assign({done:{},booking:{},flags:{},notes:{},collapsed:{},size:6,theme:'light',filter:'all'}, s);
+      const data = JSON.parse(r.result); const s = data.state || data;
+      state = Object.assign({done:{},booking:{},flags:{},deadline:{},actual:{},notes:{},collapsed:{},theme:'light',filter:'all'}, s);
       persist(); renderAll();
     } catch(err){ alert('匯入失敗：不是有效的狀態 JSON。'); }
   };
   r.readAsText(file); e.target.value='';
 });
 document.getElementById('resetBtn').addEventListener('click', () => {
-  if (!confirm('清除所有勾選、訂位狀態與備註？（行程內容不受影響）')) return;
-  state = {done:{},booking:{},flags:{},notes:{},collapsed:{},size:6,theme:'light',filter:'all'};
+  if (!confirm('清除所有勾選、訂位狀態、實付金額與備註？（行程內容不受影響）')) return;
+  state = {done:{},booking:{},flags:{},deadline:{},actual:{},notes:{},collapsed:{},theme:'light',filter:'all'};
   persist(); renderAll();
 });
-/* active day in rail */
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(en => {
-    if (en.isIntersecting) {
-      document.querySelectorAll('.daynav li').forEach(li => li.classList.toggle('active', li.getAttribute('data-day')===en.target.getAttribute('data-daycard')));
-    }
-  });
+  entries.forEach(en => { if (en.isIntersecting) document.querySelectorAll('.daynav li').forEach(li => li.classList.toggle('active', li.getAttribute('data-day')===en.target.getAttribute('data-daycard'))); });
 }, {rootMargin:'-140px 0px -70% 0px'});
-window.addEventListener('load', () => {
-  document.querySelectorAll('[data-daycard]').forEach(c => obs.observe(c));
-});
+window.addEventListener('load', () => document.querySelectorAll('[data-daycard]').forEach(c => obs.observe(c)));
 
 renderAll();
 </script>
