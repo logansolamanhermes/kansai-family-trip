@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白紙黑字預約範本 · 10/10 關西冬日海陸盛宴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5f2ea; --surface:#fffdf8; --surface-2:#faf7f0;
+    --ink:#231f1a; --muted:#756d60; --faint:#9a9182;
+    --line:#ddd5c4; --line-strong:#c9bfab;
+    --accent:#a63d2b; --accent-soft:#f4e5df;
+    --ok:#3f6b52; --ok-soft:#e4eee7;
+    --serif:"Noto Serif TC","Songti TC",serif;
+    --sans:"Noto Sans TC","PingFang TC","Noto Sans CJK TC","Microsoft JhengHei",sans-serif;
+    --jp:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  html[data-theme="dark"]{
+    --paper:#191713; --surface:#201d18; --surface-2:#262219;
+    --ink:#f2ece0; --muted:#a89e8c; --faint:#7e7565;
+    --line:#3a342b; --line-strong:#4d463a;
+    --accent:#e0836e; --accent-soft:#3a2621;
+    --ok:#8fc0a0; --ok-soft:#25342b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.7}
+  .wrap{max-width:960px;margin:0 auto;padding:28px 22px 80px}
+  header{border-bottom:1px solid var(--line-strong);padding-bottom:18px;margin-bottom:24px}
+  h1{font-family:var(--serif);font-size:26px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:13px}
+  .back{display:inline-block;margin-bottom:14px;color:var(--accent);font-size:12px;text-decoration:underline;text-underline-offset:2px}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}
+  .ctl{background:var(--surface);border:1px solid var(--line-strong);border-radius:3px;padding:6px 11px;font-size:12px;min-height:36px;cursor:pointer}
+  .ctl:hover{border-color:var(--accent)}
+  .notice{background:var(--accent-soft);border:1px solid var(--accent);border-radius:3px;padding:12px 14px;font-size:12.5px;line-height:1.8;margin-bottom:24px}
+  .notice b{color:var(--accent)}
+  .card{background:var(--surface);border:1px solid var(--line-strong);border-radius:3px;margin-bottom:18px}
+  .card-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .card-head h2{font-size:16px;margin:0;font-family:var(--serif)}
+  .card-head .meta{font-family:var(--mono);font-size:11px;color:var(--faint)}
+  .card-head .why{margin-left:auto;font-size:11.5px;color:var(--muted)}
+  .langs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+  .lang{background:var(--surface);padding:12px 14px 14px;min-width:0}
+  .lang-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .lang-top b{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--faint)}
+  .copy{margin-left:auto;border:1px solid var(--line-strong);background:var(--surface-2);border-radius:2px;font-size:11px;padding:4px 9px;min-height:32px;cursor:pointer}
+  .copy:hover{border-color:var(--accent)}
+  .copy.done{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+  pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--jp);font-size:12px;line-height:1.75;background:var(--surface-2);border:1px solid var(--line);border-radius:2px;padding:11px 12px;max-height:none}
+  pre.en{font-family:var(--sans)}
+  .checklist{background:var(--surface);border:1px solid var(--line-strong);border-radius:3px;padding:14px 18px;margin-top:26px}
+  .checklist h2{font-family:var(--serif);font-size:16px;margin:0 0 8px}
+  .checklist ul{margin:0;padding-left:20px;font-size:12.5px;color:var(--muted);line-height:1.9}
+  .checklist code{font-family:var(--mono);font-size:11px;color:var(--accent)}
+  footer{margin-top:28px;font-size:11px;color:var(--faint);line-height:1.8;border-top:1px solid var(--line);padding-top:14px}
+  footer a{color:var(--accent)}
+  @media (max-width:760px){
+    .langs{grid-template-columns:1fr}
+    .card-head .why{margin-left:0;width:100%}
+    .copy{min-height:44px}
+    pre{font-size:13px}
+  }
+  @media print{.toolbar,.copy{display:none!important} .card{break-inside:avoid} body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="./">← 返回 10/10 極致執行版行程</a>
+<header>
+  <h1>白紙黑字預約範本</h1>
+  <div class="sub">10/10 關西冬日海陸盛宴 · 6 人 · 2026/12/13–12/22 · 今天 11/9（一）就要發出</div>
+  <div class="toolbar">
+    <button class="ctl" type="button" id="themeBtn">◐ 深淺色</button>
+    <button class="ctl" type="button" id="printBtn">列印全部</button>
+    <button class="ctl" type="button" id="copyAllJa">複製全部日文</button>
+    <button class="ctl" type="button" id="copyAllEn">複製全部英文</button>
+  </div>
+</header>
+
+<div class="notice">
+  <b>用法：</b>把 <code>[ ]</code> 換成實際資料，貼到預約備註欄或電郵內文。日本餐廳優先寄<b>日文</b>；車行與連鎖酒店可日英並附。<br>
+  <b>關鍵：</b>明確要求「書面回覆／予約確認書に明記」，不接受口頭、「同等級」「差不多房型」。收到確認信後逐字核對下行清單，再回到行程頁勾選死線。<br>
+  <b>查核修正：</b>太閤の湯官方明載「入れ墨（タトゥー）…ご入館はお断り」，是<b>拒絕入館</b>；金之湯／銀之湯官方未載刺青規則，須先電話確認，遮蓋貼紙不保證。因此另附第 9 則刺青確認範本。
+</div>
+
+<div id="cards"></div>
+
+<div class="checklist">
+  <h2>收到確認信時要逐字找到的字眼</h2>
+  <ul>
+    <li>車輛：<code>Toyota GranAce</code> 或 <code>Toyota HiAce Grand Cabin</code>、<code>Studless Tires Guaranteed for Dec 13–22</code>、<code>English GPS / Apple CarPlay</code>；不得出現 Odyssey、Noah、「同等クラス」。</li>
+    <li>MIMARU：<code>Deluxe Apartment for 6 Single Beds</code> 或 <code>Two-Bedroom Family Suite</code>、<code>Max Occupancy: 6 Adults</code>、6 套成人寢具。</li>
+    <li>Star Gate：<code>6-person family room</code>、6 人 Futon 加床費已含。</li>
+    <li>天橋立：<code>2-Bedroom</code>、可容納 6 位成人、連泊 2 晚。</li>
+    <li>四大餐廳：<code>Private Room for 6 adults</code>、日期時間、套餐名與人數、含稅／服務費總額。</li>
+    <li>刺青：若任一人有可見刺青，太閤の湯即不適用，改訂神戶貸切（kashikiri）私人湯屋並取得書面確認。</li>
+  </ul>
+</div>
+
+<footer>
+  範本依你提供的「10/10 極致執行版」死線清單撰寫，日期與星期已核對。價格、定休、房況、車款與刺青規定仍以店家最終書面回覆為準；本頁不代為發送或訂位。
+  查核來源：<a href="https://www.taikounoyu.com/howto" target="_blank" rel="noopener">太閤の湯 ご利用案内</a>、<a href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s2812.html" target="_blank" rel="noopener">國立天文台 2026/12 大阪日の出入り</a>。
+</footer>
+</div>
+
+<script>
+"use strict";
+const ITEMS = [
+  {
+    id:1, title:'租車 · 關西機場 Aeroplaza 店', meta:'12/13 07:00 → 12/22 18:20', why:'精確車型・雪胎・導航',
+    ja:`件名：12/13〜12/22 車両予約の書面確認のお願い（大人6名）
+
+お世話になっております。[代表者名]です。
+下記の内容で予約を確定させたく、予約確認書に明記のうえご返信いただけますでしょうか。
+
+・貸出：2026年12月13日(日) 07:00　関西空港エアロプラザ店
+・返却：2026年12月22日(火) 18:20　同店
+・車種：トヨタ「グランエース」または「ハイエース グランドキャビン」
+　※「同等クラス」への変更は承諾できません。オデッセイ・ノアは不可です。
+　　確認書に車種名を明記してください。
+・スタッドレスタイヤ：2026年12月13日〜12月22日の全期間を保証
+　（Studless Tires Guaranteed for Dec 13–22）
+・ナビゲーション：英語表示GPS または Apple CarPlay 搭載
+・乗車・積載：大人6名＋大型スーツケース3個
+・ETCカードの有無、雪道装備（チェーン等）の有無もご教示ください。
+
+お電話ではなく、書面（メール可）でのご確認をお願いいたします。
+よろしくお願いいたします。
+[代表者名] / [電話] / [予約番号]`,
+    en:`Subject: Written confirmation required — van rental 13–22 Dec (6 adults)
+
+Hello, this is [Name]. Before we finalise, please put the following in the written booking confirmation:
+
+- Pick-up: Sun 13 Dec 2026, 07:00, Kansai Airport Aeroplaza branch
+- Drop-off: Tue 22 Dec 2026, 18:20, same branch
+- Exact model: Toyota GranAce OR Toyota HiAce Grand Cabin.
+  We cannot accept "similar class" substitutions; no Odyssey / Noah.
+  Please state the exact model name in the confirmation.
+- Studless Tires Guaranteed for Dec 13–22 (full rental period)
+- English-language GPS or Apple CarPlay
+- Capacity: 6 adults + 3 large suitcases
+- Please also confirm ETC card availability and winter equipment.
+
+A written reply (email is fine) is required; a verbal assurance is not sufficient.
+[Name] / [Phone] / [Booking ref]`
+  },
+  {
+    id:2, title:'三嶋亭 總店 · 京都', meta:'12/14（一）11:30', why:'6 人獨立個室・午市套餐',
+    ja:`件名：12/14 昼食 予約確認のお願い（大人6名・個室）
+
+[代表者名]です。2026年12月14日(月) 11:30より、大人6名で予約をお願いいたします。
+
+・6名用の完全個室（Private Room for 6 adults）をご手配ください
+・昼のすき焼きコース（「月」／お一人様 ¥8,591）を6名分
+・食物アレルギー：[有（内容）/ 無]
+・13:30までの退店を予定しております
+
+予約確認書に「日時」「大人6名」「6名様用個室」「コース名・人数」「税・サービス料込みの総額」を明記してください。
+ご多忙のところ恐れ入りますが、書面でのご返信をお願いいたします。
+[代表者名] / [電話]`,
+    en:`Subject: Booking confirmation — lunch 14 Dec, 6 adults, private room
+
+Hello, this is [Name]. We would like to reserve:
+
+- Date/time: Mon 14 Dec 2026, 11:30
+- Party: 6 adults
+- A fully private room for 6 adults (Private Room for 6 adults)
+- 6 x lunch sukiyaki set ("Tsuki" course, JPY 8,591 per person)
+- Food allergies: [none / details]
+- We plan to leave by 13:30
+
+Please confirm in writing: date/time, 6 adults, private room for 6, course name and quantity, and the total including tax and service charge.
+[Name] / [Phone]`
+  },
+  {
+    id:3, title:'Mouriya モーリヤ 總店 · 神戶', meta:'12/18（五）11:30', why:'A5 沙朗・6 人個室・12:45 退店',
+    ja:`件名：12/18 昼食 予約確認のお願い（大人6名・個室）
+
+[代表者名]です。2026年12月18日(金) 11:30より、大人6名で予約をお願いいたします。
+
+・6名用の個室（Private Room for 6 adults）をご手配ください
+・「神戸牛 極上サーロインステーキ A5 130g」（¥21,780）を6名分
+・12:45までに退店できる進行でお願いいたします
+　（この後、長距離運転前に45分の休憩を取るためです）
+・食物アレルギー：[有（内容）/ 無]
+
+確認書に「日時」「大人6名」「6名様用個室」「品名・数量」「税・サービス料込みの総額」を明記してください。
+[代表者名] / [電話]`,
+    en:`Subject: Booking confirmation — lunch 18 Dec, 6 adults, private room
+
+Hello, this is [Name]. We would like to reserve:
+
+- Date/time: Fri 18 Dec 2026, 11:30
+- Party: 6 adults, private room for 6 adults
+- 6 x Kobe Beef Premium Sirloin Steak A5 130g (JPY 21,780 each)
+- We need to finish by 12:45 (a 45-minute driver rest follows before a long drive)
+- Food allergies: [none / details]
+
+Please confirm in writing: date/time, 6 adults, private room, item and quantity, and the total including tax and service charge.
+[Name] / [Phone]`
+  },
+  {
+    id:4, title:'和田金 Wadakin · 松阪市', meta:'12/20（日）12:30', why:'松 Course・6 人個室・14:30 退店',
+    ja:`件名：12/20 昼食 予約確認のお願い（大人6名・個室）
+
+[代表者名]です。2026年12月20日(日) 12:30より、大人6名で予約をお願いいたします。
+
+・6名用の個室（畳・Private Room for 6 adults）をご手配ください
+・すき焼き「松」コース（¥19,600／名）を6名分
+・サービス料10%を含む総額を確認書に明記してください
+・14:30までに退店できる進行でお願いいたします
+・食物アレルギー：[有（内容）/ 無]
+
+当日はこの後、半島を横断して関西空港方面へ長距離移動します。
+書面でのご確認をよろしくお願いいたします。
+[代表者名] / [電話]`,
+    en:`Subject: Booking confirmation — lunch 20 Dec, 6 adults, private room
+
+Hello, this is [Name]. We would like to reserve:
+
+- Date/time: Sun 20 Dec 2026, 12:30
+- Party: 6 adults, private tatami room for 6 adults
+- 6 x Sukiyaki "Matsu" course (JPY 19,600 per person)
+- Please state the total INCLUDING the 10% service charge in the confirmation
+- We need to finish by 14:30 (a long cross-peninsula drive follows)
+- Food allergies: [none / details]
+
+Please confirm all of the above in writing.
+[Name] / [Phone]`
+  },
+  {
+    id:5, title:'天橋立 活松葉蟹宴（如 對橋樓）', meta:'12/15（二）18:00', why:'每人整隻活蟹・6 人個室',
+    ja:`件名：12/15 夕食 活松葉蟹コース 予約確認のお願い（大人6名・個室）
+
+[代表者名]です。2026年12月15日(火) 18:00より、大人6名で予約をお願いいたします。
+
+・6名用の個室（Private Room for 6 adults）をご手配ください
+・冬季「活松葉蟹」コースを6名分。お一人様につき活蟹1杯分を
+　蟹刺身・炭火焼き蟹脚・松葉蟹鍋・蟹膏雑炊にてご提供いただける内容
+・蟹の仕入れ状況により内容が変わる場合は、事前にご連絡ください
+・食物アレルギー：[有（内容）/ 無]
+
+確認書に「日時」「大人6名」「6名様用個室」「コース内容」「税・サービス料込みの総額」を明記してください。
+[代表者名] / [電話]`,
+    en:`Subject: Booking confirmation — dinner 15 Dec, 6 adults, live snow crab
+
+Hello, this is [Name]. We would like to reserve:
+
+- Date/time: Tue 15 Dec 2026, 18:00
+- Party: 6 adults, private room for 6 adults
+- 6 x winter live Matsuba (snow) crab course, with ONE whole live crab per person,
+  served as crab sashimi, grilled crab legs, crab hotpot and crab-miso rice porridge
+- Please let us know in advance if availability changes the course content
+- Food allergies: [none / details]
+
+Please confirm in writing: date/time, 6 adults, private room, course contents, and the total including tax and service charge.
+[Name] / [Phone]`
+  },
+  {
+    id:6, title:'MIMARU 京都 · 住宿', meta:'12/13–12/15（2 晚）', why:'6 張成人床・Max Occupancy',
+    ja:`件名：予約確認書の明記をお願いします（大人6名／12/13〜12/15）
+
+[代表者名]です。下記の予約について、確認書に文言を明記してください。
+
+・チェックイン 2026年12月13日(日) 13:00／チェックアウト 12月15日(火)
+・大人6名（子供ではありません）
+・房型：「Deluxe Apartment for 6 Single Beds」または「Two-Bedroom Family Suite」
+・「Max Occupancy: 6 Adults」を明記
+・大人用寝具6セットをご用意ください（大人4名＋子供2名の設定ではありません）
+・「似た房型」「アップグレード対応」などの曖昧な表現は不可です
+
+書面（メール可）でのご返信をお願いいたします。
+[代表者名] / [予約番号]`,
+    en:`Subject: Written confirmation required — 6 adults, 13–15 Dec
+
+Hello, this is [Name]. Please state the following in the booking confirmation:
+
+- Check-in Sun 13 Dec 2026 13:00 / check-out Tue 15 Dec 2026
+- 6 ADULTS (no children)
+- Room type: "Deluxe Apartment for 6 Single Beds" OR "Two-Bedroom Family Suite"
+- Please write "Max Occupancy: 6 Adults"
+- 6 sets of adult bedding (not a 4-adult + 2-child configuration)
+- We cannot accept vague wording such as "similar room type" or "upgrade on arrival"
+
+A written reply (email is fine) is required.
+[Name] / [Booking ref]`
+  },
+  {
+    id:7, title:'Star Gate Hotel Kansai Airport · 臨空城', meta:'12/20–12/22（2 晚）', why:'6 人家庭房・Futon 加床費已含',
+    ja:`件名：予約確認書の明記をお願いします（大人6名／12/20〜12/22）
+
+[代表者名]です。下記を確認書に明記してください。
+
+・チェックイン 2026年12月20日(日)／チェックアウト 12月22日(火)　2泊
+・大人6名対応の「6人用ファミリールーム」
+・大人6名分の布団（エキストラベッド／加床）が房價に含まれること
+・加床料金が別途発生する場合は、事前に金額をご提示ください
+・「Max Occupancy: 6 Adults」の明記
+
+書面でのご確認をお願いいたします。
+[代表者名] / [予約番号]`,
+    en:`Subject: Written confirmation required — family room for 6, 20–22 Dec
+
+Hello, this is [Name]. Please state the following in the booking confirmation:
+
+- Check-in Sun 20 Dec 2026 / check-out Tue 22 Dec 2026 (2 nights)
+- "6-person family room" for 6 adults
+- Futon / extra bedding for all 6 adults is INCLUDED in the room rate
+- If any extra-bed surcharge applies, please quote it in advance
+- Please write "Max Occupancy: 6 Adults"
+
+A written reply is required.
+[Name] / [Booking ref]`
+  },
+  {
+    id:8, title:'天橋立渡假酒店 / 海景 Villa', meta:'12/15–12/17（2 晚）', why:'2-Bedroom・6 位成人',
+    ja:`件名：予約確認書の明記をお願いします（大人6名／12/15〜12/17）
+
+[代表者名]です。下記を確認書に明記してください。
+
+・チェックイン 2026年12月15日(火) 15:30／チェックアウト 12月17日(木)　2泊
+・「2-Bedroom」の房型、かつ大人6名が宿泊可能であること
+・大人用寝具6セット
+・夕食に活松葉蟹の手配が可能か（別途予約済みの場合は不要）
+・「Max Occupancy: 6 Adults」の明記
+
+「同等のお部屋」などの曖昧な表現は不可です。書面でご確認ください。
+[代表者名] / [予約番号]`,
+    en:`Subject: Written confirmation required — 2-Bedroom for 6 adults, 15–17 Dec
+
+Hello, this is [Name]. Please state the following in the booking confirmation:
+
+- Check-in Tue 15 Dec 2026 15:30 / check-out Thu 17 Dec 2026 (2 nights)
+- A "2-Bedroom" unit that accommodates 6 ADULTS
+- 6 sets of adult bedding
+- Please write "Max Occupancy: 6 Adults"
+- Whether a live snow crab dinner can be arranged on site (not needed if already booked elsewhere)
+
+We cannot accept "equivalent room" wording. A written reply is required.
+[Name] / [Booking ref]`
+  },
+  {
+    id:9, title:'太閤の湯 / 神戶貸切湯屋 · 刺青確認', meta:'12/17（四）14:30', why:'查核修正：官方拒絕刺青者入館',
+    ja:`件名：タトゥーに関する規定と貸切風呂のご確認（12/17・大人6名）
+
+お世話になっております。[代表者名]です。
+2026年12月17日(木) 14:30頃に大人6名で利用を検討しています。
+御社の「ご利用案内」に「入れ墨（タトゥー）…ご入館はお断りいたします」と記載を確認しました。
+
+以下を書面でご教示いただけますでしょうか。
+1. 小さなタトゥーをカバーシールで隠した場合でも入館不可か
+2. 館内の貸切風呂（個室湯屋）のみの利用が可能か
+3. 不可の場合、近隣で大人6名が利用可能な貸切（kashikiri）施設のご推奨
+4. 12/17(木)の平日料金（大人 ¥2,750＋入湯税 ¥75）と6名分の総額
+
+当日の門前でお断りされる事態を避けたく、事前確認をお願いいたします。
+[代表者名] / [電話]`,
+    en:`Subject: Tattoo policy and private-bath availability — 17 Dec, 6 adults
+
+Hello, this is [Name]. We are considering a visit on Thu 17 Dec 2026 around 14:30 for 6 adults.
+We read on your "Facility Guide" that guests with tattoos are refused entry.
+
+Could you please confirm in writing:
+1. Whether a small tattoo fully covered by a patch is still refused
+2. Whether a private / reservable bath (kashikiri) can be used instead
+3. If not, a nearby private-bath facility that accepts 6 adults
+4. The Thu 17 Dec weekday rate (JPY 2,750 + JPY 75 bathing tax per adult) and the total for 6
+
+We want to avoid being turned away at the door. Thank you.
+[Name] / [Phone]`
+  }
+];
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+document.getElementById('cards').innerHTML = ITEMS.map(it => `
+  <section class="card">
+    <div class="card-head"><h2>${esc(it.title)}</h2><span class="meta">${esc(it.meta)}</span><span class="why">${esc(it.why)}</span></div>
+    <div class="langs">
+      <div class="lang"><div class="lang-top"><b>日本語 · JA</b><button class="copy" type="button" data-copy="ja-${it.id}">複製</button></div><pre id="ja-${it.id}">${esc(it.ja)}</pre></div>
+      <div class="lang"><div class="lang-top"><b>ENGLISH · EN</b><button class="copy" type="button" data-copy="en-${it.id}">Copy</button></div><pre class="en" id="en-${it.id}">${esc(it.en)}</pre></div>
+    </div>
+  </section>`).join('');
+
+async function copyText(text, btn){
+  try { await navigator.clipboard.writeText(text); }
+  catch(e){
+    const ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+  }
+  const orig=btn.textContent; btn.textContent='已複製 ✓'; btn.classList.add('done');
+  setTimeout(()=>{btn.textContent=orig; btn.classList.remove('done')},1600);
+}
+document.addEventListener('click', e => {
+  const b=e.target.closest('button[data-copy]');
+  if(b){ const pre=document.getElementById(b.getAttribute('data-copy')); copyText(pre.textContent, b); }
+});
+document.getElementById('copyAllJa').addEventListener('click', e => copyText(ITEMS.map(i=>`【${i.title} · ${i.meta}】\n${i.ja}`).join('\n\n────────\n\n'), e.target));
+document.getElementById('copyAllEn').addEventListener('click', e => copyText(ITEMS.map(i=>`[${i.title} · ${i.meta}]\n${i.en}`).join('\n\n--------\n\n'), e.target));
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const cur=document.documentElement.getAttribute('data-theme');
+  document.documentElement.setAttribute('data-theme', cur==='dark'?'light':'dark');
+});
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>
