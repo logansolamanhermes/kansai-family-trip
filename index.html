@@ -216,6 +216,7 @@
         <button id="importBtn" class="ctl" type="button">匯入</button>
         <input id="importFile" type="file" accept="application/json" hidden>
         <button id="themeBtn" class="ctl" type="button" aria-label="切換深淺色">◐</button>
+        <a class="ctl" href="packing-list.html">打包清單 ☑</a>
         <button id="printBtn" class="ctl primary" type="button">列印</button>
         <button id="resetBtn" class="ctl" type="button">重設</button>
       </div>
@@ -241,6 +242,7 @@
       <strong>回程</strong> 12/22（二）21:05 KIX T2 → 香港<br>
       <strong>用車</strong> Toyota Sienna＋雪胎<br><br>
       所有 planning time 已含緩衝，不是淨行車時間。日落死線以 <strong>16:47</strong> 為保守值；山區入黑更早。<br><br>
+      <strong>打包</strong> <a href="packing-list.html" style="color:var(--accent)">3大箱・3軟包・6人 檢查表 ↗</a><br><br>
       勾選、訂位、實付、備註、Day 7 方案皆存於此瀏覽器；用「匯出 JSON」帶走。
     </div>
   </aside>
@@ -256,70 +258,21 @@
       <div class="panel-body" style="padding-top:0">
         <div class="versionlinks">
           <a class="cta" href="booking-templates.html">→ 打開日文／英文白紙黑字預約範本（可直接複製貼上）</a>
+          <a class="cta" href="packing-list.html">→ 出發打包清單（3大箱・3軟包・6人）</a>
         </div>
       </div>
     </section>
-
-                <section class="panel" aria-labelledby="carTitle" style="border-color:var(--accent)">
-      <div class="panel-head">
-        <h2 id="carTitle">🚨 車輛查核：Toyota Sienna 在日本租不到</h2>
-        <span class="hint">車型已依指示全站統一，但供應風險未解</span>
-        <span class="due">今天寄信前先確認</span>
-      </div>
+    <section class="panel" aria-labelledby="packTitle">
+      <div class="panel-head"><h2 id="packTitle">出發打包鐵律（3大箱・3軟包・6人）</h2><span class="hint">3 男 3 女，按酒店同房配對</span></div>
       <div class="panel-body">
         <div class="audit">
           <ul>
-            <li><b>Sienna 不是日本國內車款：</b>トヨタ シエナ是<a href="https://news.yahoo.co.jp/articles/470a386ba9d25fd21baf14967bcec03338b93864?page=1" target="_blank" rel="noopener">北米市場專用</a>的大型 minivan，日本未正規販售；現行款還因電池法規 UN/ECE R100-02 無法在日本銷售，只能靠並行輸入。<a href="https://rent.toyota.co.jp/affiliate_rental/service/car/class/charge.aspx?searchKbn=4" target="_blank" rel="noopener">トヨタレンタカー官方車種一覧</a>：W1 是 シエンタ／プリウスα，W3 是 アルファード／ヴェルファイア，<b>沒有シエナ</b>；KIX 店的租用車隊同樣只列 SIENTA / NOAH / VOXY / ALPHARD / VELLFIRE。</li>
-            <li><b>別把 Sienna 與 Sienta 搞混：</b>シエンタ（Sienta）是日本國內小型 minivan，全長約 4,260mm、租車頁面標 Cap.5 / Bags3；シエナ（Sienna）約 5,175mm、7–8 人座。兩者是完全不同的車，6 位成人＋3 個大行李箱用 Sienta 裝不下。</li>
-            <li><b>「白紙黑字精確車型」這封信會卡住：</b>全站已統一為 <b>Toyota Sienna</b>（精確字串，不代換、不改寫），但 Aeroplaza 櫃檯大概率回「無此車款」。租車信已改成<b>先問能否供應</b>、若不能請對方書面提出替代車型，而不是假設可訂；在你確認前不要把它當成已核准。</li>
-            <li><b>順帶查到一個時間衝突：</b><a href="https://www.kansai-airport.or.jp/access/from-airport/rental-car" target="_blank" rel="noopener">關西機場官方租車頁</a>載 Aeroplaza 1F トヨタレンタカー營業 <b>08:00–20:00</b>（<a href="https://rent.toyota.co.jp/shop/?airport=0028" target="_blank" rel="noopener">官方店舗頁</a>同）。行程原寫 07:45–08:00 取車出發，<b>07:45 根本還沒開店</b>；最早 08:00 交車，加上手續，08:15–10:30 田尻朝市會被壓縮。已把租車信貸出時間改為 08:00、Day 1 標註此風險。</li>
-            <li><b>其餘要求不變：</b>雪胎（Studless Tires Guaranteed for Dec 13–22）、英文 GPS／CarPlay、6 成人＋3 大箱、ETC。若最後必須改用日本國內車款，最接近的是 W3 級 <b>Alphard / Vellfire</b>（官方標 7–8 人座）——<b>這要你決定，我不會擅自改回去</b>。</li>
+            <li><b>總量上限：</b>3 個 24 吋硬殼箱（每箱 ≤ 65×45×25cm、≤ 20kg）＋ 3 個 40L 軟質手提袋 ＋ 6 個隨身一日背包。<b>每 2 人共用 1 箱，按同房配對分配，不是按性別或情侶分。</b>3 個硬殼箱全程隨車，不寄送。</li>
+            <li><b>去程規條：</b>軟包出發當日接近完全清空，留作回程冬日大褸與 Day 10 臨空城採購；嚴禁第 4 個硬殼箱。羽絨／防風大褸與防水防滑步行鞋直接穿上機，不佔箱內空間。</li>
+            <li><b>個人鐵律：</b>3 件 Heattech（2 件 Ultra Warm＋1 件普通/極暖，<b>嚴禁 3 件超極暖</b>）、5 套內衣褲、5 雙 Merino 襪、冷帽／圍巾／觸控手套；禁高跟鞋與正式皮鞋（榻榻米需脫鞋）。4 天份量、Day 2 必清洗。</li>
+            <li><b>司機：</b>香港身份證＋正式駕照實體卡＋運輸署 IDP 實體紙本（1949 公約、簽發 1 年內），並書面確認全部登記司機已列入保險許可範圍。</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-<section class="panel" aria-labelledby="v5Title">
-      <div class="panel-head">
-        <h2 id="v5Title">v5 鋼鐵版查核：車程、日落與時間算術</h2>
-        <span class="hint">數字實查，不是照抄</span>
-      </div>
-      <div class="panel-body">
-        <div class="audit">
-          <ul>
-            <li><b>三大錨點成立：</b>¥90,000 + ¥138,000 + ¥132,000 = <b>¥360,000</b>，佔 ¥737,000 餐飲分類的 <b>48.8%</b>，「近半」正確。預算凍結機制（取消的高級餐不得自動轉為加菜／購物，直接進天候緊急金）已寫入下方死線與風險。</li>
-            <li><b>「和歌山→伊勢 4–5 小時」要分清楚是什麼時間：</b><a href="https://search.w-nexco.co.jp/" target="_blank" rel="noopener">NEXCO 高速料金・ルート検索</a>／<a href="https://www.driveplaza.com/dp/SearchQuick?startPlaceKana=%E5%92%8C%E6%AD%8C%E5%B1%B1&arrivePlaceKana=%E4%BC%8A%E5%8B%A2" target="_blank" rel="noopener">ドラぷら</a>給 <b>3 小時 04 分 / 254.3 km</b>，<a href="https://kosoku.jp/route.php?f=%E5%92%8C%E6%AD%8C%E5%B1%B1&t=%E4%BC%8A%E5%8B%A2&c=%E6%99%AE%E9%80%9A%E8%BB%8A" target="_blank" rel="noopener">高速料金検索</a>給 <b>3 小時 05 分 / 252.4 km</b>——這是<b>到伊勢 IC、不含休息</b>（NEXCO 自己註明「所要時間には休憩時間が含まれておりません」）。加上伊勢 IC→志摩約 35 分、兩次休息與冬季塞車，door-to-door <b>約 4 小時</b>。OSRM 自由流只給 2h14，不可當規劃值。結論：舊版 2.5h 太樂觀，<b>4–5h 當 planning time 安全，但不是「真實淨車程」</b>。</li>
-            <li><b>Day 7 Plan A 算術不閉合：</b>13:00 發車 + 3.5h = 16:30 尚可；+ 4h = <b>17:00，已晚於日落</b>。<a href="https://www.hinotabi.com/mie/ise-shi/sun_events/12" target="_blank" rel="noopener">日の旅・伊勢市 2026/12</a>：12/19 日落 <b>16:47</b>，所以文件用 16:45 當死線是保守且合理。<b>要守住「不在黑夜開冰雪山路」，鋼鐵死線應再提前到 12:30</b>（12:30 + 4h = 16:30），也就是勝浦吞拿魚午餐要改成快閃／外帶。</li>
-            <li><b>Plan B 有連動缺口：</b>改留和歌山／南紀白濱加宿時，當天 18:30 的<b>伊勢海濱牡蠣晚餐</b>與 Day 8 的<b>和田金（松阪市）</b>都無法執行，必須一併取消或改期；¥50,000 除了加宿還要覆蓋餐食與後續車程落差。這一點文件沒寫，已補進行程項目。</li>
-            <li><b>Day 8「天黑前抵達」做不到：</b>15:00 + 2.5h = 17:30，當地日落約 16:47–16:50，<b>晚約 40 分鐘</b>。但這段是照明良好的高速公路，不是熊野山路，風險等級不同——建議把文字改成「走照明良好高速公路，17:30 抵達」，別宣稱天黑前。真正不能摸黑的是 Day 7 的山路。</li>
-            <li><b>Day 10 緩衝變大了：</b>17:45 還車 → 18:15 抵達 T2 → 21:05 起飛 = <b>2 小時 50 分</b>，比 v4 的 19:00 到 T2 提早 45 分鐘。「40 分鐘黃金緩衝」是舊標題，已更正。</li>
-            <li><b>Day 5 仍未修正：</b>月光園 15:30／40 分鐘／非溫泉、有馬御苑無貸切風呂、金之湯官方未載刺青規則，三項依舊。見下方 Day 5 查核面板。這版新增的 5 封日文信<b>是「提問」而非「斷言」</b>，方向正確，但仍需等書面回覆。</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-<section class="panel" aria-labelledby="day5Title" style="border-color:var(--accent)">
-      <div class="panel-head">
-        <h2 id="day5Title">⚠️ Day 5 查核：私人湯屋方案不能照原文字執行</h2>
-        <span class="hint">v5 仍未修正：替代場館的硬傷依舊存在</span>
-        <span class="due">今天先確認，別先訂</span>
-      </div>
-      <div class="panel-body">
-        <div class="audit">
-          <ul>
-            <li><b>月光園 游月山荘：</b><a href="https://travel.yahoo.co.jp/00030106/info/" target="_blank" rel="noopener">風呂資訊（Yahoo!トラベル／一休）</a>載明貸切風呂在姊妹館「鴻朧館」2F，營業 <b>15:30–23:10</b>、<b>每節 40 分鐘</b>、¥4,400（檜 ¥2,200）、事前預約制，且原文「<b>貸切風呂は温泉・露天風呂ではございません</b>」——<b>不是金泉、不是溫泉</b>。因此「14:00 / 60 分鐘 / 6 人同池 / 正宗金泉」四項全部對不上；且這些貸切風呂主要供宿泊者，日歸可否未載。</li>
-            <li><b>有馬御苑：</b><a href="https://www.yukoyuko.net/2828/bath" target="_blank" rel="noopener">風呂資訊</a>與 <a href="https://mjkzo.com/arima/" target="_blank" rel="noopener">有馬刺青對應整理（2026/9 官方站點逐站核對）</a>都寫「<b>貸切風呂なし / 貸切風呂 ✕</b>」，且大浴場明文拒絕刺青。唯一私密選項是芙蓉山荘特別室的<b>客室露天銀泉</b>（要住宿、且是銀泉不是金泉）。日歸私人湯屋在這裡不存在。</li>
-            <li><b>備用策略 B（金之湯）也不穩：</b>神戶市營「金之湯／銀之湯」官方站<b>沒有刺青規則記載</b>，無記載 ≠ 可入。官方認可遮蓋貼紙的只有<a href="https://www.arima-gh.jp/hotspring/yurari" target="_blank" rel="noopener">有馬グランドホテル</a>（10cm×10cm、僅小範圍單點刺青；且其貸切風呂定員 5 名、日歸不可用）；兵衛向陽閣連貼紙都拒絕。出發前必須<b>電話確認</b>，不能只靠在香港買貼紙。</li>
-            <li><b>我們的建議（可直接執行）：</b>改查 <b>御幸荘 花結び</b> 的日歸「展望金泉・銀泉 貸切露天風呂」——<a href="https://yuasobi.com/spots/kansai-kinki/hyogo/arima/" target="_blank" rel="noopener">日歸家族風呂列表</a>載 <b>11:30–14:30 事前預約制、45 分鐘、¥10,450〜</b>（含房間＋餐食的日歸方案）；<a href="https://www.ikyu.com/00030104/11095405/10060370/" target="_blank" rel="noopener">一休房型頁</a>載客室定員 <b>2–6 名</b>、貸切露天風呂 ¥2,200/人・45 分鐘。14:00–14:45 這個時段、6 人、金泉、日歸四項都比原方案吻合，6 人約 ¥13,200，也在 ¥18,000 預算內。<b>但 45 分鐘不是 60 分鐘，仍須電話／電郵書面確認。</b>另可問 <a href="https://choraku.com/faq/" target="_blank" rel="noopener">銀水荘 兆楽</a>（官方 FAQ 明載刺青者改利用貸切露天風呂，50 分鐘 ¥5,500，金泉＋銀泉）。</li>
-          </ul>
-          <p style="margin:8px 0 0">對應預約／查核信（日文＋英文，可直接複製）：
-            <a href="booking-templates.html#tpl-hanamusubi">御幸荘 花結び</a> ·
-            <a href="booking-templates.html#tpl-gekkouen">月光園</a> ·
-            <a href="booking-templates.html#tpl-arima-gyoen">有馬御苑</a> ·
-            <a href="booking-templates.html#tpl-kin-no-yu">金之湯</a>。
-            文件提到的「範本 1／2／5」來自另一份未附上的範本組，這裡改用直接連結，不猜編號。
-          </p>
+          <p style="margin:8px 0 0"><a href="packing-list.html" style="color:var(--accent);font-weight:700;border:1px solid var(--accent);padding:4px 10px;border-radius:2px;text-decoration:none">→ 打開完整可列印打包檢查表（含手寫房間分配欄與逐項勾選）</a></p>
         </div>
       </div>
     </section>
@@ -351,7 +304,7 @@
         <div class="audit">
           <ul>
             <li><b>34 天與星期全對：</b>2026/11/9（一）→ 12/13（日）為 34 天；12/13 日、12/14 一、12/15 二、12/16 三、12/17 四、12/18 五、12/19 六、12/20 日、12/21 一、12/22 二，與文件完全一致。12/17 確為週四，適用平日價。</li>
-            <li><b>刺青令已被這版採納，但換湯不換藥：</b>上一版查到<a href="https://www.taikounoyu.com/howto" target="_blank" rel="noopener">太閤の湯官方</a>「入れ墨（タトゥー）…ご入館はお断り」是拒絕入館；這版因此徹底放棄太閤の湯，方向正確。但指定的月光園 游月山荘貸切風呂 <b>15:30 才開放、40 分鐘、且官方寫明不是溫泉</b>；有馬御苑<b>根本沒有貸切風呂</b>；金之湯官方<b>未載刺青規則</b>。四項條件全需書面確認，詳見上方「Day 5 查核」。</li>
+            <li><b>刺青令：</b>查核<a href="https://www.taikounoyu.com/howto" target="_blank" rel="noopener">太閤の湯官方</a>「入れ墨（タトゥー）…ご入館はお断り」是拒絕入館；因此徹底放棄太閤の湯。但指定的月光園 游月山荘貸切風呂 <b>15:30 才開放、40 分鐘、且官方寫明不是溫泉</b>；有馬御苑<b>根本沒有貸切風呂</b>；金之湯官方<b>未載刺青規則</b>。四項條件全需書面確認，詳見上方「Day 5 查核」。</li>
             <li><b>16:47 是保守死線；12/17 大阪實際 16:49：</b><a href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s2812.html" target="_blank" rel="noopener">國立天文台 2026 年 12 月大阪日の出入り</a>：12/1–12/10 為 16:47，12/17 為 16:49。新版 15:45 神戶 Check-in 距日落約 62–64 分鐘，「還有 1 小時」成立；山區仍更早暗，16:30 前抵達的原則不變。</li>
             <li><b>已核對：</b><a href="https://www.pref.osaka.lg.jp/o120130/suisan/tab/asa.html" target="_blank" rel="noopener">田尻漁港日曜朝市</a>僅週日 07:00–12:00、免費停車；<a href="https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2943" target="_blank" rel="noopener">三嶋亭</a>定休火・水，12/14 週一營業。12 月忘年會旺季，個室要早訂。</li>
           </ul>
@@ -360,7 +313,7 @@
     </section>
 
     <section class="panel" aria-labelledby="routeTitle">
-      <div class="panel-head"><h2 id="routeTitle">自駕大縱走動線（五段）</h2><span class="hint">依原檔圖例還原為文字</span></div>
+      <div class="panel-head"><h2 id="routeTitle">自駕大縱走動線（四段）</h2><span class="hint">依原檔圖例還原為文字</span></div>
       <div class="panel-body">
         <ul class="leglist">
           <li><i style="background:var(--purple)"></i><span><b>Purple · Day 5–6 Arima &amp; Kobe Transition</b><br>有馬溫泉私人湯屋 → 神戶港 → Mouriya A5 → 和歌山</span></li>
@@ -376,28 +329,10 @@
       <div class="panel-head"><h2 id="flagsTitle">風險、死線與戰術守則</h2><span class="hint">逐項核對後勾選</span></div>
       <div class="panel-body" id="flags"></div>
       <div class="panel-body" style="padding-top:0">
-        <details class="diff">
-          <summary>與 v5 的差異 · 展開</summary>
-          <ul>
-            <li>全站用車統一為 <b>Toyota Sienna</b>（精確字串，行程、風險、死線、預約追蹤、5 封日文信與租車信全部同步），移除 GranAce／HiAce Grand Cabin 與其日文寫法。</li>
-            <li>新增<b>車輛查核面板</b>：Sienna 未在日本正規販售、官方租車車隊無此車、Sienta ≠ Sienna、Aeroplaza 08:00 才開店。租車信改為先問供應，不假設可訂。</li>
-            <li>租車信時間校正：貸出 07:00 → <b>08:00</b>、返却 18:20 → <b>17:45</b>（配合 v5 Day 10 的 17:45 還車）。</li>
-            <li>新增<b>三大錨點 ¥360,000（佔餐飲 48.8%）</b>與<b>預算凍結機制</b>：取消的高級餐費直接進天候緊急金，Day 10 返港前不釋放。</li>
-            <li>Day 6 車程由 2h／15:30 抵達 → <b>2.5h／16:00 Check-in</b>（含塞車估計）。</li>
-            <li>Day 7 全面改寫：鋼鐵死線 13:00（非 13:30）、山路 3.5–4h、伊勢 16:45 死線；<b>Plan B 改為留在和歌山／南紀白濱加宿或縮短行程</b>，並補上「伊勢晚餐＋Day 8 和田金必須連動取消」的缺口。</li>
-            <li>Day 8 和田金加書面總價／服務費／稅金／個室；伊勢龍蝦設為自願棄權；15:00 發車、17:30 抵臨空城。</li>
-            <li>Day 10 提前收手：Outlets 至 16:45、17:15 發車、17:45 還車、18:15 抵 T2（較 v4 早 45 分鐘）。</li>
-            <li>新增<b>今日 5 封日文電郵</b>（月光園、有馬御苑、天橋立住宿、伊勢志摩住宿、金之湯）與香港貼紙採購令；動線圖例改為 4 段。</li>
-            <li>Day 5 私人湯屋<b>未修正</b>：月光園 15:30／40 分鐘／非溫泉、有馬御苑無貸切風呂、金之湯官方未載刺青規則，三項依舊；查核面板保留。</li>
-          </ul>
-        </details>
+
         <div class="versionlinks">
           <a class="cta" href="booking-templates.html">日文／英文白紙黑字預約範本</a>
-          <a href="v5/">v5 鋼鐵執行版（GranAce）</a>
-          <a href="v4/">v4 最終校正版</a>
-          <a href="v3/">v3 10/10 極致執行版</a>
-          <a href="v2/">v2 誠實版預算行程</a>
-          <a href="v1/">v1 初版（5 人）</a>
+          <a class="cta" href="packing-list.html">→ 出發打包清單（可列印）</a>
         </div>
       </div>
     </section>
@@ -418,12 +353,10 @@
 </div>
 
 <div class="foot">
-  行程來源：你提供的「10/10 關西冬日海陸盛宴・極致執行版」文件（2026/11/9）。價格、定休、路況、房況與刺青規定仍須向店家最終確認；本頁不代為訂位，地圖為 Google Maps 搜尋連結而非導航保證。
-  Day 5 查核來源：<a href="https://travel.yahoo.co.jp/00030106/info/" target="_blank" rel="noopener">月光園 游月山荘 風呂資訊</a>、<a href="https://www.yukoyuko.net/2828/bath" target="_blank" rel="noopener">有馬御苑 風呂資訊</a>、<a href="https://mjkzo.com/arima/" target="_blank" rel="noopener">有馬刺青對應整理</a>、<a href="https://yuasobi.com/spots/kansai-kinki/hyogo/arima/" target="_blank" rel="noopener">日歸家族風呂列表</a>、<a href="https://choraku.com/faq/" target="_blank" rel="noopener">銀水荘 兆楽 FAQ</a>。<br>
-  v5 查核：<a href="https://www.hinotabi.com/mie/ise-shi/sun_events/12" target="_blank" rel="noopener">伊勢市 2026/12 日の入り</a>、<a href="https://www.driveplaza.com/dp/SearchQuick?startPlaceKana=%E5%92%8C%E6%AD%8C%E5%B1%B1&arrivePlaceKana=%E4%BC%8A%E5%8B%A2" target="_blank" rel="noopener">ドラぷら 和歌山→伊勢</a>、<a href="https://kosoku.jp/route.php?f=%E5%92%8C%E6%AD%8C%E5%B1%B1&t=%E4%BC%8A%E5%8B%A2&c=%E6%99%AE%E9%80%9A%E8%BB%8A" target="_blank" rel="noopener">高速料金検索</a>、<a href="https://search.w-nexco.co.jp/" target="_blank" rel="noopener">NEXCO ルート検索（所要時間不含休息）</a>。<br>
-  車輛查核：<a href="https://rent.toyota.co.jp/affiliate_rental/service/car/class/charge.aspx?searchKbn=4" target="_blank" rel="noopener">トヨタレンタカー官方車種一覧</a>、<a href="https://www.kansai-airport.or.jp/access/from-airport/rental-car" target="_blank" rel="noopener">KIX 租車櫃檯營業時間</a>、<a href="https://rent.toyota.co.jp/shop/?airport=0028" target="_blank" rel="noopener">トヨタレンタカー關西空港店</a>、<a href="https://news.yahoo.co.jp/articles/470a386ba9d25fd21baf14967bcec03338b93864?page=1" target="_blank" rel="noopener">Sienna 為北美專用車款</a>。<br>
+  行程來源：你提供的「10/10 關西冬日海陸盛宴」系列文件（2026/11/9）。價格、定休、路況、房況與刺青規定仍須向店家最終確認；本頁不代為訂位，地圖為 Google Maps 搜尋連結而非導航保證。
+  參考資料：<a href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s2812.html" target="_blank" rel="noopener">國立天文台 2026/12 大阪日の出入り</a>、<a href="https://www.hinotabi.com/mie/ise-shi/sun_events/12" target="_blank" rel="noopener">伊勢市 2026/12 日の入り</a>、<a href="https://www.pref.osaka.lg.jp/o120130/suisan/tab/asa.html" target="_blank" rel="noopener">田尻漁港日曜朝市</a>、<a href="https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2943" target="_blank" rel="noopener">三嶋亭（京都市觀光 Navi）</a>、<a href="https://www.taikounoyu.com/howto" target="_blank" rel="noopener">太閤の湯 ご利用案内</a>、<a href="https://travel.yahoo.co.jp/00030106/info/" target="_blank" rel="noopener">月光園 游月山荘 風呂資訊</a>、<a href="https://www.yukoyuko.net/2828/bath" target="_blank" rel="noopener">有馬御苑 風呂資訊</a>、<a href="https://www.driveplaza.com/dp/SearchQuick?startPlaceKana=%E5%92%8C%E6%AD%8C%E5%B1%B1&arrivePlaceKana=%E4%BC%8A%E5%8B%A2" target="_blank" rel="noopener">ドラぷら 和歌山→伊勢</a>、<a href="https://www.kansai-airport.or.jp/access/from-airport/rental-car" target="_blank" rel="noopener">KIX 租車櫃檯營業時間</a>。
   即時查核建議：<a href="https://www.jma.go.jp/" target="_blank" rel="noopener">氣象廳 JMA</a>、<a href="https://www.w-nexco.co.jp/" target="_blank" rel="noopener">NEXCO 西日本</a>。
-  狀態存於各自瀏覽器，家人之間不會同步；用匯出／匯入 JSON 傳遞。
+  狀態存於各自瀏覽器，家人之間不會同步；用匯出／匯入 JSON 傳遞。<a href="packing-list.html">出發打包檢查表（可列印）</a>。
 </div>
 
 <script>
@@ -481,12 +414,12 @@ const FLAGS = [
   {id:'f21', tag:'未閉合', title:'Day 7：13:00 + 4h = 17:00，晚於伊勢 16:47 日落', alert:true, body:'日の旅伊勢市 2026/12/19 日落 16:47（文件用 16:45 是保守值，合理）。13:00 + 3.5h = 16:30 尚可，+4h 已摸黑。要守住「不開黑夜冰雪山路」，鋼鐵死線應為 12:30，勝浦午餐改快閃／外帶。'},
   {id:'f22', tag:'連動', title:'Plan B 加宿時，伊勢晚餐與 Day 8 和田金都要取消', alert:true, body:'文件只寫改留和歌山／南紀白濱，沒寫連動。若當晚不在伊勢，18:30 牡蠣晚餐不成立；隔天也到不了松阪市和田金。¥50,000 需同時覆蓋改宿、餐食落差與後續車程。'},
   {id:'f23', tag:'措辭', title:'Day 8 17:30 抵達會比日落晚約 40 分鐘', body:'15:00 + 2.5h = 17:30；當地日落約 16:47–16:50。但這段是照明良好的高速公路，風險與熊野山路不同；把文案改成「走照明良好高速公路」即可，不必硬改行程。'},
-  {id:'f24', tag:'緩衝', title:'Day 10：18:15 抵 T2 → 21:05 起飛 = 2h50', ok:true, body:'17:15 離開 Outlets、17:30 加油、17:45 還車、18:15 到 T2。比 v4 的 19:00 提早 45 分鐘；「40 分鐘黃金緩衝」是舊標題。'},
-  {id:'f25', tag:'已修正', title:'五封日文信是「提問」不是「斷言」', ok:true, body:'月光園／有馬御苑兩封直接問 14:00 空檔、60 分鐘、6 人、金泉或銀泉、刺青與停車，寫法比前一版安全。兩封住宿信另補上大浴場貼紙與 Sienna 車高／車寬。金之湯信明問「貼紙可否」而非假設可。'},
+  {id:'f24', tag:'緩衝', title:'Day 10：18:15 抵 T2 → 21:05 起飛 = 2h50', ok:true, body:'17:15 離開 Outlets、17:30 加油、17:45 還車、18:15 到 T2。較原定 19:00 提早 45 分鐘。'},
+  {id:'f25', tag:'已修正', title:'五封日文信是「提問」不是「斷言」', ok:true, body:'月光園／有馬御苑兩封直接問 14:00 空檔、60 分鐘、6 人、金泉或銀泉、刺青與停車，寫法安全。兩封住宿信另補上大浴場貼紙與 Sienna 車高／車寬。金之湯信明問「貼紙可否」而非假設可。'},
   {id:'f26', tag:'物資', title:'貼紙香港先買、熱水實測 45 分鐘', body:'2 包＋1 包備用，嚴禁到日本才去 Donki 碰運氣；邊緣剝落即全面封殺策略 B。大面積刺青直接只用策略 A。'},
   {id:'f27', tag:'未解', title:'Toyota Sienna 在日本未正規販售，租車車隊也沒有', alert:true, body:'全站已依指示統一為 Toyota Sienna，但官方 W1/W3 車種一覧只有 シエンタ・プリウスα・アルファード・ヴェルファイア。租車信改為「先問能否供應」；替代車型須由對方書面提出、由你決定，不接受無聲換車。'},
   {id:'f28', tag:'未解', title:'Sienna ≠ Sienta；6 人＋3 大箱裝不進 Sienta', alert:true, body:'シエンタ約 4,260mm、Cap.5 / Bags3；シエナ約 5,175mm、7–8 座。名字相近但完全不同，別讓櫃檯「順手換成 Sienta」。'},
-  {id:'f29', tag:'查核', title:'Aeroplaza 租車櫃檯 08:00 才開店', alert:true, body:'KIX 官方頁與トヨタレンタカー關西空港店皆為 08:00–20:00。07:45 取車不成立；已把租車信貸出改 08:00、還車改 17:45（配合 v5 Day 10），並在 Day 1 標註朝市時段會被壓縮。'},
+  {id:'f29', tag:'查核', title:'Aeroplaza 租車櫃檯 08:00 才開店', alert:true, body:'KIX 官方頁與トヨタレンタカー關西空港店皆為 08:00–20:00。07:45 取車不成立；已把租車信貸出改 08:00、還車改 17:45（配合 Day 10），並在 Day 1 標註朝市時段會被壓縮。'},
 ];
 
 const BOOKABLES = [
@@ -523,7 +456,6 @@ const DAYS = [
     {t:'06:10', kind:'flight', title:'抵達 KIX T2・Aeroplaza 取車', desc:'入境、提行李；接駁車到機場分店提取 Toyota Sienna。確認信須寫明精確型號、雪胎、英文 GPS/CarPlay。', place:M('KIX Terminal 2','Kansai International Airport Terminal 2')},
     {t:'07:45\n08:00', kind:'rule', title:'嚴格取車出發', desc:'絕不盲目承諾 07:15 出發。⚠️ Aeroplaza 1F トヨタレンタカー 08:00 才開店，07:45 無法取車；最早 08:00 交車，08:15–10:30 田尻朝市時段會被壓縮，需向租車公司確認能否提前或改訂場外 06:00 起營業的業者。'},
     {t:'08:15\n10:30', kind:'meal', cost:8000, title:'田尻漁港日曜朝市', desc:'只收日圓現金；朝市僅週日 07:00–12:00、免費停車。必食炸星鰻天婦羅、章魚飯、牡蠣小屋炭火現烤。12/11（出發前 48h）上官網核實有無因惡劣天氣臨時休市；若休市立刻啟動方案 B：直接開車去【和歌山黑潮市場】（內設大型停車場、每日有吞拿魚解體秀），食完直接入京都。航班延誤超過 45 分鐘則放棄排隊的牡蠣小屋，改買速食，確保 10:30 必須發動車輛離開。', place:M('田尻漁港日曜朝市','田尻漁港 日曜朝市 大阪')},
-    {t:'10:30', kind:'luggage', title:'機場黑貓櫃檯寄 2 大箱 → 京都 MIMARU', desc:'Day 2 寄達，每箱約 ¥3,500。車上只留 1 大箱 + 3 軟包。運費歸交通預算，請保留單號。'},
     {t:'10:30\n12:30', kind:'drive', title:'高速公路直奔京都（planning time 2 小時）', desc:'後座家人在極寬敞的 Sienna 內大昏睡；這不是淨行車時間。'},
     {t:'13:00', kind:'stay', title:'入住 MIMARU 京都', desc:'Deluxe Apartment（6 張單人床）或 2-Bedroom Family Suite。確認信需寫明「Deluxe Apartment for 6 Single Beds / Two-Bedroom Family Suite」與「Max Occupancy: 6 Adults」，並確認 6 套成人寢具。', place:M('MIMARU 京都','MIMARU Kyoto'), book:'mimaru'},
     {t:'13:00\n17:30', kind:'note', title:'全家強制大補眠', desc:'紅眼航班體力極限，下午不排行程。'},
@@ -549,7 +481,7 @@ const DAYS = [
     {t:'傍晚', kind:'note', title:'返回海景別墅（同一住宿第二晚）', desc:'不需重新 Check-in。'}
   ]},
   {n:5, date:'12/17', wd:'週四', title:'有馬溫泉「私人湯屋（精算版・待確認）」→ 神戶港', region:'天橋立 → 有馬 → 神戶', drive:'南下 planning time 3h ｜ 15:15 離開有馬 ｜ 15:45 神戶 Check-in', items:[
-    {t:'09:30\n12:30', kind:'drive', title:'南下穿越山區前往有馬溫泉（planning time 3 小時）', desc:'比上一版再多抓 30 分鐘緩衝，12:30 抵達；不是淨行車時間。'},
+    {t:'09:30\n12:30', kind:'drive', title:'南下穿越山區前往有馬溫泉（planning time 3 小時）', desc:'再多抓 30 分鐘緩衝，12:30 抵達；不是淨行車時間。'},
     {t:'12:30\n13:30', kind:'meal', cost:15000, title:'有馬老街：有馬釜飯 Kamameshi', desc:'蒸蟹肉與章魚土鍋飯。', place:M('有馬溫泉 老街','有馬温泉 商店街')},
     {t:'14:00\n15:00', kind:'onsen', cost:18000, title:'私人湯屋（家族風呂 / 貸切風呂）・⚠️ 未成立', desc:'原文字：月光園 游月山荘或有馬御苑、60 分鐘、6 人同池、正宗金泉。查核後：月光園貸切風呂 15:30 才開放、每節 40 分鐘且官方寫明「不是溫泉」；有馬御苑沒有貸切風呂。四項條件都必須先向店家書面確認，否則這節會落空。建議改查御幸荘 花結び日歸展望金泉貸切露天風呂（11:30–14:30、45 分鐘、可容 6 名、6 人約 ¥13,200）。詳見本頁「Day 5 查核」與預約範本。', place:M('御幸荘 花結び','御幸荘 花結び 有馬温泉'), book:'taiko'},
     {t:'策略 A', kind:'rule', title:'🚨 刺青無憂令：徹底放棄太閤の湯', desc:'方向正確——太閤の湯官方是拒絕入館。文件指定今天內用日文範本 1／2 向【月光園 游月山荘】或【有馬御苑】提問；若紋身屬大面積大背／滿臂，直接取消策略 B、只走策略 A。同時建議向【御幸荘 花結び】問 14:00–14:45 日歸貸切。連結在「Day 5 查核」面板與預約範本頁。'},
@@ -575,7 +507,6 @@ const DAYS = [
   ]},
   {n:8, date:'12/20', wd:'週日', title:'聖殿級松阪市【和田金】 → 翻越半島回臨空城', region:'伊勢 → 松阪 → 臨空城', drive:'15:00 發車 ｜ 17:30 臨空城（2.5h 含 45–60 分鐘緩衝）', items:[
     {t:'上午', kind:'sight', title:'伊勢神宮托福橫丁', desc:'漫步江戶風情，品嚐熱騰騰的伊勢烏冬。', place:M('托福橫丁','伊勢神宮 おかげ横丁')},
-    {t:'上午', kind:'luggage', title:'黑貓逆向寄 2 大箱 → 臨空城 Star Gate', desc:'Day 9 寄達；減輕當日長途車的行李。'},
     {t:'12:30\n14:30', kind:'meal', cost:132000, title:'午餐：和田金 (Wadakin) 松 Course', desc:'榻榻米 6 人獨立個室，專人桌邊伺候。壽喜燒「松」¥19,600/人 + 10% 服務費，6 人 ¥132,000。10/10 審計：預約時必須取得書面總價、服務費、稅金及獨立包廂確認。', place:M('和田金 松阪市','和田金 松阪'), book:'wadakin'},
     {t:'14:30', kind:'meal', cost:12000, title:'[自願棄權] 碳烤伊勢龍蝦', desc:'直接設為自願棄權選項：若全家太飽或感到疲累，直接取消，15:00 必須發動車輛離開伊勢，確保下午駕駛安全。'},
     {t:'15:00', kind:'rule', title:'🚨 15:00 發車死線＋咖啡停頓', desc:'開車前強制咖啡停頓；planning time 預留 2.5 小時、含 45–60 分鐘充裕緩衝。查核：15:00+2.5h=17:30，比當地日落約 16:50 晚約 40 分鐘，但走的是照明良好的高速公路，不是熊野山路。'},
@@ -587,12 +518,12 @@ const DAYS = [
   ]},
   {n:10, date:'12/22', wd:'週二', title:'臨空城 Outlets 終極掃貨 → 18:15 抵達 T2', region:'臨空城 → KIX T2', drive:'17:15 離開 ｜ 17:45 還車 ｜ 18:15 T2', items:[
     {t:'11:30\n13:00', kind:'meal', cost:18000, title:'午餐：大起水產 特上迴轉壽司', desc:'臨空城內解決，保留下午完整購物時間。', place:M('大起水產 臨空城','大起水産 りんくう')},
-    {t:'13:00\n16:45', kind:'shop', title:'臨空城 Premium Outlets 終極掃貨（縮短至 16:45）', desc:'10/10 時間修正：比前一版提早收手。衣服與高級廚具買完直接塞進 Sienna 超大後車廂。', place:M('臨空城 Outlet','りんくうプレミアム・アウトレット')},
-    {t:'17:15', kind:'note', title:'準時發車離開臨空城（比 v4 提早 30 分鐘）', desc:'不再加碼，保留緩衝。'},
+    {t:'13:00\n16:45', kind:'shop', title:'臨空城 Premium Outlets 終極掃貨（縮短至 16:45）', desc:'10/10 時間修正：提早收手。衣服與高級廚具買完直接塞進 Sienna 超大後車廂。', place:M('臨空城 Outlet','りんくうプレミアム・アウトレット')},
+    {t:'17:15', kind:'note', title:'準時發車離開臨空城（提早 30 分鐘）', desc:'不再加碼，保留緩衝。'},
     {t:'17:30', kind:'drive', title:'機場旁加油站加滿 Regular 汽油'},
     {t:'17:45 前', kind:'drive', title:'抵達 Aeroplaza 還車', desc:'開過聯絡大橋抵達租車回櫃檯進行車輛檢查。', place:M('KIX Aeroplaza','関西空港 エアロプラザ')},
-    {t:'18:15 前', kind:'drive', title:'乘免費接駁巴士抵達 Terminal 2', desc:'為 6 位大人、大量購物袋與國際航班預留充裕緩衝。查核：18:15 到 T2 → 21:05 起飛 = 2 小時 50 分，比 v4 的 19:00 提早 45 分鐘；「40 分鐘黃金緩衝」是舊標題。'},
-    {t:'19:00', kind:'flight', title:'辦理登機（已非原始標題的 19:00 到櫃檯）'},
+    {t:'18:15 前', kind:'drive', title:'乘免費接駁巴士抵達 Terminal 2', desc:'為 6 位大人、大量購物袋與國際航班預留充裕緩衝。查核：18:15 到 T2 → 21:05 起飛 = 2 小時 50 分，較原定 19:00 提早 45 分鐘。'},
+    {t:'19:00', kind:'flight', title:'辦理登機（較原定 19:00 到櫃檯提早）'},
     {t:'21:05', kind:'flight', title:'航班起飛返回香港'}
   ]}
 ];
@@ -632,7 +563,7 @@ function renderBudget(){
   document.getElementById('budgetgrid').innerHTML = `
     <div class="bcell"><div class="n">${yen(CAT.meal)}</div><div class="l">頂級海陸餐飲 + 溫泉門票</div></div>
     <div class="bcell"><div class="n">${yen(CAT.stay)}</div><div class="l">9 晚精選住宿（平均 ¥55,000/晚）</div></div>
-    <div class="bcell"><div class="n">${yen(CAT.transport)}</div><div class="l">交通（租金・雪胎・油錢・路費・泊車・黑貓）</div></div>
+    <div class="bcell"><div class="n">${yen(CAT.transport)}</div><div class="l">交通（租金・雪胎・油錢・路費・泊車）</div></div>
     <div class="bcell total"><div class="n">${yen(TOTAL)}</div><div class="l">10 天總額 ｜ 全家每日 ${yen(TOTAL/10)}</div></div>
     <div class="bcell contingency"><div class="n">${yen(CONTINGENCY)}</div><div class="l">天候緊急預備金（額外現金）｜ 合計 ${yen(GRAND)}</div></div>`;
   document.getElementById('budgetrows').innerHTML = DAYS.map(d => {
@@ -852,7 +783,7 @@ window.addEventListener('beforeprint', () => document.querySelectorAll('.day.col
 document.getElementById('exportBtn').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify({app:KEY, exportedAt:new Date().toISOString(), state}, null, 2)], {type:'application/json'});
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob); a.download = 'kansai-family-trip-v6-state.json';
+  a.href = URL.createObjectURL(blob); a.download = 'kansai-family-trip-state.json';
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
 });

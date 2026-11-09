@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>關西自駕海陸大縱走 · 3男3女/6人 終極打包檢查表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5f2ea; --surface:#fffdf8; --surface-2:#faf7f0;
+    --ink:#231f1a; --muted:#756d60; --faint:#9a9182;
+    --line:#ddd5c4; --line-strong:#c9bfab;
+    --accent:#a63d2b; --accent-soft:#f4e5df;
+    --warn:#8a641c; --warn-soft:#f7eed7;
+    --ok:#3f6b52;
+    --serif:"Noto Serif TC","Songti TC",serif;
+    --sans:"Noto Sans TC","PingFang TC","Noto Sans CJK TC","Microsoft JhengHei",sans-serif;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  html[data-theme="dark"]{
+    --paper:#191713; --surface:#201d18; --surface-2:#262219;
+    --ink:#f2ece0; --muted:#a89e8c; --faint:#7e7565;
+    --line:#3a342b; --line-strong:#4d463a;
+    --accent:#e0836e; --accent-soft:#3a2621;
+    --warn:#d7b26a; --warn-soft:#352c1c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent)}
+  button{font:inherit;color:inherit;cursor:pointer}
+  .wrap{max-width:920px;margin:0 auto;padding:26px 22px 70px}
+  .back{font-size:12px;text-decoration:underline;text-underline-offset:2px}
+  h1{font-family:var(--serif);font-size:25px;line-height:1.4;margin:12px 0 4px}
+  .lede{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--faint);margin:0 0 12px}
+  .intro{font-size:13px;color:var(--muted);line-height:1.85;background:var(--surface);border:1px solid var(--line);padding:12px 15px;margin:0 0 12px}
+  .note{font-size:12px;color:var(--muted);background:var(--accent-soft);border:1px solid var(--accent);padding:9px 13px;margin:0 0 14px;line-height:1.8}
+  .note b{color:var(--accent)}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+  .ctl{background:var(--surface);border:1px solid var(--line-strong);border-radius:3px;padding:7px 12px;font-size:12px;min-height:36px;text-decoration:none;display:inline-flex;align-items:center}
+  .ctl:hover{border-color:var(--accent)}
+  .ctl.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .progressrow{display:flex;align-items:center;gap:12px;padding:9px 0 16px;border-top:1px solid var(--line)}
+  .bar{flex:1;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+  .stat{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+  .card{background:var(--surface);border:1px solid var(--line-strong);border-radius:3px;margin-bottom:20px}
+  .card-head{padding:12px 17px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+  .card-head h2{font-family:var(--serif);font-size:18px;margin:0}
+  .card-head .hint{font-size:11px;color:var(--muted)}
+  .card-body{padding:8px 17px 16px}
+  .rule{margin:9px 0;font-size:13px;line-height:1.8}
+  .hand{margin:16px 0 8px;font-size:12.5px;color:var(--muted);font-weight:700}
+  .assign{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-size:12.5px;padding:6px 0;color:var(--muted)}
+  .assign b{color:var(--ink);font-family:var(--mono);font-size:11px;min-width:130px}
+  .fill{display:inline-block;width:150px;border-bottom:1px solid var(--line-strong);height:1.1em}
+  .fill.wide{width:240px}
+  h3{font-size:14px;margin:20px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  h3 small{font-size:11px;font-weight:400;color:var(--faint);margin-left:8px}
+  .chk{display:grid;grid-template-columns:24px 1fr;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);align-items:start;cursor:pointer}
+  .chk:last-child{border-bottom:0}
+  .chk input{width:18px;height:18px;margin:4px 0 0;accent-color:var(--accent)}
+  .chk.done .t{text-decoration:line-through;color:var(--faint)}
+  .t{font-size:13px}
+  .t.warntext{color:var(--warn)}
+  .sub{display:block;font-size:12px;color:var(--muted);margin:3px 0 0 12px}
+  .warn{display:block;font-size:12px;color:var(--warn);background:var(--warn-soft);border-left:2px solid var(--warn);padding:6px 10px;margin:6px 0 0;line-height:1.75}
+  footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:11px;color:var(--faint);line-height:1.8}
+  @media (max-width:640px){
+    .wrap{padding:16px 14px 50px}
+    .fill{width:110px}
+    .fill.wide{width:160px}
+    .ctl,.chk input{min-height:44px}
+    .chk input{width:24px;height:24px}
+  }
+  @media print{
+    .back,.controls,.progressrow,footer{display:none!important}
+    body{background:#fff;color:#000;font-size:11pt}
+    .wrap{max-width:none;padding:0}
+    .intro,.note{background:#fff;border-color:#aaa}
+    .card{break-inside:avoid;border:1px solid #999;background:#fff}
+    .card-body{padding:4px 12px 10px}
+    .chk{padding:4px 0;break-inside:avoid}
+    .chk input{-webkit-appearance:none;appearance:none;width:13px;height:13px;border:1.5px solid #333;border-radius:0;margin:5px 0 0;position:relative}
+    .chk input:checked::after{content:'✓';position:absolute;left:1px;top:-4px;font-size:13px;font-weight:700;color:#000}
+    .sub,.warn{color:#333}
+    .warn{background:#fff;border-left-color:#666}
+    h3{break-after:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">← 返回 10/10 關西冬日海陸盛宴行程</a>
+  <h1>🧳 關西自駕海陸大縱走：3男3女/6人 終極打包檢查表</h1>
+  <p class="lede">「3大箱、3軟包、6人編制」終極出發打包清單 · 10/10 鋼鐵印刷版</p>
+  <p class="intro">這是一份完全為你和家人準備的「3大箱、3軟包、6人編制」終極出發打包清單（10/10 鋼鐵印刷版）。請直接將以下內容完整列印出來，分發給 3 男 3 女共 6 位成員。只要全家嚴格跟隨這份經過深度精算與日本冬季實戰驗證的清單打包，車廂空間與禦寒衣物將會達到 100% 的完美平衡，絕不會有任何現場行李爆箱或抱住行李拉車的尷尬場面！</p>
+  <p class="note">用車：<b>Toyota Sienna</b>。<b>3 個硬殼箱全程隨車</b>，因此請嚴守 65×45×25cm／20kg 上限，出發前與回程前各秤一次。</p>
+
+  <div class="controls">
+    <button class="ctl primary" id="printBtn" type="button">列印 / 另存 PDF</button>
+    <button class="ctl" id="resetBtn" type="button">清除所有勾選</button>
+    <button class="ctl" id="themeBtn" type="button">◐ 深淺色</button>
+    <a class="ctl" href="./">行程頁</a>
+  </div>
+  <div class="progressrow">
+    <div class="bar"><i id="barFill"></i></div>
+    <span class="stat" id="progressText">0 / 0 已勾選</span>
+  </div>
+
+  <main id="main"></main>
+
+  <footer>
+    清單來源：你提供的「3大箱、3軟包、6人編制」終極出發打包清單（2026/11/9）。勾選狀態存於各自瀏覽器、不會跨裝置同步；列印時會印出目前的勾選結果，建議列印 6 份分發給每位成員。
+  </footer>
+</div>
+
+<script>
+"use strict";
+const SECTIONS = [
+  {id:'core', title:'📌 【核心鐵律】三大行李箱分配系統', plain:[
+    '• 分配原則：以「同房配對」為單位，每 2 人共用一個行李箱。不是按性別分，亦不是按情侶分，是按酒店同房組合分。',
+    '• 配備極限：全家總共只能帶 3 個 24吋硬殼行李箱（最大體積 65cm x 45cm x 25cm，每箱嚴格限重 20kg 內）+ 3 個 40L 軟質手提旅行袋 (Duffel) + 6 個隨身一日背包。'
+  ], assign:true},
+
+  {id:'personal', title:'🧍‍♂️ 【個人打包清單】', note:'每位成員各自準備，直接打勾 ☑️', nameLine:true, groups:[
+    {name:'👕 衣物穿搭與保暖層', sub:'以「4天份量、Day 2 必清洗」精簡原則', items:[
+      {t:'• 3 件 Heattech 保暖內衣（高階修正）：', sub:[
+        '2 件 Ultra Warm（超極暖） 供戶外使用。',
+        '1 件 普通/極暖（Regular/Extra Warm） 供室內使用。'
+      ], warn:'🚨 10/10 修正警告： 嚴禁帶 3 件超極暖！日本室內與京都餐廳的暖氣極強，全天穿超極暖在室內會熱到滿頭大汗。'},
+      {t:'• 2 件 Heattech 保暖長褲 / 內搭褲 (Leggings)。'},
+      {t:'• 2 件 中層保暖衣：1 件抓毛絨 (Fleece) ＋ 1 件針織衫或羊毛開襟毛衣 (Cardigan)。'},
+      {t:'• 2 條 長褲：刷毛防風牛仔褲或厚身工裝褲。（1條起飛當日穿著，1條放入行李箱）。'},
+      {t:'• 5 套 內衣褲（硬核追加）：由 4 套增至 5 套，全面防範冬日遇雨、出汗或京都酒店洗衣機突發故障。'},
+      {t:'• 5 雙 Merino 羊毛襪：極速快乾、高保暖、吸汗排味。'},
+      {t:'• 1 件 頂級羽絨或防風大褸：【出發當日直接穿上機】，絕對不要佔用行李箱空間。'},
+      {t:'• 1 套 睡衣褲：直接塞進 40L 軟質手提旅行袋中，方便第一晚抵達時隨手拿取。'}
+    ]},
+    {name:'🧣 冬季海岸防風配件', sub:'海之京都、伊根 fierce 寒風必備', items:[
+      {t:'• 1 個 防風保暖冷帽 (Beanie)：出海餵海鷹與漫步舟屋時保命。'},
+      {t:'• 1 條 舒適圍巾 (Scarf)。'},
+      {t:'• 1 雙 觸控防風手套：確保戴住手套仍能流暢用手機為頂級美食相機食先。'}
+    ]},
+    {name:'👟 鞋履鐵律', items:[
+      {t:'• 1 雙 舒適、防滑且防水的步行鞋或短靴：【出發當日直接穿上機】。'},
+      {t:'• 最多只帶 1 雙輕便替換鞋（除非極度需要，否則不帶）。'},
+      {t:'• 🚨 老饕提醒： 嚴禁帶高跟鞋或正式皮鞋！ 三嶋亭與和田金等頂級和牛聖殿均是日式榻榻米，你在大門口就必須脫鞋。一雙體面、無破洞、乾淨的羊毛襪，比任何名牌高級皮鞋更重要。', warnOnly:true}
+    ]}
+  ]},
+
+  {id:'shared', title:'🧳 【同房雙人行李箱清單】', note:'每 1 個 24吋硬殼箱裝 2 人份量', groups:[
+    {name:'每箱配備', items:[
+      {t:'• 4 個 旅行加厚真空/拉鍊壓縮袋：每人分配 2 個。預期可節省約 30% 的衣物空間，絕非誇大的 50%，請老實塞納。'},
+      {t:'• 1 包 快速溶解洗衣紙：【嚴禁帶洗衣球/膠囊】！洗衣球在低溫水洗時經常無法完全溶解並會殘留膠膜，洗衣紙是公寓洗衣最完美的選擇。'},
+      {t:'• 1 包 膚色防水刺青遮蓋貼紙（2包 + 1包備用）：', warn:'🚨 10/10 刺青測試： 有紋身的女性成員必須在香港家中浴缸完成 45-60 分鐘熱水實測！ 確保貼紙邊緣完全不剝落。若實測失敗，Day 5 直接全面封殺公共【金之湯】備案，100% 只走 Strategy A 私人湯屋。'},
+      {t:'• 1 個 輕便行李電子秤（全集團共用 1 個即可）：出發前和回程前，確保每個硬殼箱在 20kg 以下，以便司機輕鬆搬運上 Toyota Sienna。'},
+      {t:'• 1 袋 護膚品/化妝品（旅行細瓶裝）：MIMARU 與 Star Gate 酒店均提供頂級大牌洗頭水、護髮素、沐浴露、剃鬚刀及牙刷。將所有大樽裝留在香港！'},
+      {t:'• 1 樽 高保濕冬日面霜/潤膚膏：12月的關西和海之京都空氣極度乾燥，高強度保濕不可或缺。'},
+      {t:'• 1 樽 卸妝水（旅行裝，如需要）。'},
+      {t:'• 1 樽 髮蠟 / 定型啫喱（旅行裝，如需要）。'}
+    ]}
+  ]},
+
+  {id:'duffel', title:'🛍️ 【40L 軟質手提旅行袋 (Duffel)】', note:'每 2 人分配 1 個', groups:[
+    {name:'去程硬性規條', items:[
+      {t:'• 1 個 骯髒衣物收納袋：與乾淨衣物完美隔離。'},
+      {t:'• 【去程硬性規條】：出發當日此軟包必須保持接近「完全清空」狀態！', sub:[
+        '回程時用來塞笨重的冬日大褸，或者在 Day 10 臨空城 Outlets 大採購時，用來裝免稅的休閒服飾與廚具。'
+      ], warn:'🚨 空間警告： 絕對不允許將第 4 個硬殼箱塞在軟包內！ 軟包必須能夠隨意擠壓、變形，才能完美嵌進 Toyota Sienna 的剩餘車尾空間。'}
+    ]}
+  ]},
+
+  {id:'daypack', title:'🎒 【隨身一日背包 (Daypack)】', note:'每人 1 個，隨身上機', groups:[
+    {name:'隨身物', items:[
+      {t:'• 個人手機、充電線、高容量行動電源 (Power Bank)。'},
+      {t:'• 1 個 摺疊式隨身水樽：喝完即可壓扁收納，節省一日背包空間，避開一路上重覆購買膠樽裝水。'},
+      {t:'• 1 套 備用保暖層：多帶一件 Heattech 內衣或薄抓毛絨塞在背包，應對飛機冷氣與 Day 1 田尻朝市清晨的海風。'},
+      {t:'• ¥30,000 日圓現金細鈔/硬幣：由總管放於一日背包內，落地立刻放進 Toyota Sienna 車廂手套箱，專供 10 天大縱走的硬幣泊車標桿。'}
+    ]}
+  ]},
+
+  {id:'driver', title:'🪪 【僅限司機成員】', note:'出發前最終檢查，缺一不可', groups:[
+    {name:'證件與保險', items:[
+      {t:'• 香港有效身份證 ＋ 香港正式駕駛執照（必須攜帶實體卡）。'},
+      {t:'• 香港運輸署簽發的國際駕駛許可證 (IDP)（必須攜帶實體紙本）：', sub:[
+        '🚨 10/10 法律核實： 確保該 IDP 屬於 1949年公約 (1949 Convention) 版本，且處於簽發後 1 年的有效期內。',
+        '🚨 車種准許核實： 確保你的香港正牌與申請 TD51 表格時，已正確勾選對應保姆車/大客車的車輛類別。'
+      ]},
+      {t:'• 合約最終核對：今天內與日本租車公司書面確認，所有登記司機的名字皆已正式列入保險許可範圍，確保大縱走輪換時 100% 合法受保。'}
+    ]}
+  ]}
+];
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const KEY='kansai-2026-packing-list';
+let mem=null;
+function load(){ try{const r=localStorage.getItem(KEY); if(r) return JSON.parse(r);}catch(e){} return mem||{}; }
+function save(s){ mem=s; try{localStorage.setItem(KEY,JSON.stringify(s));}catch(e){} }
+let state=Object.assign({done:{},theme:'light'},load());
+const allIds=[];
+SECTIONS.forEach((s,si)=>(s.groups||[]).forEach((g,gi)=>g.items.forEach((it,ii)=>allIds.push(`${s.id}-${gi}-${ii}`))));
+const total=allIds.length;
+
+function render(){
+  document.getElementById('main').innerHTML = SECTIONS.map(s=>{
+    let body='';
+    if(s.plain) body += s.plain.map(x=>`<p class="rule">${esc(x)}</p>`).join('');
+    if(s.assign){
+      body += '<p class="hand">✍️ 請在此手寫填上房間與行李箱分配名單：</p>';
+      body += ['行李箱 1 (房型 A)','行李箱 2 (房型 B)','行李箱 3 (房型 C)']
+        .map(x=>`<div class="assign"><b>${x}</b>：成員 <span class="fill"></span> ＋ 成員 <span class="fill"></span></div>`).join('');
+    }
+    if(s.nameLine) body += '<p class="hand">成員姓名：<span class="fill wide"></span>　（請列印 6 份，每位成員各自勾選）</p>';
+    (s.groups||[]).forEach((g,gi)=>{
+      body += `<h3>${esc(g.name)}${g.sub?`<small>${esc(g.sub)}</small>`:''}</h3>`;
+      body += g.items.map((it,ii)=>{
+        const id=`${s.id}-${gi}-${ii}`;
+        return `<label class="chk ${state.done[id]?'done':''}" data-row="${id}">
+          <input type="checkbox" data-check="${id}" ${state.done[id]?'checked':''}>
+          <span><span class="t ${it.warnOnly?'warntext':''}">${esc(it.t)}</span>
+          ${(it.sub||[]).map(x=>`<span class="sub">• ${esc(x)}</span>`).join('')}
+          ${it.warn?`<span class="warn">${esc(it.warn)}</span>`:''}
+          </span></label>`;
+      }).join('');
+    });
+    return `<section class="card"><div class="card-head"><h2>${esc(s.title)}</h2>${s.note?`<span class="hint">${esc(s.note)}</span>`:''}</div><div class="card-body">${body}</div></section>`;
+  }).join('');
+  refresh();
+}
+function refresh(){
+  const n=allIds.filter(id=>state.done[id]).length;
+  document.getElementById('barFill').style.width=(100*n/total).toFixed(1)+'%';
+  document.getElementById('progressText').textContent=`${n} / ${total} 已勾選`;
+}
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.matches('input[data-check]')){
+    const id=t.getAttribute('data-check');
+    state.done[id]=t.checked;
+    t.closest('.chk').classList.toggle('done',t.checked);
+    save(state); refresh();
+  }
+});
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  state.theme=state.theme==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',state.theme); save(state);
+});
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  if(!confirm('清除所有打包勾選？')) return;
+  state.done={}; save(state); render();
+});
+document.documentElement.setAttribute('data-theme',state.theme);
+render();
+</script>
+</body>
+</html>
