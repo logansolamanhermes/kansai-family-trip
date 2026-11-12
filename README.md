@@ -6,7 +6,7 @@ Interactive 10-day / 9-night Kansai winter itinerary (Dec 13–22, 2026): two tr
 
 ## Pages
 - `index.html` — main itinerary plus embedded packing checklist: 10 day cards, a 10-row "日日有高潮" highlight table with star ratings, a 4-bedroom Airbnb area-selection panel (Kyoto/Osaka districts + 4 booking filters), per-item checkboxes, notes, booking tracker, budget table, search/filters, handwriting fields and 31 packing checkboxes.
-- `booking-templates.html` — Japanese / English copy-paste letters with one-click copy (retained from the previous version).
+- `booking-templates.html` — 12 Japanese / English copy-paste letters with one-click copy: car rental, Airbnb landlord (parking / ground-floor room / heating / licence), Kyoto and Osaka 4-bedroom houses, Amanohashidate and Arima ryokan, Mishima-tei, Day 5 kaiseki, Mouriya, Genpin fugu, Kuroshio Market, Matsusaka Beef Yakiniku M.
 
 ## Features
 - Route: KIX → Tajiri morning market → Amanohashidate onsen → Ine → Kyoto base (Nara / Uji day trips) → Arima onsen → Kobe → Osaka base (Wakayama day trip) → Rinku Outlets → KIX. "先遠後近", no backtracking, no daily luggage moves.
@@ -18,5 +18,5 @@ Interactive 10-day / 9-night Kansai winter itinerary (Dec 13–22, 2026): two tr
 - State is per-browser / per-device, not shared between family members. Use the JSON export/import buttons to pass a filled-in plan around. The packing checklist lives in the same page and shares its state; "只列印打包清單" prints only that section.
 - `.nojekyll` disables Jekyll processing on GitHub Pages.
 - Vehicle is specified as **Toyota Sienna** throughout. Airbnb parking clearance uses 5.3m × 1.97m as the minimum to also cover GranAce / Odyssey.
-- The retained `booking-templates.html` and the legacy f1–f29 audit flags describe the earlier "海陸大縱走" route (Wakayama → Ise, Wadakin, Taiko-no-yu). They are kept as requested but no longer describe the current itinerary; the page's audit panel states which checks still apply.
+- All 12 booking letters and the 17 audit flags now match the current itinerary; the old "海陸大縱走" route (Wakayama → Ise, Wadakin, Taiko-no-yu day trip) is no longer referenced as an active plan.
 - This is a public repository: anyone with the URL can view the pages and their source.
