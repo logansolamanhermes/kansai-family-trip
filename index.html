@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>10/10 關西冬日海陸盛宴 · 鋼鐵執行版</title>
+<title>10天9夜 日日有高潮 · 關西家族自駕（12/13–12/22）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
@@ -242,15 +242,31 @@
     .pk-card{break-inside:avoid;border-color:#999;background:#fff}
     .pk-chk{break-inside:avoid;padding:4px 0}
   }
+
+  .hl-table td{vertical-align:top}
+  .hl-table td:first-child{width:76px}
+  .hl-table td:nth-child(2){width:150px}
+  .hl-table td.stars{width:110px;white-space:nowrap;text-align:center;font-size:12px}
+  .hl-table td.stars small{color:var(--muted);font-size:10px;white-space:normal;display:block}
+  .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
+  .area-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+  .area-card h3{margin:0 0 8px;font-family:var(--serif);font-size:14px}
+  .area-card ul{margin:0;padding-left:18px;font-size:12px;color:var(--muted);line-height:1.8}
+  .area-card b{color:var(--ink)}
+  .filter-head{font-family:var(--serif);font-size:14px;margin:14px 0 8px}
+  .filter-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;font-size:12px;color:var(--muted);line-height:1.75}
+  .filter-grid>div{border-top:1px dashed var(--line);padding-top:8px}
+  .filter-grid b{color:var(--ink)}
+  @media(max-width:900px){.area-grid,.filter-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="topbar">
   <div class="topbar-in">
     <div class="brandrow">
-      <h1 class="brand">10/10 關西冬日海陸盛宴<small>鋼鐵執行版 · 作戰計劃書 · 12/13–12/22 · 6 人自駕</small></h1>
-      <span class="locked">6 人編制已鎖定</span>
-      <span class="countbadge">距離出發 34 天</span>
+      <h1 class="brand">10天9夜「日日有高潮」<small>兩位長輩＋12/18 第6人會合 · 雙溫泉一泊二食 · 4房民宿定點慢活 · 12/13–12/22</small></h1>
+      <span class="locked">5 人出發 · 12/18 起 6 人</span>
+      <span class="countbadge">距離出發 31 天（11/12）</span>
       <div class="controls">
         <input id="search" class="ctl search" type="search" placeholder="搜尋行程…（按 /）" aria-label="搜尋行程">
         <button id="expandAll" class="ctl" type="button">全部展開</button>
@@ -270,7 +286,7 @@
       <span class="stat" id="bookingText">0 / 0 已確認訂位</span>
       <span class="stat" id="deadlineText">0 / 0 今日死線</span>
       <span class="stat" id="packingText">0 / 0 已打包</span>
-      <span class="stat" id="planText">Day 7：Plan A 晴天</span>
+      <span class="stat" id="planText">Day 7：神戶牛＋河豚雙高潮</span>
     </div>
   </div>
 </header>
@@ -285,7 +301,7 @@
       <strong>去程</strong> 12/13（日）06:10 KIX T2<br>
       <strong>回程</strong> 12/22（二）21:05 KIX T2 → 香港<br>
       <strong>用車</strong> Toyota Sienna＋雪胎<br><br>
-      所有 planning time 已含緩衝，不是淨行車時間。日落死線以 <strong>16:47</strong> 為保守值；山區入黑更早。<br><br>
+      所有 planning time 已含緩衝，不是淨行車時間。日落死線以 <strong>16:47</strong> 為保守值；山區入黑更早。<br><br><strong>長輩</strong> 兩位 60 歲以上同行；<strong>第6人</strong> 12/18 會合。<br><br>
       <strong>打包</strong> <a href="#packing" style="color:var(--accent)">3大箱・3軟包・6人 檢查表 ↗</a><br><br>
       勾選、訂位、實付、備註、Day 7 方案皆存於此瀏覽器；用「匯出 JSON」帶走。
     </div>
@@ -296,7 +312,7 @@
       <div class="panel-head">
         <h2 id="dueTitle">10/10 執行死線 · 白紙黑字確認信</h2>
         <span class="hint">不接受「同級車款」「差不多房型」等含糊詞彙</span>
-        <span class="due" id="dueBadge">11/9（一）今天內</span>
+        <span class="due" id="dueBadge">11/12–13 兩日內</span>
       </div>
       <div class="panel-body" id="deadlines"></div>
       <div class="panel-body" style="padding-top:0">
@@ -327,9 +343,10 @@
       <div class="panel-body">
         <div class="budgetgrid" id="budgetgrid"></div>
         <p class="budgetnote">
-          全家每日約 ¥153,200 ≈ <b>HK$8,100</b>（每人每日約 HK$1,350）。<b>鐵律一・三大錨點：</b>Day 3 蟹宴 ¥90,000、Day 6 神戶牛 ¥138,000、Day 8 松阪牛 ¥132,000 合計 <b>¥360,000</b>（餐飲分類的 48.8%），嚴禁現場盲目追加加點。<b>鐵律二・預算凍結：</b>任一高級午餐／蟹宴因天候取消，省下的錢不得自動轉為當晚加菜或購物，立刻進入天候緊急金，Day 10 安全返港後才釋放。<br>
-          <b>防線一</b> ¥30,000 硬幣／細鈔放 Sienna 手套箱（投幣泊車）；<b>防線二</b> ¥50,000 天候緊急預備金獨立存放（Day 7 改道加宿）。兩者皆為額外現金，不計入 ¥1,532,000；連同預備金的現金需求 ¥1,582,000。<br>
-          逐日餐飲・體驗細項 ¥750,000 比分類 ¥737,000 多 ¥13,000（伊根船資 ¥5,000 + 田尻朝市 ¥8,000）。Day 7 以 Plan A 計；Plan B 除少 ¥24,000 吞拿魚，還要取消 ¥30,000 伊勢晚餐與 Day 8 和田金。Day 5 湯屋抓 ¥18,000，改訂御幸荘 花結び（6 人約 ¥13,200）可再省約 ¥4,800。
+          全家每日約 ¥153,200 ≈ <b>HK$8,100</b>（每人每日約 HK$1,350）。<b>鐵律・三大錨點：</b>Day 1 天橋立活松葉蟹一泊二食、Day 7 Mouriya A5 沙朗 ¥138,000、Day 9 松阪牛燒肉 M，合計仍以分類總額控管，嚴禁現場盲目追加加點。<b>鐵律二・預算凍結：</b>任一高級餐因天候取消，省下的錢不得自動轉為當晚加菜或購物，立刻進入天候緊急金，Day 10 安全返港後才釋放。<br>
+          <b>防線一</b> ¥30,000 硬幣／細鈔放 Sienna 手套箱（投幣泊車）；<b>防線二</b> ¥50,000 天候緊急預備金獨立存放。兩者皆為額外現金，不計入 ¥1,532,000；連同預備金的現金需求 ¥1,582,000。<br>
+          分類總額與下方逐日實付表維持原設定（你要求「預算面板保持不變」）；新版行程嘅逐日餐飲細項已重排，下方「餐飲・體驗（計劃）」只反映本頁各日已標價項目，與分類總額嘅差額請以分類總額為準。
+        </p>
         </p>
         <div style="overflow-x:auto">
           <table class="data" id="budgettable">
@@ -340,31 +357,94 @@
       </div>
     </section>
 
+
+    <section class="panel" id="highlights" aria-labelledby="highlightTitle">
+      <div class="panel-head"><h2 id="highlightTitle">🏆 10天9夜「日日有高潮」一覽表</h2><span class="hint">你提供的 10 日逐日檢視 · 9 日五星＋1 日四星</span></div>
+      <div class="panel-body" style="overflow-x:auto">
+        <table class="data hl-table">
+          <thead><tr><th>日期</th><th>住宿定點</th><th>當天核心高潮位</th><th>評級</th></tr></thead>
+          <tbody>
+            <tr><td class="d">D1<br>12/13 日</td><td>天橋立溫泉旅館<br>（一泊二食）</td><td><b>雙重海鮮大爆發</b>：清晨落地直衝田尻漁港日曜朝市（即炸星鰻＋炭烤生蠔），夜晚喺天橋立旅館歎冬季活松葉蟹一泊二食全餐。</td><td class="stars">⭐⭐⭐⭐⭐<br><small>極致鮮甜開局</small></td></tr>
+            <tr><td class="d">D2<br>12/14 一</td><td>京都 4房 Airbnb<br>連住4晚・第1晚</td><td><b>海上舟屋＋冬日寒鰤魚</b>：包私人海上計程車近距離餵海鷹，中午喺舟屋日和食油脂炸裂嘅寒鰤魚涮涮鍋，下午去向井酒造買紅清酒。</td><td class="stars">⭐⭐⭐⭐⭐<br><small>景色與冬魚雙絕</small></td></tr>
+            <tr><td class="d">D3<br>12/15 二</td><td>京都 4房 Airbnb<br>第2晚</td><td><b>百年和牛壽喜燒</b>：午市包廂歎三嶋亭總店專人現煎黑毛和牛壽喜燒；夜晚歎鴨川兩百年老店鳥彌三極濃雞水炊鍋。</td><td class="stars">⭐⭐⭐⭐⭐<br><small>古都百年傳統巔峰</small></td></tr>
+            <tr><td class="d">D4<br>12/16 三</td><td>京都 4房 Airbnb<br>第3晚</td><td><b>奈良餵鹿＋百年釜飯</b>：帶長輩輕鬆行平路睇東大寺大佛、奈良公園餵鹿影全家福，中午食排隊名店志津香現煮七種釜飯。</td><td class="stars">⭐⭐⭐⭐☆<br><small>長輩最輕鬆開心</small></td></tr>
+            <tr><td class="d">D5<br>12/17 四</td><td>京都 4房 Airbnb<br>第4晚</td><td><b>升級高潮：宇治抹茶＋京都米其林京懷石／私房和牛火鍋</b>：下午去宇治中村藤吉歎頂級抹茶甜品；夜晚改為預訂京都頂級京割烹（如祇園川上），或者喺百貨買齊 A5 宮崎牛／近江牛＋海膽，返 4 房民宿開一場「包棟私房頂級涮涮鍋派對」。</td><td class="stars">⭐⭐⭐⭐⭐<br><small>升級後零冷場</small></td></tr>
+            <tr><td class="d">D6<br>12/18 五</td><td>有馬溫泉旅館<br>（一泊二食）</td><td><b>6人齊人＋千年金泉溫泉</b>：迎接第6位成員會合！全家 6 口入住有馬溫泉旅館，喺私人貸切風呂一齊浸正宗金泉（無刺青煩惱），夜晚歎神戶牛溫泉會席一泊二食。</td><td class="stars">⭐⭐⭐⭐⭐<br><small>大團圓溫泉夜</small></td></tr>
+            <tr><td class="d">D7<br>12/19 六</td><td>大阪 4房 Airbnb<br>連住3晚・第1晚</td><td><b>A5 神戶牛鐵板燒＋虎河豚全餐</b>：中午喺神戶 Mouriya 總店食極上 A5 沙朗鐵板燒；夜晚返到大阪即刻歎玄品河豚 6 人虎河豚全餐（刺身＋炸河豚＋河豚火鍋雜炊）。</td><td class="stars">⭐⭐⭐⭐⭐<br><small>全行程最奢華一日</small></td></tr>
+            <tr><td class="d">D8<br>12/20 日</td><td>大阪 4房 Airbnb<br>第2晚</td><td><b>吞拿魚解體秀＋幻之九繪魚</b>：上午去和歌山黑潮市場睇現場原條藍鰭吞拿魚解體＋食大拖羅丼；夜晚食和歌山冬季限定、充滿骨膠原嘅野生九繪魚火鍋。</td><td class="stars">⭐⭐⭐⭐⭐<br><small>深海極品海鮮日</small></td></tr>
+            <tr><td class="d">D9<br>12/21 一</td><td>大阪 4房 Airbnb<br>第3晚</td><td><b>頂級百貨掃貨＋松阪牛燒肉晚宴</b>：白天掃盡難波高島屋／梅田阪急白士多啤梨與名酒；夜晚喺松阪牛燒肉 M 包廂食勻全牛稀有部位，為旅程最後一晚乾杯。</td><td class="stars">⭐⭐⭐⭐⭐<br><small>完美壓軸晚宴</small></td></tr>
+            <tr><td class="d">D10<br>12/22 二</td><td>返程日<br>21:05 航班</td><td><b>臨空城 Outlets 終極掃貨</b>：退房後直奔機場對岸 Rinku Premium Outlets 進行最後免稅血拼，買完直接塞入保姆車尾箱，5 分鐘直達機場還車返港。</td><td class="stars">⭐⭐⭐⭐☆<br><small>滿載而歸無壓力</small></td></tr>
+          </tbody>
+        </table>
+        <p class="budgetnote">整體 10 日有 9 日五星、1 日四星高潮位。原 Day 5 只排宇治＋超市自理，已升級為京懷石或包棟私房 A5 和牛火鍋派對。</p>
+      </div>
+    </section>
+
     <section class="panel" aria-labelledby="auditTitle">
       <div class="panel-head"><h2 id="auditTitle">查核結果（我方實查）</h2><span class="hint">文件內可被驗證的數字與規定</span></div>
       <div class="panel-body">
         <div class="audit">
           <ul>
-            <li><b>34 天與星期全對：</b>2026/11/9（一）→ 12/13（日）為 34 天；12/13 日、12/14 一、12/15 二、12/16 三、12/17 四、12/18 五、12/19 六、12/20 日、12/21 一、12/22 二，與文件完全一致。12/17 確為週四，適用平日價。</li>
-            <li><b>刺青令：</b>查核<a href="https://www.taikounoyu.com/howto" target="_blank" rel="noopener">太閤の湯官方</a>「入れ墨（タトゥー）…ご入館はお断り」是拒絕入館；因此徹底放棄太閤の湯。但指定的月光園 游月山荘貸切風呂 <b>15:30 才開放、40 分鐘、且官方寫明不是溫泉</b>；有馬御苑<b>根本沒有貸切風呂</b>；金之湯官方<b>未載刺青規則</b>。四項條件全需書面確認，詳見上方「Day 5 查核」。</li>
-            <li><b>16:47 是保守死線；12/17 大阪實際 16:49：</b><a href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s2812.html" target="_blank" rel="noopener">國立天文台 2026 年 12 月大阪日の出入り</a>：12/1–12/10 為 16:47，12/17 為 16:49。新版 15:45 神戶 Check-in 距日落約 62–64 分鐘，「還有 1 小時」成立；山區仍更早暗，16:30 前抵達的原則不變。</li>
-            <li><b>已核對：</b><a href="https://www.pref.osaka.lg.jp/o120130/suisan/tab/asa.html" target="_blank" rel="noopener">田尻漁港日曜朝市</a>僅週日 07:00–12:00、免費停車；<a href="https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2943" target="_blank" rel="noopener">三嶋亭</a>定休火・水，12/14 週一營業。12 月忘年會旺季，個室要早訂。</li>
+            <li><b>日期與星期全對：</b>2026/11/12（四）→ 12/13（日）為 <b>31 天</b>；12/13 日、12/14 一、12/15 二、12/16 三、12/17 四、12/18 五、12/19 六、12/20 日、12/21 一、12/22 二，與你提供嘅表完全一致。</li>
+            <li><b>入住定點對數：</b>天橋立溫泉 1 晚（12/13）＋京都 4 房民宿 4 晚（12/14–17）＋有馬溫泉 1 晚（12/18）＋大阪 4 房民宿 3 晚（12/19–21）= <b>9 晚</b>，雙溫泉一泊二食成立。</li>
+            <li><b>人數節奏：</b>12/13–12/17 為 5 位（兩位長輩同行），<b>12/18 第 6 位會合</b>，12/18–12/22 為 6 位。三嶋亭（12/15）與 Day 5 晚宴仍按 5 位訂；有馬旅館、Mouriya、玄品河豚、松阪牛燒肉 M 按 6 位訂。</li>
+            <li><b>16:47 是保守死線；12/17 大阪實際 16:49：</b><a href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s2812.html" target="_blank" rel="noopener">國立天文台 2026 年 12 月大阪日の出入り</a>。Day 4 奈良、Day 8 和歌山都安排 16:47 前返到市區；山區仍更早暗。</li>
+            <li><b>已核對：</b><a href="https://www.pref.osaka.lg.jp/o120130/suisan/tab/asa.html" target="_blank" rel="noopener">田尻漁港日曜朝市</a>僅週日 07:00–12:00、免費停車；<a href="https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2943" target="_blank" rel="noopener">三嶋亭</a>定休火・水，12/15 週二營業。12 月忘年會旺季，個室要早訂。</li>
+            <li><b>刺青令仍有效：</b><a href="https://www.taikounoyu.com/howto" target="_blank" rel="noopener">太閤の湯官方</a>「入れ墨…ご入館はお断り」是拒絕入館；月光園游月山荘貸切風呂 15:30 才開放、40 分鐘且官方寫明不是溫泉；有馬御苑沒有貸切風呂。Day 6 嘅「私人貸切金泉 6 人同池」必須用<a href="booking-templates.html">預約範本</a>書面問清楚，唔好假設「私人就無刺青煩惱」。</li>
+            <li><b>用車：</b>全站依指示維持 <b>Toyota Sienna</b>。你最新嘅 Airbnb 選址提示以 GranAce／Odyssey 舉例，因此車位篩選以最長 5.3m／最寬 1.97m 為最低門檻，確保任何一款大型保姆車都停得落。</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="panel" aria-labelledby="routeTitle">
-      <div class="panel-head"><h2 id="routeTitle">自駕大縱走動線（四段）</h2><span class="hint">依原檔圖例還原為文字</span></div>
+      <div class="panel-head"><h2 id="routeTitle">自駕動線（先遠後近・唔走回頭路）</h2><span class="hint">依原檔圖例還原為文字</span></div>
       <div class="panel-body">
         <ul class="leglist">
-          <li><i style="background:var(--purple)"></i><span><b>Purple · Day 5–6 Arima &amp; Kobe Transition</b><br>有馬溫泉私人湯屋 → 神戶港 → Mouriya A5 → 和歌山</span></li>
-          <li><i style="background:var(--orange)"></i><span><b>Orange · Day 7 Coastal &amp; Inland Routes (Plan A/B)</b><br>Plan A 勝浦海岸＋熊野山路；Plan B 內陸改道／留和歌山・南紀白濱</span></li>
-          <li><i style="background:var(--accent)"></i><span><b>Red · Day 10 Departure &amp; Rinku Hubs</b><br>臨空城 Outlets → 加油 → Aeroplaza 還車 → KIX T2</span></li>
-          <li><i style="background:var(--warn)"></i><span><b>Yellow · Key Transit &amp; Stopover Points</b><br>KIX、田尻漁港、京都、天橋立、伊根、伊勢神宮、松阪市、Star Gate</span></li>
+          <li><i style="background:var(--purple)"></i><span><b>第一段 · Day 1 先遠</b><br>KIX T2 → 田尻漁港朝市 → 京都縱貫道北上 → 天橋立溫泉（一泊二食）</span></li>
+          <li><i style="background:var(--blue)"></i><span><b>第二段 · Day 2–5 京都定點</b><br>天橋立 → 伊根舟屋 → 京都 4 房民宿（連住 4 晚）→ 奈良／宇治放射狀來回，不搬行李</span></li>
+          <li><i style="background:var(--orange)"></i><span><b>第三段 · Day 6–7 有馬・神戶</b><br>京都 → 有馬溫泉（一泊二食・第6人會合）→ 神戶 Mouriya → 大阪 4 房民宿</span></li>
+          <li><i style="background:var(--green)"></i><span><b>第四段 · Day 8–10 大阪定點與返程</b><br>大阪 → 和歌山黑潮市場（當日來回）→ 難波／梅田百貨 → 松阪牛燒肉 M → 臨空城 Outlets → KIX T2</span></li>
         </ul>
-        <p class="budgetnote">原檔附的路線圖是圖片，貼上時未包含在文字訊息中；上方為依其圖例與行程還原的文字動線，不是原圖重繪。</p>
+        <p class="budgetnote">先遠後近：最遠嘅天橋立・伊根放頭，之後一路收返京都 → 有馬 → 大阪 → 臨空城，唔走回頭路。京都與大阪各用一間 4 房獨棟做定點，長輩唔使日日搬行李。</p>
       </div>
+    </section>
+
+    <section class="panel" id="airbnb" aria-labelledby="airbnbTitle">
+      <div class="panel-head"><h2 id="airbnbTitle">🏠 4 房獨棟 Airbnb 選址・自駕＋長輩黃金區域</h2><span class="hint">12/14–17 京都 4 晚 ｜ 12/19–21 大阪 3 晚</span></div>
+      <div class="panel-body">
+        <p class="budgetnote">兩大核心條件：<b>自駕大型 7/8 人車</b>＋<b>兩位 60 歲以上長輩</b>。絕對唔好揀心齋橋、道頓堀或祇園最核心嘅徒步區——路窄、冇車位、夜晚嘈。</p>
+        <div class="area-grid">
+          <div class="area-card">
+            <h3>🏯 京都：二條城周邊（中京區）／五條烏丸・大宮（下京區）</h3>
+            <ul>
+              <li><b>自駕極度友善</b>：棋盤式街道中心，堀川通、五條通、御池通馬路寬闊，大型保姆車進出輕鬆，唔會卡喺古老小巷。</li>
+              <li><b>出入高速超快</b>：北上京都縱貫道（Day 2 由天橋立落嚟）、南下京奈和自動車道（Day 4 奈良、Day 5 宇治），10–15 分鐘上高速，避開清水寺、嵐山塞車黑點。</li>
+              <li><b>長輩生活機能</b>：步行 5 分鐘內有大型超市（Fresco、Life）、藥妝店同平路咖啡廳，方便買頂級和牛返民宿開火鍋派對。</li>
+              <li><b>次選更寧靜</b>：京都御苑南側／丸太町一帶，清幽高雅，朝早長輩可步行去御苑散步。</li>
+            </ul>
+          </div>
+          <div class="area-card">
+            <h3>🏙️ 大阪：天王寺／阿倍野（桃谷、寺田町）／西區（堀江、櫻川、西長堀）</h3>
+            <ul>
+              <li><b>點解唔揀難波／心齋橋中心</b>：單行道多、行人極多，過夜泊車動輒 ¥3,000–¥4,000，周邊民宿多係狹窄樓梯舊樓。</li>
+              <li><b>方案 A（最推薦）</b>：天王寺／桃谷／阿倍野住宅區。緊鄰阪神高速入口，Day 7 由神戶／有馬落山、Day 8 南下和歌山、Day 10 去臨空城都極快；街道平坦、獨棟 4 房一戶建連門口免費車位選擇最多，夜晚安靜，長輩瞓得好；開車 5 分鐘或 JR 一站到天王寺（近鐵百貨、Q's Mall）。</li>
+              <li><b>方案 B</b>：西區堀江／櫻川／西長堀。距難波、道頓堀（Day 9 松阪牛燒肉 M）同高島屋 Depachika 僅 5–8 分鐘車程，靜中帶旺、馬路寬闊好泊車。</li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="filter-head">🔍 落單前四大必看篩選指令</h3>
+        <div class="filter-grid">
+          <div><b>1・免費停車位 Free parking on premises</b><br>私訊房東確認車位長寬。本頁用車為 <b>Toyota Sienna</b>（約 5.18m × 1.97m）；若你最終改訂 GranAce（約 5.3m × 1.97m）或 Odyssey（約 4.86m × 1.82m），以最長 5.3m／最寬 1.97m 為最低門檻去問。停唔落就要房東提供步行 3 分鐘內平面投幣停車場位置。</div>
+          <div><b>2・一樓有睡房＋洗手間</b><br>一戶建多為兩至三層、樓梯偏斜。睇平面圖，確保一樓有獨立睡房畀兩位 60 歲以上長輩，免半夜上落樓梯。</div>
+          <div><b>3・全屋獨立暖氣</b><br>12 月中旬關西 3°C–12°C；4 間房同客廳都要有獨立暖氣機（Heating in every bedroom）。</div>
+          <div><b>4・合法民宿牌照 M-XXXXXX</b><br>頁面底部要有日本政府核發嘅合法住宿編號，避免臨出發前被平台強制取消。</div>
+        </div>
+        <p class="budgetnote">由 11/12 計距離出發淨返 1 個月，具備「4 房＋一樓長輩房＋大車位」嘅合法 Airbnb 非常搶手，建議今明兩日內落實。需要發畀房東嘅日文／英文查詢範本，可沿用 <a class="cta" href="booking-templates.html">預約範本頁</a> 嘅格式，加入車位尺寸同一樓房間兩條問題。</p>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="flagsTitle">      </div>
     </section>
 
     <section class="panel" aria-labelledby="flagsTitle">
@@ -390,13 +470,13 @@
     </section>
 
     <div id="days"></div>
-    <div class="empty" id="empty">沒有符合條件的行程項目。試著清除搜尋、改選「全部」，或切換 Day 7 方案。</div>
+    <div class="empty" id="empty">沒有符合條件的行程項目。試著清除搜尋或改選「全部」。</div>
   </main>
 </div>
 
 <div class="foot">
-  行程來源：你提供的「10/10 關西冬日海陸盛宴」系列文件（2026/11/9）。價格、定休、路況、房況與刺青規定仍須向店家最終確認；本頁不代為訂位，地圖為 Google Maps 搜尋連結而非導航保證。
-  參考資料：<a href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s2812.html" target="_blank" rel="noopener">國立天文台 2026/12 大阪日の出入り</a>、<a href="https://www.hinotabi.com/mie/ise-shi/sun_events/12" target="_blank" rel="noopener">伊勢市 2026/12 日の入り</a>、<a href="https://www.pref.osaka.lg.jp/o120130/suisan/tab/asa.html" target="_blank" rel="noopener">田尻漁港日曜朝市</a>、<a href="https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2943" target="_blank" rel="noopener">三嶋亭（京都市觀光 Navi）</a>、<a href="https://www.taikounoyu.com/howto" target="_blank" rel="noopener">太閤の湯 ご利用案内</a>、<a href="https://travel.yahoo.co.jp/00030106/info/" target="_blank" rel="noopener">月光園 游月山荘 風呂資訊</a>、<a href="https://www.yukoyuko.net/2828/bath" target="_blank" rel="noopener">有馬御苑 風呂資訊</a>、<a href="https://www.driveplaza.com/dp/SearchQuick?startPlaceKana=%E5%92%8C%E6%AD%8C%E5%B1%B1&arrivePlaceKana=%E4%BC%8A%E5%8B%A2" target="_blank" rel="noopener">ドラぷら 和歌山→伊勢</a>、<a href="https://www.kansai-airport.or.jp/access/from-airport/rental-car" target="_blank" rel="noopener">KIX 租車櫃檯營業時間</a>。
+  行程來源：你提供嘅《10天9夜「日日有高潮」美食體驗檢視表》（2026/11/12）與 4 房 Airbnb 選址提示；12/13–12/22、兩位長輩同行、12/18 第 6 人會合、雙溫泉一泊二食、京都／大阪各一間 4 房獨棟定點。價格、定休、路況、房況與刺青規定仍須向店家最終確認；本頁不代為訂位，地圖為 Google Maps 搜尋連結而非導航保證。
+  參考資料：<a href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s2812.html" target="_blank" rel="noopener">國立天文台 2026/12 大阪日の出入り</a>、<a href="https://www.pref.osaka.lg.jp/o120130/suisan/tab/asa.html" target="_blank" rel="noopener">田尻漁港日曜朝市</a>、<a href="https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2943" target="_blank" rel="noopener">三嶋亭（京都市觀光 Navi）</a>、<a href="https://www.taikounoyu.com/howto" target="_blank" rel="noopener">太閤の湯 ご利用案内</a>、<a href="https://travel.yahoo.co.jp/00030106/info/" target="_blank" rel="noopener">月光園 游月山荘 風呂資訊</a>、<a href="https://www.yukoyuko.net/2828/bath" target="_blank" rel="noopener">有馬御苑 風呂資訊</a>、<a href="https://www.kansai-airport.or.jp/access/from-airport/rental-car" target="_blank" rel="noopener">KIX 租車櫃檯營業時間</a>。
   即時查核建議：<a href="https://www.jma.go.jp/" target="_blank" rel="noopener">氣象廳 JMA</a>、<a href="https://www.w-nexco.co.jp/" target="_blank" rel="noopener">NEXCO 西日本</a>。
   狀態存於各自瀏覽器，家人之間不會同步；用匯出／匯入 JSON 傳遞。<a href="#packing">出發打包檢查表（可列印）</a>。
 </div>
@@ -410,6 +490,10 @@ const TOTAL = CAT.meal + CAT.stay + CAT.transport;
 const GRAND = TOTAL + CONTINGENCY;
 
 const DEADLINES = [
+  {id:'v7a', tag:'今明兩日', title:'住宿優先鎖定：4 段住宿一次過訂實', body:'天橋立溫泉旅館（12/13）、京都 4 房民宿（12/14–17）、有馬溫泉旅館（12/18）、大阪 4 房民宿（12/19–21）。確認一樓有睡房畀長輩、有馬旅館嘅私人貸切風呂同刺青政策。'},
+  {id:'v7b', tag:'即刻', title:'三間餐廳搶 5–6 人獨立包廂', body:'12 月中旬係日本忘年會最高峰：三嶋亭（12/15 午、5 位）、Mouriya（12/19 午、6 位）、松阪牛燒肉 M（12/21 晚、6 位）務必即刻預約個室。'},
+  {id:'v7c', tag:'落單前', title:'Airbnb 四大篩選：車位／一樓房／暖氣／合法牌照', body:'免費停車位要問長寬（以 5.3m × 1.97m 為最低門檻）；一樓要有長輩睡房＋洗手間；4 房與客廳都要獨立暖氣；頁面底部要有 M-XXXXXX 合法民宿編號。'},
+  {id:'v7d', tag:'12/18 前', title:'第 6 位會合：5 人改 6 人嘅連動', body:'有馬旅館一泊二食、貸切風呂、Mouriya、玄品河豚、松阪牛燒肉 M 全部按 6 位成人重新確認；12/15–17 仍按 5 位。'},
   {id:'c0', tag:'今天', title:'車輛：先確認 Toyota Sienna 能否供應', body:'Sienna 未在日本正規販售，トヨタレンタカー官方車種一覧也沒有。租車信已改為先問供應；收到書面回覆前，不要把車型視為已核准。'},
   {id:'c0b', tag:'今天', title:'確認 08:00 開店與取車時間', body:'Aeroplaza 1F トヨタレンタカー 08:00–20:00；原訂 07:45 取車不可能。需確認能否提前，或改訂場外 06:00 起營業的業者並計入接駁時間。'},
   {id:'c1', tag:'今天', title:'車輛：精確型號寫進確認信', body:'Toyota Sienna。拒絕 Odyssey、Noah，也不接受「同等級車款」或「同等級替代車」。'},
@@ -433,6 +517,7 @@ const DEADLINES = [
 ];
 
 const FLAGS = [
+  {id:'v7', tag:'v7 新版', title:'本頁行程已換成「日日有高潮」版本', ok:true, body:'下方 f1–f29 係上一版（海陸大縱走）嘅查核遺留：勝浦／熊野山路、和田金、伊勢志摩、Day 7 Plan A/B、Day 5 月光園湯屋等已不在新行程內，僅作歷史查核保留。仍然有效嘅：Sienna 車型供應、Aeroplaza 08:00 開店、雪胎、刺青查核、三大錨點預算鐵律、16:47 日落死線、Day 10 還車緩衝。'},
   {id:'f1', tag:'待確認', title:'Day 5 私人湯屋：月光園 15:30／40 分鐘／非溫泉', alert:true, body:'月光園 游月山荘貸切風呂在鴻朧館 2F，15:30–23:10、每節 40 分鐘 ¥4,400，官方註明「貸切風呂は温泉・露天風呂ではございません」。14:00 的 60 分鐘 6 人金泉泡湯按公開資料無法成立。'},
   {id:'f2', tag:'已查證', title:'16:47 是保守死線；12/17 大阪實際 16:49', ok:true, body:'國立天文台資料：12/1–12/10 16:47、12/17 16:49、中下旬約 16:49–16:51。山區更早暗，仍以 16:30 前抵達為準。'},
   {id:'f3', tag:'已查證', title:'34 天、10 個星期、預算加總', ok:true, body:'11/9→12/13 為 34 天；12/13 日至 12/22 二與文件一致；737,000+495,000+300,000=1,532,000，加 50,000 預備金 = 1,582,000。'},
@@ -465,23 +550,22 @@ const FLAGS = [
 ];
 
 const BOOKABLES = [
-  {id:'mimaru', day:1, name:'MIMARU 京都 Deluxe / 2-Bedroom（6 成人）'},
-  {id:'torisei', day:1, name:'鳥せゑ Torisei'},
-  {id:'mishima', day:2, name:'三嶋亭 總店（6 人個室・午市）'},
-  {id:'toriyasu', day:2, name:'鳥彌三 Toriwasaburo'},
-  {id:'miyazu', day:3, name:'Hotel & Resorts Kyoto-Miyazu / 2-Bedroom Villa'},
-  {id:'crab', day:3, name:'對橋樓等 活松葉蟹宴（6 人個室）'},
-  {id:'inetaxi', day:4, name:'伊根灣 私人海上計程車'},
-  {id:'buri', day:4, name:'舟屋日和 寒鰤魚涮涮鍋'},
-  {id:'taiko', day:5, name:'Day 5 私人湯屋（待書面確認）'},
-  {id:'kobe', day:5, name:'神戶港邊高級家庭房'},
-  {id:'mouriya', day:6, name:'Mouriya 總店（A5 沙朗・6 人個室）'},
-  {id:'kue', day:6, name:'和歌山 九繪魚火鍋'},
-  {id:'maguro', day:7, name:'勝浦漁港 野生藍鰭吞拿魚（僅 Plan A）'},
-  {id:'ise', day:7, name:'伊勢志摩 海景酒店 + 浦村牡蠣'},
-  {id:'wadakin', day:8, name:'和田金 Wadakin（松 Course・6 人個室）'},
-  {id:'stargate', day:8, name:'Star Gate Hotel（6 人家庭房・2 晚）'},
-  {id:'fugu', day:9, name:'玄品河豚 泉佐野店'},
+  {id:'miyazu', day:1, name:'天橋立溫泉旅館（一泊二食・活松葉蟹全餐）'},
+  {id:'inetaxi', day:2, name:'伊根灣 私人海上計程車'},
+  {id:'buri', day:2, name:'舟屋日和 寒鰤魚涮涮鍋'},
+  {id:'kyotoairbnb', day:2, name:'京都 4 房獨棟 Airbnb（12/14–17・4 晚）'},
+  {id:'mishima', day:3, name:'三嶋亭 總店（5 人個室・午市）'},
+  {id:'toriyasu', day:3, name:'鳥彌三 Toriwasaburo'},
+  {id:'shizuka', day:4, name:'志津香 七種釜飯（奈良）'},
+  {id:'nakamura', day:5, name:'宇治 中村藤吉 抹茶甜品'},
+  {id:'kaiseki', day:5, name:'Day 5 晚：祇園川上 京懷石 或 包棟 A5 火鍋派對'},
+  {id:'arima', day:6, name:'有馬溫泉旅館（一泊二食・貸切金泉・6 人）'},
+  {id:'osakaairbnb', day:7, name:'大阪 4 房獨棟 Airbnb（12/19–21・3 晚）'},
+  {id:'mouriya', day:7, name:'Mouriya 總店（A5 沙朗・6 人個室）'},
+  {id:'fugu', day:7, name:'玄品河豚（6 人虎河豚全餐）'},
+  {id:'kuroshio', day:8, name:'和歌山黑潮市場 吞拿魚解體秀'},
+  {id:'kue', day:8, name:'和歌山 野生九繪魚火鍋'},
+  {id:'matsusakaM', day:9, name:'松阪牛燒肉 M（6 人包廂）'},
   {id:'sienna', day:0, name:'Toyota Sienna（雪胎・GPS）'}
 ];
 
@@ -494,84 +578,81 @@ const KIND_LABEL = {flight:'航班',drive:'移動',meal:'餐食',stay:'住宿',s
 const M = (n,q)=>({name:n,query:q});
 
 const DAYS = [
-  {n:1, date:'12/13', wd:'週日', title:'田尻漁港朝市（已核實） × 京都大補眠', region:'KIX → 田尻 → 京都', drive:'08:00 開店取車 ｜ 田尻→京都 planning time 2h', items:[
-    {t:'06:10', kind:'flight', title:'抵達 KIX T2・Aeroplaza 取車', desc:'入境、提行李；接駁車到機場分店提取 Toyota Sienna。確認信須寫明精確型號、雪胎、英文 GPS/CarPlay。', place:M('KIX Terminal 2','Kansai International Airport Terminal 2')},
-    {t:'07:45\n08:00', kind:'rule', title:'嚴格取車出發', desc:'絕不盲目承諾 07:15 出發。⚠️ Aeroplaza 1F トヨタレンタカー 08:00 才開店，07:45 無法取車；最早 08:00 交車，08:15–10:30 田尻朝市時段會被壓縮，需向租車公司確認能否提前或改訂場外 06:00 起營業的業者。'},
-    {t:'08:15\n10:30', kind:'meal', cost:8000, title:'田尻漁港日曜朝市', desc:'只收日圓現金；朝市僅週日 07:00–12:00、免費停車。必食炸星鰻天婦羅、章魚飯、牡蠣小屋炭火現烤。12/11（出發前 48h）上官網核實有無因惡劣天氣臨時休市；若休市立刻啟動方案 B：直接開車去【和歌山黑潮市場】（內設大型停車場、每日有吞拿魚解體秀），食完直接入京都。航班延誤超過 45 分鐘則放棄排隊的牡蠣小屋，改買速食，確保 10:30 必須發動車輛離開。', place:M('田尻漁港日曜朝市','田尻漁港 日曜朝市 大阪')},
-    {t:'10:30\n12:30', kind:'drive', title:'高速公路直奔京都（planning time 2 小時）', desc:'後座家人在極寬敞的 Sienna 內大昏睡；這不是淨行車時間。'},
-    {t:'13:00', kind:'stay', title:'入住 MIMARU 京都', desc:'Deluxe Apartment（6 張單人床）或 2-Bedroom Family Suite。確認信需寫明「Deluxe Apartment for 6 Single Beds / Two-Bedroom Family Suite」與「Max Occupancy: 6 Adults」，並確認 6 套成人寢具。', place:M('MIMARU 京都','MIMARU Kyoto'), book:'mimaru'},
-    {t:'13:00\n17:30', kind:'note', title:'全家強制大補眠', desc:'紅眼航班體力極限，下午不排行程。'},
-    {t:'18:30', kind:'meal', cost:30000, title:'晚餐：鳥せゑ (Torisei)', desc:'大口吃串燒、喝伏見清酒；絕不安排 ¥15,000 的高價板前燒鳥，嚴守總預算。', book:'torisei'}
+  {n:1, date:'12/13', wd:'週日', title:'雙重海鮮大爆發：田尻朝市 → 天橋立活松葉蟹一泊二食', region:'KIX → 田尻 → 天橋立', drive:'08:00 取車 ｜ 田尻→天橋立 planning time 約 3h（紅眼後長途，司機輪替）', items:[
+    {t:'06:10', kind:'flight', title:'抵達 KIX T2・Aeroplaza 取車', desc:'入境、提行李；接駁車到機場分店提取 Toyota Sienna。確認信須寫明精確型號、雪胎、英文 GPS/CarPlay。⚠️ Aeroplaza 1F トヨタレンタカー 08:00 才開店，07:45 取車不成立；需向租車公司確認能否提前，或改訂場外 06:00 起營業的業者。', place:M('KIX Terminal 2','Kansai International Airport Terminal 2')},
+    {t:'08:15\n10:15', kind:'meal', cost:8000, title:'田尻漁港日曜朝市：即炸星鰻＋炭烤生蠔', desc:'只收日圓現金；朝市僅週日 07:00–12:00、免費停車。12/11（出發前 48h）上官網核實有無因惡劣天氣臨時休市；若休市啟動方案 B：直接去和歌山黑潮市場。航班延誤超過 45 分鐘則放棄排隊的牡蠣小屋，改買炸星鰻天婦羅與章魚飯速食。', place:M('田尻漁港日曜朝市','田尻漁港 日曜朝市 大阪')},
+    {t:'10:30\n13:30', kind:'drive', title:'高速公路北上直奔天橋立（planning time 約 3 小時）', desc:'先遠後近第一棒。紅眼航班後屬全行程最長一段，後座家人補眠；沿途至少一次休息，兩位長輩可落車舒展。這不是淨行車時間。⚠️ 兩位長輩同行，建議中途休息站停 15 分鐘。'},
+    {t:'15:00', kind:'stay', cost:55000, title:'入住天橋立溫泉旅館（一泊二食・第 1 個溫泉定點）', desc:'冬季活松葉蟹會席連住宿。確認信寫明一泊二食、蟹宴內容、6 人份（12/18 前為 5 位、第 6 位當日會合，此晚仍 5 位）、一樓或電梯可達房間、大型車車位。', place:M('天橋立溫泉旅館','天橋立 温泉 旅館 松葉蟹'), book:'miyazu'},
+    {t:'18:00', kind:'meal', title:'晚餐：冬季活松葉蟹一泊二食全餐', desc:'蟹刺身、炭烤蟹腳、松葉蟹火鍋與蟹膏雜炊；旅館內用餐，長輩唔使再出門。'}
   ]},
-  {n:2, date:'12/14', wd:'週一', title:'京都三嶋亭百年壽喜燒午市（黃金法則）', region:'京都', drive:'市區短程', items:[
-    {t:'11:30\n13:30', kind:'meal', cost:58000, title:'午餐：三嶋亭 (Mishima-tei) 總店', desc:'10/10 審計：預約時直接要求確認 6 人午市套餐總價、獨立包廂與飲品。古蹟包廂專人桌邊服務；午市限定壽喜燒套餐 ¥8,591/人，6 人加飲品及稅約 ¥58,000。定休火・水，12/14 週一營業。須搶 6 人獨立個室。', place:M('三嶋亭 總店','三嶋亭 京都 寺町通三条'), book:'mishima'},
-    {t:'13:30\n14:00', kind:'rule', title:'🚨 司機守則：30 分鐘濃咖啡', desc:'食完頂級和牛後血糖飆升，強制在餐廳內或週邊咖啡廳休息 30 分鐘，司機喝濃咖啡清醒後方可開車。'},
-    {t:'下午', kind:'sight', title:'清幽的南禪寺散策', desc:'享受冬日古都。', place:M('南禪寺','南禅寺 京都')},
-    {t:'18:30', kind:'meal', cost:35000, title:'晚餐：鳥彌三 (Toriwasaburo)', desc:'冬天鴨川畔最好的町家美味，來一鍋濃郁雞水炊鍋 Mizutaki。', book:'toriyasu'}
+  {n:2, date:'12/14', wd:'週一', title:'海上舟屋＋冬日寒鰤魚 → 京都 4 房民宿定點', region:'天橋立 → 伊根 → 京都', drive:'伊根 35 分 ｜ 伊根→京都 planning time 約 2h30', items:[
+    {t:'09:30', kind:'drive', title:'Check-out，開車沿京都縱貫道南下返回京都圈', desc:'先去伊根，再入京都市區；入住後連續 4 晚唔使搬行李。'},
+    {t:'10:45', kind:'sight', cost:5000, title:'包私人海上計程車：近距離睇舟屋・餵海鷹', desc:'¥5,000/全家（非按人頭）。⚠️ 冬季海上風大，兩位長輩請著防風外套、冷帽與手套。', place:M('伊根灣 舟屋','伊根 舟屋 海上タクシー'), book:'inetaxi'},
+    {t:'12:15', kind:'meal', cost:22000, title:'午餐：舟屋日和 寒鰤魚涮涮鍋', desc:'油脂炸裂嘅冬季寒鰤魚，滾湯中涮三秒即食，配橙醋。', book:'buri'},
+    {t:'14:15', kind:'shop', title:'向井酒造買「伊根滿開」赤米清酒', desc:'帶返京都 4 房民宿夜酌。', place:M('向井酒造','向井酒造 伊根')},
+    {t:'16:30', kind:'stay', title:'入住京都 4 房獨棟 Airbnb（連住 4 晚・第 1 晚）', desc:'首選二條城周邊（中京區）或五條烏丸／大宮（下京區）；次選京都御苑南側／丸太町。必須有免費車位、一樓睡房＋洗手間畀兩位長輩、4 房獨立暖氣、合法牌照 M-XXXXXX。詳見本頁「4 房 Airbnb 選址」面板。', place:M('二條城周邊','二条城 中京区 京都'), book:'kyotoairbnb'},
+    {t:'晚上', kind:'note', title:'民宿休息・長輩早瞓', desc:' Day 2 主力已喺上午完成，唔再排夜間行程；向井酒造清酒留畀包棟夜酌。'}
   ]},
-  {n:3, date:'12/15', wd:'週二', title:'縱貫京都公路旅行 → 天橋立「真・活松葉蟹宴」', region:'京都 → 天橋立（日本海側）', drive:'京都縱貫自動車道 planning time 2h15', items:[
-    {t:'09:30\n11:45', kind:'drive', title:'Check-out，沿京都縱貫自動車道北上', desc:'planning time 2 小時 15 分鐘，已含緩衝，不是淨行車時間。'},
-    {t:'13:30', kind:'sight', title:'纜車登「飛龍觀」看沙洲', desc:'日本三大景之一。', place:M('天橋立 View Land','天橋立ビューランド')},
-    {t:'15:30', kind:'stay', cost:55000, title:'入住天橋立海濱酒店 / 2-Bedroom 海景 Villa', desc:'Hotel & Resorts Kyoto-Miyazu 或 2-Bedroom 海景 Villa，一晚約 ¥55,000，連泊 2 晚（Day 3–4）。確認信須寫明 2-Bedroom、可容納 6 位成人與大型保姆車車位。', place:M('Hotel & Resorts Kyoto-Miyazu','ホテル&リゾーツ 京都 宮津'), book:'miyazu'},
-    {t:'18:00', kind:'meal', cost:90000, title:'晚餐：6 人份完整活松葉蟹宴', desc:'在海鮮食堂（如 對橋樓）訂 6 人獨立個室。每人分足整隻活蟹做蟹刺身、炭烤蟹腳、松葉蟹火鍋與蟹膏雜炊。', book:'crab'}
+  {n:3, date:'12/15', wd:'週二', title:'百年和牛壽喜燒：三嶋亭午市 × 鳥彌三雞水炊鍋', region:'京都定點', drive:'市區短程・車泊餐廳特約場', items:[
+    {t:'11:30\n13:30', kind:'meal', cost:58000, title:'午餐：三嶋亭 (Mishima-tei) 總店', desc:'古蹟包廂專人桌邊現煎黑毛和牛壽喜燒。午市限定套餐 ¥8,591/人；本日仍為 5 位（第 6 位 12/18 會合），搶 5–6 人獨立個室、書面確認總價與飲品。定休火・水，12/15 週二營業。⚠️ 你提供嘅提醒寫 12/15 午市要即刻預約，12 月係忘年會高峰。', place:M('三嶋亭 總店','三嶋亭 京都 寺町通三条'), book:'mishima'},
+    {t:'13:30\n14:00', kind:'rule', title:'🚨 司機守則：30 分鐘濃咖啡', desc:'食完頂級和牛後血糖飆升，強制休息 30 分鐘，司機清醒後方可開車。'},
+    {t:'下午', kind:'sight', title:'京都平路慢活：南禪寺／鴨川畔散策', desc:'兩位長輩按體力自由參與；行平路為主。', place:M('南禪寺','南禅寺 京都')},
+    {t:'18:30', kind:'meal', cost:35000, title:'晚餐：鳥彌三 (Toriwasaburo) 極濃雞水炊鍋', desc:'鴨川畔兩百年町家老店，冬天一鍋濃郁雞水炊鍋 Mizutaki。', book:'toriyasu'}
   ]},
-  {n:4, date:'12/16', wd:'週三', title:'夢幻冬日伊根舟屋 × 寒鰤魚涮涮鍋', region:'天橋立 ⇄ 伊根', drive:'沿海 35 分（單程）', items:[
-    {t:'10:00', kind:'drive', title:'開車前往伊根舟屋', desc:'車程 35 分鐘。🚨 冬季路況守則：若沿海小路積雪嚴重，切勿強行駛入，留在 178 號國道主幹道。'},
-    {t:'10:45', kind:'sight', cost:5000, title:'包一艘私人海上計程車', desc:'¥5,000/全家（非按人頭），出海睇舟屋、餵海鷹。', place:M('伊根灣 舟屋','伊根 舟屋 海上タクシー'), book:'inetaxi'},
-    {t:'12:15', kind:'meal', cost:22000, title:'午餐：舟屋日和 (Funaya Hiyori) 寒鰤魚涮涮鍋', desc:'冬季寒鰤魚，在滾湯中涮三秒即食，配橙醋。', book:'buri'},
-    {t:'14:15', kind:'shop', title:'向井酒造買「伊根滿開」', desc:'古代赤米清酒，帶回別墅夜酌。', place:M('向井酒造','向井酒造 伊根')},
-    {t:'傍晚', kind:'note', title:'返回海景別墅（同一住宿第二晚）', desc:'不需重新 Check-in。'}
+  {n:4, date:'12/16', wd:'週三', title:'奈良餵鹿＋百年釜飯：長輩最輕鬆開心一日', region:'京都 → 奈良 → 京都', drive:'京奈和自動車道 單程 planning time 約 1h', items:[
+    {t:'09:30\n10:30', kind:'drive', title:'由京都 4 房民宿出發去奈良', desc:'放射狀來回，行李全部留喺民宿；上高速只需 10–15 分鐘。'},
+    {t:'10:30\n12:00', kind:'sight', title:'奈良公園餵鹿・影全家福', desc:'平路為主，兩位長輩可以慢慢行；留意鹿餅與隨身物品。', place:M('奈良公園','奈良公園')},
+    {t:'11:30', kind:'sight', title:'東大寺大佛', desc:'與奈良公園相鄰，按長輩體力決定停留長度，唔硬行全段。', place:M('東大寺','東大寺 奈良')},
+    {t:'12:30', kind:'meal', cost:15000, title:'午餐：志津香 現煮七種釜飯', desc:'排隊名店，現點現煮需時；建議預先查等候時間，長輩可先喺附近平路咖啡廳坐低。', place:M('志津香 奈良','志津香 奈良 釜飯'), book:'shizuka'},
+    {t:'15:30', kind:'drive', title:'返回京都 4 房民宿', desc:'16:47 保守日落前返到，避免夜間陌生路段。'},
+    {t:'晚上', kind:'note', title:'民宿自由夜・早休息', desc:'本日刻意排輕鬆，為 Day 5 升級高潮留體力。'}
   ]},
-  {n:5, date:'12/17', wd:'週四', title:'有馬溫泉「私人湯屋（精算版・待確認）」→ 神戶港', region:'天橋立 → 有馬 → 神戶', drive:'南下 planning time 3h ｜ 15:15 離開有馬 ｜ 15:45 神戶 Check-in', items:[
-    {t:'09:30\n12:30', kind:'drive', title:'南下穿越山區前往有馬溫泉（planning time 3 小時）', desc:'再多抓 30 分鐘緩衝，12:30 抵達；不是淨行車時間。'},
-    {t:'12:30\n13:30', kind:'meal', cost:15000, title:'有馬老街：有馬釜飯 Kamameshi', desc:'蒸蟹肉與章魚土鍋飯。', place:M('有馬溫泉 老街','有馬温泉 商店街')},
-    {t:'14:00\n15:00', kind:'onsen', cost:18000, title:'私人湯屋（家族風呂 / 貸切風呂）・⚠️ 未成立', desc:'原文字：月光園 游月山荘或有馬御苑、60 分鐘、6 人同池、正宗金泉。查核後：月光園貸切風呂 15:30 才開放、每節 40 分鐘且官方寫明「不是溫泉」；有馬御苑沒有貸切風呂。四項條件都必須先向店家書面確認，否則這節會落空。建議改查御幸荘 花結び日歸展望金泉貸切露天風呂（11:30–14:30、45 分鐘、可容 6 名、6 人約 ¥13,200）。詳見本頁「Day 5 查核」與預約範本。', place:M('御幸荘 花結び','御幸荘 花結び 有馬温泉'), book:'taiko'},
-    {t:'策略 A', kind:'rule', title:'🚨 刺青無憂令：徹底放棄太閤の湯', desc:'方向正確——太閤の湯官方是拒絕入館。文件指定今天內用日文範本 1／2 向【月光園 游月山荘】或【有馬御苑】提問；若紋身屬大面積大背／滿臂，直接取消策略 B、只走策略 A。同時建議向【御幸荘 花結び】問 14:00–14:45 日歸貸切。連結在「Day 5 查核」面板與預約範本頁。'},
-    {t:'策略 B', kind:'rule', title:'🚨 備用：金之湯（公共外湯）', desc:'僅在無法預約時的最後備案。出發前在香港買好防水膚色遮蓋貼紙（2 包＋1 包備用），在家熱水實測 45 分鐘；邊緣剝落就全面封殺策略 B。金之湯官方未載刺青規則，仍須用範本 5 書面／電話確認，不能假設貼紙一定有效。'},
-    {t:'15:15\n15:45', kind:'drive', title:'準時離開有馬，30 分鐘開往神戶', desc:'15:15 發車，15:45 抵達。'},
-    {t:'15:45', kind:'stay', cost:50000, title:'神戶酒店 Check-in（在天亮時完成）', desc:'距 16:47 保守日落還有約 1 小時（當日實際 16:49），在完全天亮、安全的環境下安頓。約 ¥50,000/晚。', book:'kobe'},
-    {t:'19:00', kind:'meal', cost:25000, title:'晚餐：神戶舊居留地高級和牛洋食', desc:'紅酒燉牛肉與漢堡扒，配神戶港夜景。'}
+  {n:5, date:'12/17', wd:'週四', title:'升級高潮：宇治抹茶 × 京懷石／包棟 A5 和牛火鍋派對', region:'京都 → 宇治 → 京都', drive:'單程約 40 分・全程平路市郊', items:[
+    {t:'下午', kind:'meal', cost:12000, title:'宇治 中村藤吉：頂級抹茶甜品', desc:'原 Day 5 只排宇治＋夜晚超市自理，現升級為雙高潮下半場。抹茶生巧克力、蕨餅與抹茶蕎麥；長輩可慢慢坐低。', place:M('中村藤吉 宇治本店','中村藤吉平等院店 宇治'), book:'nakamura'},
+    {t:'傍晚', kind:'shop', title:'百貨買齊 A5 宮崎牛／近江牛＋海膽（如選火鍋派對）', desc:'二條城／五條烏丸一帶步行 5 分鐘內有 Fresco、Life 等超市；高級和牛建議去百貨 Depachika。買完直接放上 Sienna，返民宿開火。', place:M('京都 百貨 Depachika','京都 髙島屋 デパ地下')},
+    {t:'19:00', kind:'meal', cost:60000, title:'二選一高潮：祇園川上京割烹 或 包棟私房頂級涮涮鍋派對', desc:'方案 A：預訂京都頂級京割烹（如祇園川上）5 人個室。方案 B（更適合長輩）：返 4 房民宿用 A5 宮崎牛／近江牛＋海膽開一場包棟私房頂級涮涮鍋派對，唔使再出門、唔使搭車。兩者都要今日內訂位／落單，唔好求其買超市。', place:M('祇園川上','祇園 川上 京都'), book:'kaiseki'},
+    {t:'晚上', kind:'rule', title:'🚨 零冷場確認', desc:'本日已由「宇治＋超市自理」升級為五星高潮位；若選方案 B，請同時確認民宿爐具、鍋具與 5 人份餐具足夠。'}
   ]},
-  {n:6, date:'12/18', wd:'週五', title:'Mouriya A5 沙朗神戶牛午餐 → 直奔和歌山', region:'神戶 → 和歌山市', drive:'阪神高速 planning time 2h', items:[
-    {t:'11:30\n12:45', kind:'meal', cost:138000, title:'午餐：Mouriya (モーリヤ) 總店', desc:'誠實點選「神戸牛 極上サーロインステーキ A5 沙朗 130g」¥21,780/位 ×6。6 人獨立個室，12:45 前退店。', place:M('Mouriya 總店','モーリヤ 神戸 三宮'), book:'mouriya'},
-    {t:'12:45\n13:30', kind:'rule', title:'🚨 司機戰術修正：原地休息 45 分鐘', desc:'吃完不要立刻開車！在餐廳或週邊咖啡廳休息至 13:30，確保司機體力完全恢復。'},
-    {t:'13:30\n16:00', kind:'drive', title:'沿阪神高速直奔和歌山市（2.5 小時）', desc:'完全繞過大阪市區，planning time 調校為 2.5 小時、已含塞車估計。確保 16:00 抵達酒店 Check-in；當日大阪日落約 16:49，仍有約 49 分鐘 daylight。'},
-    {t:'18:30', kind:'meal', cost:36000, title:'晚餐：冬季限定「幻之魚」九繪魚火鍋', desc:'深海野生九繪魚 Kue Nabé，魚皮滿是膠原蛋白。', book:'kue'}
+  {n:6, date:'12/18', wd:'週五', title:'6 人齊人＋千年金泉：有馬溫泉一泊二食大團圓', region:'京都 → 有馬溫泉', drive:'京都→有馬 planning time 約 1h30', items:[
+    {t:'上午', kind:'rule', title:'🚨 第 6 位成員今日會合', desc:'12/18 起全家 6 口齊人。請確認會合地點與時間（有馬旅館或神戶／大阪機場接駁），以及 6 人房、6 份會席、貸切風呂人數上限全部由 5 改為 6。'},
+    {t:'11:00\n12:30', kind:'drive', title:'由京都 4 房民宿 Check-out，前往有馬溫泉', desc:'第 2 個溫泉定點，一泊二食；行李上車，之後直接去大阪，唔走回頭路。'},
+    {t:'14:00', kind:'stay', cost:60000, title:'入住有馬溫泉旅館（一泊二食・第 6 人會合）', desc:'確認信寫明：6 位成人、神戶牛溫泉會席、私人貸切風呂可 6 人同池、泉質為正宗金泉、刺青政策、停車位尺寸。⚠️ 你提供嘅原文字寫「無刺青煩惱」，但仍須逐家書面確認，唔好假設私人湯屋一定接受。', place:M('有馬溫泉旅館','有馬温泉 旅館 貸切風呂 金泉'), book:'arima'},
+    {t:'15:30', kind:'onsen', title:'私人貸切風呂：全家一齊浸正宗金泉', desc:'千年金泉，6 人完全隱密、唔使分男女湯。⚠️ 過往查核：月光園游月山荘貸切風呂 15:30 才開放、每節 40 分鐘且官方寫明「不是溫泉」；有馬御苑沒有貸切風呂；太閤の湯官方拒絕刺青。落單前用預約範本頁嘅日文信問清楚時段、人數、泉質、刺青與總額。', place:M('有馬溫泉 貸切風呂','有馬温泉 貸切家族風呂 日帰り')},
+    {t:'18:30', kind:'meal', title:'晚餐：神戶牛溫泉會席（一泊二食）', desc:'旅館內 6 人會席，唔使再揸車；長輩浸完湯直接食飯最舒服。'},
+    {t:'晚上', kind:'note', title:'大團圓溫泉夜', desc:'兩位長輩、5 人變 6 人，全程第一次全家齊人。'}
   ]},
-  {n:7, date:'12/19', wd:'週六', title:'和歌山 → 三重縣（全行程最大風險・硬核鋼鐵防線）', region:'和歌山 → 勝浦／內陸 → 伊勢志摩', drive:'Plan A 海岸＋熊野山路 3.5–4h ｜ Plan B 留和歌山／南紀白濱', items:[
-    {t:'07:00', kind:'rule', plan:'both', title:'🚨 晨間天氣協定：有風雪跡象就早餐前啟動 Plan B', desc:'查 NEXCO 西日本封閉狀況與 JMA 氣象廳預報。任何風雪跡象，不再等 13:00，早餐前直接改道。'},
-    {t:'09:30\n12:00', kind:'drive', plan:'A', title:'[A] 出發開往那智勝浦（2.5 小時）', desc:'沿紀伊半島海岸線南下。'},
-    {t:'12:00', kind:'meal', cost:24000, plan:'A', title:'[A] 勝浦漁港 野生藍鰭吞拿魚・建議快閃', desc:'「野生、絕不冷凍」。⚠️ 若要守住不摸黑開山路，這餐應改快閃／外帶：13:00 離開 + 4 小時 = 17:00，已晚於伊勢 16:47 日落。', place:M('勝浦漁港','那智勝浦 漁港'), book:'maguro'},
-    {t:'13:00', kind:'rule', plan:'A', title:'[A] 鋼鐵死線 13:00（非 13:30）・查核建議 12:30', desc:'翻越熊野山路 planning time 3.5–4 小時，冬季山區天黑得早且易結冰，目標 16:45 死線前抵達伊勢。算術：13:00+3.5h=16:30 尚可，+4h=17:00 已日落；把死線提前到 12:30（+4h=16:30）才閉合。'},
-    {t:'09:30', kind:'drive', plan:'B', title:'[B] 果斷放棄勝浦，改留和歌山／南紀白濱', desc:'和歌山到伊勢即使走內陸，官方高速 3h04（不含休息）＋志摩段＋休息 ≈ 4 小時以上。極端天氣時全家留在和歌山／南紀白濱一帶加宿，或縮短為「和歌山 → 南紀白濱」，動用 ¥50,000 天候緊急金，絕對不在黑夜硬闖冰雪山路。'},
-    {t:'下午', kind:'stay', plan:'B', title:'[B] 加宿／縮短行程・連動取消後續', desc:'⚠️ 文件未寫的連動：若當晚留在和歌山，18:30 伊勢海濱牡蠣晚餐與 Day 8 和田金（松阪市）都無法執行，必須一併取消或改期。¥50,000 還要覆蓋改宿、餐食落差與後續車程。'},
-    {t:'18:30', kind:'meal', cost:30000, plan:'A', title:'伊勢海濱 浦村牡蠣與白身魚（僅 Plan A）', desc:'只有當日仍抵達伊勢才成立；Plan B 加宿和歌山時此餐取消。'}
+  {n:7, date:'12/19', wd:'週六', title:'全行程最奢華：Mouriya A5 神戶牛 × 玄品虎河豚全餐', region:'有馬 → 神戶 → 大阪', drive:'有馬→神戶約 30 分 ｜ 神戶→大阪 planning time 約 1h', items:[
+    {t:'09:30', kind:'drive', title:'有馬 Check-out，落山去神戶', desc:'順路先去神戶午餐，之後直接入大阪 4 房民宿，唔返有馬。'},
+    {t:'11:30\n12:45', kind:'meal', cost:138000, title:'午餐：Mouriya (モーリヤ) 總店 極上 A5 沙朗鐵板燒', desc:'「神戸牛 極上サーロインステーキ A5 沙朗 130g」¥21,780/位 ×6。6 人獨立個室，12:45 前退店。12 月忘年會高峰，務必即刻預約。', place:M('Mouriya 總店','モーリヤ 神戸 三宮'), book:'mouriya'},
+    {t:'12:45\n13:30', kind:'rule', title:'🚨 司機戰術：原地休息 45 分鐘', desc:'吃完唔好即刻開車；喺餐廳或週邊咖啡廳休息到 13:30，確保司機體力完全恢復。'},
+    {t:'15:00', kind:'stay', title:'入住大阪 4 房獨棟 Airbnb（連住 3 晚・第 1 晚）', desc:'首選天王寺／桃谷／阿倍野住宅區（近阪神高速、平坦安靜、門口免費車位）；次選西區堀江／櫻川／西長堀。必須一樓有長輩房＋洗手間、4 房獨立暖氣、合法牌照。詳見本頁選址面板。', place:M('天王寺／阿倍野','天王寺 阿倍野 大阪 一戸建て'), book:'osakaairbnb'},
+    {t:'18:30', kind:'meal', cost:54000, title:'晚餐：玄品河豚 6 人虎河豚全餐', desc:'河豚刺身＋炸河豚＋河豚火鍋雜炊；每人約 ¥9,000 高級虎河豚 Course。 booking 時寫明 6 位成人。', place:M('玄品河豚','玄品ふぐ 大阪 なんば'), book:'fugu'}
   ]},
-  {n:8, date:'12/20', wd:'週日', title:'聖殿級松阪市【和田金】 → 翻越半島回臨空城', region:'伊勢 → 松阪 → 臨空城', drive:'15:00 發車 ｜ 17:30 臨空城（2.5h 含 45–60 分鐘緩衝）', items:[
-    {t:'上午', kind:'sight', title:'伊勢神宮托福橫丁', desc:'漫步江戶風情，品嚐熱騰騰的伊勢烏冬。', place:M('托福橫丁','伊勢神宮 おかげ横丁')},
-    {t:'12:30\n14:30', kind:'meal', cost:132000, title:'午餐：和田金 (Wadakin) 松 Course', desc:'榻榻米 6 人獨立個室，專人桌邊伺候。壽喜燒「松」¥19,600/人 + 10% 服務費，6 人 ¥132,000。10/10 審計：預約時必須取得書面總價、服務費、稅金及獨立包廂確認。', place:M('和田金 松阪市','和田金 松阪'), book:'wadakin'},
-    {t:'14:30', kind:'meal', cost:12000, title:'[自願棄權] 碳烤伊勢龍蝦', desc:'直接設為自願棄權選項：若全家太飽或感到疲累，直接取消，15:00 必須發動車輛離開伊勢，確保下午駕駛安全。'},
-    {t:'15:00', kind:'rule', title:'🚨 15:00 發車死線＋咖啡停頓', desc:'開車前強制咖啡停頓；planning time 預留 2.5 小時、含 45–60 分鐘充裕緩衝。查核：15:00+2.5h=17:30，比當地日落約 16:50 晚約 40 分鐘，但走的是照明良好的高速公路，不是熊野山路。'},
-    {t:'17:30', kind:'stay', cost:50000, title:'入住 Star Gate Hotel Kansai Airport', desc:'高空海景酒店約 ¥50,000/晚，連泊 2 晚（Day 8–9）。確認信須寫明 6 人家庭房且已含 6 人 Futon 加床費。', place:M('Star Gate Hotel','スターゲイトホテル 関西エアポート'), book:'stargate'}
+  {n:8, date:'12/20', wd:'週日', title:'深海極品海鮮日：黑潮市場吞拿魚解體秀 × 幻之九繪魚', region:'大阪 ⇄ 和歌山（當日來回）', drive:'阪神高速 單程 planning time 約 1h30', items:[
+    {t:'08:30\n10:00', kind:'drive', title:'由大阪 4 房民宿出發去和歌山黑潮市場', desc:'大阪定點放射狀來回，行李留喺民宿；天王寺／阿倍野上阪神高速極快。'},
+    {t:'10:30', kind:'sight', title:'現場原條藍鰭吞拿魚解體秀', desc:'內設大型停車場；出發前查當日解體秀場次，唔好假設每日同一時間。', place:M('和歌山黑潮市場','和歌山 黒潮市場 マグロ解体ショー'), book:'kuroshio'},
+    {t:'12:00', kind:'meal', cost:24000, title:'午餐：大拖羅丼', desc:'解體秀後即場食最新鮮嘅大拖羅丼。'},
+    {t:'14:00\n15:30', kind:'drive', title:'返回大阪 4 房民宿休息', desc:'兩位長輩可先返民宿休息；16:47 保守日落前返到市區。'},
+    {t:'18:30', kind:'meal', cost:36000, title:'晚餐：和歌山冬季限定野生九繪魚火鍋', desc:'幻之魚 Kue Nabé，魚皮充滿骨膠原。⚠️ 若想食和歌山在地老字號，可改為留喺和歌山食完先返（約 20:00 回到大阪，行照明良好高速）；否則喺大阪訂有九繪魚嘅餐廳。', book:'kue'}
   ]},
-  {n:9, date:'12/21', wd:'週一', title:'Sienna 自駕 Depachika 掃貨 × 頂級虎河豚全餐', region:'臨空城 / 難波', drive:'保姆車只開一次、停一次', items:[
-    {t:'白天', kind:'shop', title:'開 Sienna 去 Depachika 掃貨', desc:'徹底取消坐 1 小時火車背大包小包回梅田的折磨計劃！6 人直接開著 Sienna 輕鬆出發，開去難波高島屋的 Depachika。車子不停酒店，只開一次、停一次，買完直接塞進車廂。狂掃日本白草莓、Audrey 草莓點心與高檔地酒。', place:M('難波高島屋','髙島屋 大阪店 デパ地下')},
-    {t:'18:30', kind:'meal', cost:54000, title:'晚餐：玄品河豚 泉佐野店', desc:'預約每人約 ¥9,000 的高級虎河豚 Course：皮刺身、河豚刺身、香炸河豚、烤河豚、火鍋與雜炊。', place:M('玄品河豚 泉佐野','玄品ふぐ 泉佐野店'), book:'fugu'}
+  {n:9, date:'12/21', wd:'週一', title:'完美壓軸：頂級百貨掃貨 × 松阪牛燒肉 M 全牛稀有部位', region:'大阪定點（難波／梅田）', drive:'Sienna 只開一次、停一次', items:[
+    {t:'白天', kind:'shop', title:'難波高島屋／梅田阪急 Depachika 掃貨', desc:'白士多啤梨、Audrey 草莓點心、名酒與高級手信；買完直接塞入 Sienna 車尾箱，唔使搭火車背住行。', place:M('難波高島屋','髙島屋 大阪店 デパ地下')},
+    {t:'19:00', kind:'meal', cost:90000, title:'晚餐：松阪牛燒肉 M 包廂・食勻全牛稀有部位', desc:'為旅程最後一晚乾杯。6 人獨立個室，12 月忘年會高峰務必即刻預約；書面確認套餐總價與稀有部位內容。', place:M('松阪牛燒肉 M','松阪牛 焼肉 M 大阪'), book:'matsusakaM'}
   ]},
-  {n:10, date:'12/22', wd:'週二', title:'臨空城 Outlets 終極掃貨 → 18:15 抵達 T2', region:'臨空城 → KIX T2', drive:'17:15 離開 ｜ 17:45 還車 ｜ 18:15 T2', items:[
-    {t:'11:30\n13:00', kind:'meal', cost:18000, title:'午餐：大起水產 特上迴轉壽司', desc:'臨空城內解決，保留下午完整購物時間。', place:M('大起水產 臨空城','大起水産 りんくう')},
-    {t:'13:00\n16:45', kind:'shop', title:'臨空城 Premium Outlets 終極掃貨（縮短至 16:45）', desc:'10/10 時間修正：提早收手。衣服與高級廚具買完直接塞進 Sienna 超大後車廂。', place:M('臨空城 Outlet','りんくうプレミアム・アウトレット')},
-    {t:'17:15', kind:'note', title:'準時發車離開臨空城（提早 30 分鐘）', desc:'不再加碼，保留緩衝。'},
+  {n:10, date:'12/22', wd:'週二', title:'臨空城 Outlets 終極掃貨 → 18:15 抵達 T2', region:'大阪 → 臨空城 → KIX T2', drive:'17:15 離開 ｜ 17:45 還車 ｜ 18:15 T2', items:[
+    {t:'上午', kind:'note', title:'大阪 4 房民宿 Check-out・行李全部上車', desc:'3 晚連住後一次過執行李；長輩唔使搬上搬落多次。'},
+    {t:'11:30\n13:00', kind:'meal', cost:18000, title:'午餐：大起水產 特上迴轉壽司（臨空城）', desc:'臨空城內解決，保留下午完整購物時間。', place:M('大起水產 臨空城','大起水産 りんくう')},
+    {t:'13:00\n16:45', kind:'shop', title:'Rinku Premium Outlets 終極免稅血拼', desc:'最後採購買完直接塞入保姆車尾箱；提早收手，保留緩衝。', place:M('臨空城 Outlet','りんくうプレミアム・アウトレット')},
+    {t:'17:15', kind:'note', title:'準時發車離開臨空城', desc:'不再加碼。'},
     {t:'17:30', kind:'drive', title:'機場旁加油站加滿 Regular 汽油'},
     {t:'17:45 前', kind:'drive', title:'抵達 Aeroplaza 還車', desc:'開過聯絡大橋抵達租車回櫃檯進行車輛檢查。', place:M('KIX Aeroplaza','関西空港 エアロプラザ')},
-    {t:'18:15 前', kind:'drive', title:'乘免費接駁巴士抵達 Terminal 2', desc:'為 6 位大人、大量購物袋與國際航班預留充裕緩衝。查核：18:15 到 T2 → 21:05 起飛 = 2 小時 50 分，較原定 19:00 提早 45 分鐘。'},
-    {t:'19:00', kind:'flight', title:'辦理登機（較原定 19:00 到櫃檯提早）'},
+    {t:'18:15 前', kind:'drive', title:'乘免費接駁巴士抵達 Terminal 2', desc:'為 6 位大人、大量購物袋與國際航班預留充裕緩衝。18:15 到 T2 → 21:05 起飛 = 2 小時 50 分。'},
     {t:'21:05', kind:'flight', title:'航班起飛返回香港'}
   ]}
 ];
 
 /* ------------------------------------------------------- state (safe) */
-const KEY = 'kansai-2026-family-trip-v3';
+const KEY = 'kansai-2026-family-trip-v7';
 let mem = null;
 function load(){ try { const r = localStorage.getItem(KEY); if (r) return JSON.parse(r); } catch(e){} return mem || {}; }
 function save(s){ mem = s; try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
@@ -788,9 +869,7 @@ function renderDays(){
       </div>`;
     }).join('');
     const priced = dayMeal(d)+dayStay(d);
-    const switchHtml = d.n===7 ? `<div class="planswitch" role="group" aria-label="Day 7 天候方案">
-        <button type="button" data-plan="A" aria-pressed="${state.plan==='A'}">Plan A 晴天</button>
-        <button type="button" data-plan="B" aria-pressed="${state.plan==='B'}">Plan B 風雪</button></div>` : '';
+    const switchHtml = '';
     return `<section class="day ${state.collapsed[d.n]?'collapsed':''}" id="day-${d.n}" data-daycard="${d.n}">
       <div class="day-head" data-toggle="${d.n}" role="button" tabindex="0" aria-expanded="${!state.collapsed[d.n]}">
         <div class="day-num">${String(d.n).padStart(2,'0')}<span>DAY</span></div>
@@ -825,7 +904,7 @@ function refreshProgress(){
   document.getElementById('progressText').textContent = `${done} / ${totalItems} 已完成`;
   document.getElementById('bookingText').textContent = `${confirmed} / ${BOOKABLES.length} 已確認訂位`;
   document.getElementById('deadlineText').textContent = `${ddone} / ${DEADLINES.length} 執行死線`;
-  document.getElementById('planText').textContent = `Day 7：Plan ${state.plan} ${state.plan==='A'?'晴天':'風雪改道'}`;
+  document.getElementById('planText').textContent = 'Day 7：神戶牛＋河豚雙高潮';
   DAYS.forEach(d => {
     const n = d.items.filter((_,i)=>state.done[itemId(d.n,i)]).length;
     const el = document.querySelector(`[data-dayprog="${d.n}"]`);
@@ -834,7 +913,7 @@ function refreshProgress(){
 }
 function applyPlan(){
   document.querySelectorAll('.planswitch button[data-plan]').forEach(b => b.setAttribute('aria-pressed', String(b.getAttribute('data-plan')===state.plan)));
-  document.getElementById('planText').textContent = `Day 7：Plan ${state.plan} ${state.plan==='A'?'晴天':'風雪改道'}`;
+  document.getElementById('planText').textContent = 'Day 7：神戶牛＋河豚雙高潮';
   applyFilter(); persist();
 }
 function applyFilter(){
